@@ -18,7 +18,10 @@ extension RawgAPI: TargetType {
     var baseURL: URL {
         switch self {
         case .fullGameListRequest, .gameDetailsRequest:
-            guard let url = URL(string: "https://api.rawg.io/api/") else { return URL(fileURLWithPath: "") }
+            guard let url = URL(string: "https://api.rawg.io/api/") else {
+                print("invalid url")
+                return URL(fileURLWithPath: "")
+            }
             return url
         }
     }

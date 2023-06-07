@@ -15,11 +15,7 @@ protocol ApiProviderProtocol: AnyObject {
 
 class MoyaApiManager: ApiProviderProtocol {
     
-    private let providerRawg: MoyaProvider<RawgAPI>
-    
-    init() {
-        providerRawg = MoyaProvider<RawgAPI>()
-    }
+    private let providerRawg = MoyaProvider<RawgAPI>()
     
     func fullGameListRequest(page: Int) async throws -> GameList {
         return try await withCheckedThrowingContinuation { continuation in
