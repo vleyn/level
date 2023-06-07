@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F551046E2A30DC32000FB952 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F551046D2A30DC32000FB952 /* ContentViewModel.swift */; };
+		F55104702A30DC95000FB952 /* RawgApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F551046F2A30DC95000FB952 /* RawgApi.swift */; };
+		F55104732A30DCF8000FB952 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = F55104722A30DCF8000FB952 /* CombineMoya */; };
+		F55104752A30DCF8000FB952 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = F55104742A30DCF8000FB952 /* Moya */; };
+		F55104772A30DCF8000FB952 /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = F55104762A30DCF8000FB952 /* ReactiveMoya */; };
+		F55104792A30DCF8000FB952 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = F55104782A30DCF8000FB952 /* RxMoya */; };
+		F551047B2A30DD29000FB952 /* MoyaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F551047A2A30DD29000FB952 /* MoyaProvider.swift */; };
+		F551047D2A30DD51000FB952 /* GameListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F551047C2A30DD51000FB952 /* GameListModel.swift */; };
+		F551047F2A30DD73000FB952 /* GameDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F551047E2A30DD73000FB952 /* GameDetailModel.swift */; };
 		F57D36902A2E9E240023F479 /* levelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57D368F2A2E9E240023F479 /* levelApp.swift */; };
 		F57D36922A2E9E240023F479 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57D36912A2E9E240023F479 /* ContentView.swift */; };
 		F57D36942A2E9E250023F479 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F57D36932A2E9E250023F479 /* Assets.xcassets */; };
@@ -34,6 +43,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F551046D2A30DC32000FB952 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		F551046F2A30DC95000FB952 /* RawgApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawgApi.swift; sourceTree = "<group>"; };
+		F551047A2A30DD29000FB952 /* MoyaProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaProvider.swift; sourceTree = "<group>"; };
+		F551047C2A30DD51000FB952 /* GameListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListModel.swift; sourceTree = "<group>"; };
+		F551047E2A30DD73000FB952 /* GameDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailModel.swift; sourceTree = "<group>"; };
+		F55104802A30DDD7000FB952 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F57D368C2A2E9E240023F479 /* level.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = level.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F57D368F2A2E9E240023F479 /* levelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = levelApp.swift; sourceTree = "<group>"; };
 		F57D36912A2E9E240023F479 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,6 +66,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F55104752A30DCF8000FB952 /* Moya in Frameworks */,
+				F55104732A30DCF8000FB952 /* CombineMoya in Frameworks */,
+				F55104792A30DCF8000FB952 /* RxMoya in Frameworks */,
+				F55104772A30DCF8000FB952 /* ReactiveMoya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +115,13 @@
 			children = (
 				F57D368F2A2E9E240023F479 /* levelApp.swift */,
 				F57D36912A2E9E240023F479 /* ContentView.swift */,
+				F551046D2A30DC32000FB952 /* ContentViewModel.swift */,
+				F551046F2A30DC95000FB952 /* RawgApi.swift */,
+				F551047A2A30DD29000FB952 /* MoyaProvider.swift */,
+				F551047C2A30DD51000FB952 /* GameListModel.swift */,
+				F551047E2A30DD73000FB952 /* GameDetailModel.swift */,
 				F57D36932A2E9E250023F479 /* Assets.xcassets */,
+				F55104802A30DDD7000FB952 /* Info.plist */,
 				F57D36952A2E9E250023F479 /* Preview Content */,
 			);
 			path = level;
@@ -143,6 +168,12 @@
 			dependencies = (
 			);
 			name = level;
+			packageProductDependencies = (
+				F55104722A30DCF8000FB952 /* CombineMoya */,
+				F55104742A30DCF8000FB952 /* Moya */,
+				F55104762A30DCF8000FB952 /* ReactiveMoya */,
+				F55104782A30DCF8000FB952 /* RxMoya */,
+			);
 			productName = level;
 			productReference = F57D368C2A2E9E240023F479 /* level.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +246,9 @@
 				Base,
 			);
 			mainGroup = F57D36832A2E9E240023F479;
+			packageReferences = (
+				F55104712A30DCF8000FB952 /* XCRemoteSwiftPackageReference "Moya" */,
+			);
 			productRefGroup = F57D368D2A2E9E240023F479 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,8 +291,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F551047B2A30DD29000FB952 /* MoyaProvider.swift in Sources */,
 				F57D36922A2E9E240023F479 /* ContentView.swift in Sources */,
 				F57D36902A2E9E240023F479 /* levelApp.swift in Sources */,
+				F551047D2A30DD51000FB952 /* GameListModel.swift in Sources */,
+				F551046E2A30DC32000FB952 /* ContentViewModel.swift in Sources */,
+				F551047F2A30DD73000FB952 /* GameDetailModel.swift in Sources */,
+				F55104702A30DC95000FB952 /* RawgApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +459,7 @@
 				DEVELOPMENT_TEAM = 65F88Q392R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = level/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -449,6 +489,7 @@
 				DEVELOPMENT_TEAM = 65F88Q392R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = level/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -583,6 +624,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F55104712A30DCF8000FB952 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F55104722A30DCF8000FB952 /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F55104712A30DCF8000FB952 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
+		F55104742A30DCF8000FB952 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F55104712A30DCF8000FB952 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		F55104762A30DCF8000FB952 /* ReactiveMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F55104712A30DCF8000FB952 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = ReactiveMoya;
+		};
+		F55104782A30DCF8000FB952 /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F55104712A30DCF8000FB952 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F57D36842A2E9E240023F479 /* Project object */;
 }
