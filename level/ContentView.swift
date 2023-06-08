@@ -8,12 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject var vm = ContentViewModel()
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Button {
+                print("request")
+                Task {
+                    try await vm.getListGames(page: 3)
+//                    try await vm.getGameData(id: 3328)
+                }
+            } label: {
+                Text("Sdelat' vse zaebis")
+            }
+            .buttonStyle(.borderedProminent)
         }
         .padding()
     }
