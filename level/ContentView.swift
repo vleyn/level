@@ -14,10 +14,13 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Button {
-                print("request")
                 Task {
-                    try await vm.getListGames(page: 3)
-//                    try await vm.getGameData(id: 3328)
+//                  await vm.getGameList(page: 1, genres: GameGenres.indie.genreId)
+//                  await vm.getGameData(id: 3328)
+//                  await vm.login()
+//                  await vm.signUpEmail()
+//                  vm.currentLoginnedUser()
+                    
                 }
             } label: {
                 Text("Sdelat' vse zaebis")

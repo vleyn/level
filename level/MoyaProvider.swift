@@ -9,17 +9,17 @@ import Foundation
 import Moya
 
 protocol ApiProviderProtocol: AnyObject {
-    func fullGameListRequest(page: Int) async throws -> GameList
+    func fullGameListRequest(page: Int, genres: Int) async throws -> GameList
     func gameDetailsRequest(id: Int) async throws -> GameDetail
 }
 
-class MoyaApiManager: ApiProviderProtocol {
+class ApiManager: ApiProviderProtocol {
     
     private let providerRawg = MoyaProvider<RawgAPI>()
     
-    func fullGameListRequest(page: Int) async throws -> GameList {
+    func fullGameListRequest(page: Int, genres: Int) async throws -> GameList {
         return try await withCheckedThrowingContinuation { continuation in
-            providerRawg.request(.fullGameListRequest(page: page)) { result in
+            providerRawg.request(.fullGameListRequest(page: page, genres: genres)) { result in
                 switch result {
                 case .success(let response):
                     print(response)
