@@ -9,14 +9,55 @@ import Foundation
 
 class ContentViewModel: ObservableObject {
     
-    let moyaManager: ApiProviderProtocol = MoyaApiManager()
+    private let moyaManager: ApiProviderProtocol = ApiManager()
+    private let firebaseManager: FirebaseProtocol = FirebaseManager()
     
-    func getListGames(page: Int) async throws -> GameList {
-        try await moyaManager.fullGameListRequest(page: page)
+    @Published var email: String = "dab@mail.ru"
+    @Published var password: String = "123456"
+    
+    func getGameList(page: Int, genres: Int) async {
+        do {
+            let data = try await moyaManager.fullGameListRequest(page: page, genres: genres)
+            print(data)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
-    func getGameData(id: Int) async throws -> GameDetail {
-        try await moyaManager.gameDetailsRequest(id: id)
+    func getGameData(id: Int) async {
+        do {
+            let data = try await moyaManager.gameDetailsRequest(id: id)
+            print(data)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
+    func signUpEmail() async {
+        do {
+            try await firebaseManager.signUpEmail(email: email, password: password)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func login() async {
+        do {
+            try await firebaseManager.login(email: email, password: password)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func logOut() async {
+        do {
+            try await firebaseManager.logOut()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func currentLoginnedUser() {
+        print(firebaseManager.currentLoginnedUser()?.email)
+    }
 }
