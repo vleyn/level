@@ -11,6 +11,7 @@ import Moya
 protocol ApiProviderProtocol: AnyObject {
     func fullGameListRequest(page: Int, genres: Int) async throws -> GameList
     func gameDetailsRequest(id: Int) async throws -> GameDetail
+    func getGameGenresRequest() async throws -> GameGenres
 }
 
 class ApiManager: ApiProviderProtocol {
@@ -53,6 +54,30 @@ class ApiManager: ApiProviderProtocol {
                         continuation.resume(with: .success(gameData))
                         print("success")
                         print(gameData)
+                    } catch {
+                        continuation.resume(throwing: error)
+                        print("ne success")
+                        print(error)
+                    }
+                case .failure(let error):
+                    continuation.resume(with: .failure(error))
+                    print("failure")
+                }
+            }
+        }
+    }
+    
+    func getGameGenresRequest() async throws -> GameGenres {
+        return try await withCheckedThrowingContinuation { continuation in
+            providerRawg.request(.getGameGenresRequest) { result in
+                switch result {
+                case .success(let response):
+                    print(response)
+                    do {
+                        let genres = try response.map(GameGenres.self)
+                        continuation.resume(with: .success(genres))
+                        print("success")
+                        print(genres)
                     } catch {
                         continuation.resume(throwing: error)
                         print("ne success")

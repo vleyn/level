@@ -20,7 +20,9 @@ struct ContentView: View {
 //                  await vm.login()
 //                  await vm.signUpEmail()
 //                  vm.currentLoginnedUser()
-                    
+//                  await vm.getGameGenres()
+//                  await vm.databaseWrite()
+//                  try await vm.databaseRead()
                 }
             } label: {
                 Text("Sdelat' vse zaebis")

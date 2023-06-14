@@ -12,7 +12,7 @@ class ContentViewModel: ObservableObject {
     private let moyaManager: ApiProviderProtocol = ApiManager()
     private let firebaseManager: FirebaseProtocol = FirebaseManager()
     
-    @Published var email: String = "dab@mail.ru"
+    @Published var email: String = "dobby@mail.ru"
     @Published var password: String = "123456"
     
     func getGameList(page: Int, genres: Int) async {
@@ -33,9 +33,18 @@ class ContentViewModel: ObservableObject {
         }
     }
     
+    func getGameGenres() async {
+        do {
+            let genres = try await moyaManager.getGameGenresRequest()
+            print(genres)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
     func signUpEmail() async {
         do {
-            try await firebaseManager.signUpEmail(email: email, password: password)
+            print(try await firebaseManager.signUpEmail(email: email, password: password))
         } catch {
             print(error.localizedDescription)
         }
@@ -55,6 +64,14 @@ class ContentViewModel: ObservableObject {
         } catch {
             print(error.localizedDescription)
         }
+    }
+    
+    func databaseWrite() async {
+        await firebaseManager.databaseWrite(name: "Vlad", surname: "Leyn", nickname: "vleyn", email: "ruuwuu@mail.ru", avatar: "avatar", uid: "12345")
+    }
+    
+    func databaseRead() async throws {
+        print(try await firebaseManager.databaseRead(uid: "12345"))
     }
     
     func currentLoginnedUser() {
