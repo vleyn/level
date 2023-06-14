@@ -52,7 +52,7 @@ class ContentViewModel: ObservableObject {
     
     func login() async {
         do {
-            try await firebaseManager.login(email: email, password: password)
+            print(try await firebaseManager.login(email: email, password: password))
         } catch {
             print(error.localizedDescription)
         }

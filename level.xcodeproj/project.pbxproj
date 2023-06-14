@@ -41,6 +41,11 @@
 		F534BF992A36657800A9871D /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F534BF982A36657800A9871D /* RealmManager.swift */; };
 		F534BF9B2A3665C200A9871D /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F534BF9A2A3665C200A9871D /* RealmModel.swift */; };
 		F5421ACD2A3A219C00A42934 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5421ACC2A3A219C00A42934 /* UserModel.swift */; };
+		F5421AD12A3A3CDC00A42934 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5421AD02A3A3CDC00A42934 /* LoginView.swift */; };
+		F5421AD32A3A3CE900A42934 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5421AD22A3A3CE900A42934 /* LoginVM.swift */; };
+		F5421AD52A3A3CFD00A42934 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5421AD42A3A3CFD00A42934 /* SignUpView.swift */; };
+		F5421AD72A3A3D0800A42934 /* SignUpVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5421AD62A3A3D0800A42934 /* SignUpVM.swift */; };
+		F5421ADA2A3A5A3100A42934 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5421AD92A3A5A3100A42934 /* CustomTextField.swift */; };
 		F551046E2A30DC32000FB952 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F551046D2A30DC32000FB952 /* ContentViewModel.swift */; };
 		F55104702A30DC95000FB952 /* RawgApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F551046F2A30DC95000FB952 /* RawgApi.swift */; };
 		F55104732A30DCF8000FB952 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = F55104722A30DCF8000FB952 /* CombineMoya */; };
@@ -83,6 +88,11 @@
 		F534BF982A36657800A9871D /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		F534BF9A2A3665C200A9871D /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
 		F5421ACC2A3A219C00A42934 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		F5421AD02A3A3CDC00A42934 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		F5421AD22A3A3CE900A42934 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
+		F5421AD42A3A3CFD00A42934 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		F5421AD62A3A3D0800A42934 /* SignUpVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVM.swift; sourceTree = "<group>"; };
+		F5421AD92A3A5A3100A42934 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		F551046D2A30DC32000FB952 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		F551046F2A30DC95000FB952 /* RawgApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawgApi.swift; sourceTree = "<group>"; };
 		F551047A2A30DD29000FB952 /* MoyaProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaProvider.swift; sourceTree = "<group>"; };
@@ -160,6 +170,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F5421ACE2A3A3CA900A42934 /* LoginScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F5421AD02A3A3CDC00A42934 /* LoginView.swift */,
+				F5421AD22A3A3CE900A42934 /* LoginVM.swift */,
+			);
+			path = LoginScreen;
+			sourceTree = "<group>";
+		};
+		F5421ACF2A3A3CB500A42934 /* SignUpScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F5421AD42A3A3CFD00A42934 /* SignUpView.swift */,
+				F5421AD62A3A3D0800A42934 /* SignUpVM.swift */,
+			);
+			path = SignUpScreen;
+			sourceTree = "<group>";
+		};
+		F5421AD82A3A5A1E00A42934 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				F5421AD92A3A5A3100A42934 /* CustomTextField.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		F57D36832A2E9E240023F479 = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +219,8 @@
 		F57D368E2A2E9E240023F479 /* level */ = {
 			isa = PBXGroup;
 			children = (
+				F5421ACF2A3A3CB500A42934 /* SignUpScreen */,
+				F5421ACE2A3A3CA900A42934 /* LoginScreen */,
 				F57D368F2A2E9E240023F479 /* levelApp.swift */,
 				F57D36912A2E9E240023F479 /* ContentView.swift */,
 				F551046D2A30DC32000FB952 /* ContentViewModel.swift */,
@@ -195,6 +233,7 @@
 				F551047E2A30DD73000FB952 /* GameDetailModel.swift */,
 				F558790D2A38FCF200AD835E /* GameGenresModel.swift */,
 				F5421ACC2A3A219C00A42934 /* UserModel.swift */,
+				F5421AD82A3A5A1E00A42934 /* CustomViews */,
 				F57D36932A2E9E250023F479 /* Assets.xcassets */,
 				F55104802A30DDD7000FB952 /* Info.plist */,
 				F534BF582A3643CD00A9871D /* GoogleService-Info.plist */,
@@ -399,16 +438,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5421AD32A3A3CE900A42934 /* LoginVM.swift in Sources */,
+				F5421AD52A3A3CFD00A42934 /* SignUpView.swift in Sources */,
+				F5421AD72A3A3D0800A42934 /* SignUpVM.swift in Sources */,
 				F551047B2A30DD29000FB952 /* MoyaProvider.swift in Sources */,
 				F57D36922A2E9E240023F479 /* ContentView.swift in Sources */,
 				F57D36902A2E9E240023F479 /* levelApp.swift in Sources */,
 				F534BF9B2A3665C200A9871D /* RealmModel.swift in Sources */,
 				F551047D2A30DD51000FB952 /* GameListModel.swift in Sources */,
+				F5421ADA2A3A5A3100A42934 /* CustomTextField.swift in Sources */,
 				F534BF922A36467800A9871D /* FirebaseManager.swift in Sources */,
 				F534BF992A36657800A9871D /* RealmManager.swift in Sources */,
 				F551046E2A30DC32000FB952 /* ContentViewModel.swift in Sources */,
 				F558790E2A38FCF200AD835E /* GameGenresModel.swift in Sources */,
 				F551047F2A30DD73000FB952 /* GameDetailModel.swift in Sources */,
+				F5421AD12A3A3CDC00A42934 /* LoginView.swift in Sources */,
 				F5421ACD2A3A219C00A42934 /* UserModel.swift in Sources */,
 				F55104702A30DC95000FB952 /* RawgApi.swift in Sources */,
 			);
