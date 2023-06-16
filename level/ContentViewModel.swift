@@ -42,7 +42,7 @@ class ContentViewModel: ObservableObject {
         }
     }
     
-    func signUpEmail() async {
+    func signUp() async {
         do {
             print(try await firebaseManager.signUpEmail(email: email, password: password))
         } catch {
@@ -75,6 +75,6 @@ class ContentViewModel: ObservableObject {
     }
     
     func currentLoginnedUser() {
-        print(firebaseManager.currentLoginnedUser()?.email)
+//        print(firebaseManager.currentLoginnedUser()?.email)
     }
 }

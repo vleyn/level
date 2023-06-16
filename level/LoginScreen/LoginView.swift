@@ -25,9 +25,9 @@ struct LoginView: View {
             
             Spacer()
 
-            VStack {
-                CustomTextField(bindingValue: $vm.email, headerText: "Email", placeHolder: "Email")
-                CustomSecureTextField(bindingValue: $vm.password, headerText: "Password", placeHolder: "Password")
+            VStack(spacing: 18) {
+                CustomTextField(bindingValue: $vm.email, image: "envelope", placeHolder: "Email")
+                CustomSecureTextField(bindingValue: $vm.password, image: "lock", placeHolder: "Password")
 
                 Button {
                     print("forgot password")
