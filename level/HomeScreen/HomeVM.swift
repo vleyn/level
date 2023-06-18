@@ -15,8 +15,8 @@ final class HomeViewModel: ObservableObject {
     
     func getGameList(page: Int, genres: Int) async {
         do {
-            var data = try await moyaManager.fullGameListRequest(page: page, genres: genres)
-            if var games = data.results {
+            let data = try await moyaManager.fullGameListRequest(page: page, genres: genres)
+            if let games = data.results {
                 results += games
             }
             print(results)

@@ -13,12 +13,9 @@ struct HomeView: View {
     
     var body: some View {
         VStack {
-//            ForEach($vm.results, id: \.id) { game in
-//                GameCell(gameName: "game.name!", gameTags: "game.tags?.first")
-//            }
             ScrollView {
                 ForEach(vm.results, id: \.id) { item in
-                    GameCell(gameName: item.name!)
+                    GameCell(gameName: item.name ?? "Unknowed game")
                 }
             }
         }

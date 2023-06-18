@@ -103,7 +103,7 @@ struct ProfileView: View {
                 .padding(.top, 100)
         }
         .task {
-            await vm.databaseRead()
+            await vm.loadUserInfo()
         }
         .fullScreenCover(isPresented: $vm.isLogout) {
             LoginView()

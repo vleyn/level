@@ -14,7 +14,7 @@ final class ProfileViewModel: ObservableObject {
     @Published var nickName = ""
     @Published var isLogout = false
     
-    func databaseRead() async {
+    func loadUserInfo() async {
         do {
             guard let uid = UserDefaults.standard.string(forKey: "uid") else { return }
             let user = try await firebaseManager.databaseRead(uid: uid)
