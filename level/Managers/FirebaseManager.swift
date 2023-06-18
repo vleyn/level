@@ -15,7 +15,7 @@ protocol FirebaseProtocol {
     func signUpEmail(email: String, password: String) async throws -> User
     func login(email: String, password: String) async throws -> User
     func logOut() async throws
-    func databaseWrite(name: String, surname: String, nickname: String, email: String, avatar: String, uid: String)
+    func databaseWrite(nickname: String, email: String, avatar: String, uid: String)
     func databaseRead(uid: String) async throws -> UserModel
     func currentLoginnedUser() -> User?
 }
@@ -38,9 +38,9 @@ class FirebaseManager: FirebaseProtocol {
         try firebaseAuth.signOut()
     }
     
-    func databaseWrite(name: String, surname: String, nickname: String, email: String, avatar: String, uid: String) {
+    func databaseWrite(nickname: String, email: String, avatar: String, uid: String) {
         
-        let user = UserModel(name: name, surname: surname, nickname: nickname, email: email, avatar: avatar)
+        let user = UserModel(nickname: nickname, email: email, avatar: avatar)
         do {
            try database.collection("Users").document(uid).setData(from: user)
         } catch {

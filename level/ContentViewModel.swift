@@ -12,8 +12,8 @@ class ContentViewModel: ObservableObject {
     private let moyaManager: ApiProviderProtocol = ApiManager()
     private let firebaseManager: FirebaseProtocol = FirebaseManager()
     
-    @Published var email: String = "dobby@mail.ru"
-    @Published var password: String = "123456"
+//    @Published var email: String = "dobby@mail.ru"
+//    @Published var password: String = "123456"
     
     func getGameList(page: Int, genres: Int) async {
         do {
@@ -42,7 +42,7 @@ class ContentViewModel: ObservableObject {
         }
     }
     
-    func signUp() async {
+    func signUp(email: String, password: String) async {
         do {
             print(try await firebaseManager.signUpEmail(email: email, password: password))
         } catch {
@@ -50,7 +50,7 @@ class ContentViewModel: ObservableObject {
         }
     }
     
-    func login() async {
+    func login(email: String, password: String) async {
         do {
             print(try await firebaseManager.login(email: email, password: password))
         } catch {
@@ -66,12 +66,12 @@ class ContentViewModel: ObservableObject {
         }
     }
     
-    func databaseWrite() {
-        firebaseManager.databaseWrite(name: "Vlad", surname: "Leyn", nickname: "vleyn", email: "ruuwuu@mail.ru", avatar: "avatar", uid: "12345")
+    func databaseWrite(nickName: String, email: String, avatar: String, uid: String) {
+        firebaseManager.databaseWrite(nickname: nickName, email: email, avatar: avatar, uid: uid)
     }
     
-    func databaseRead() async throws {
-        print(try await firebaseManager.databaseRead(uid: "12345"))
+    func databaseRead(uid: String) async throws {
+        print(try await firebaseManager.databaseRead(uid: uid))
     }
     
     func currentLoginnedUser() {

@@ -28,7 +28,7 @@ class ApiManager: ApiProviderProtocol {
                         let games = try response.map(GameList.self)
                         continuation.resume(with: .success(games))
                         print("success")
-                        print(games)
+//                        print(games)
                     } catch {
                         continuation.resume(throwing: error)
                         print("ne success")

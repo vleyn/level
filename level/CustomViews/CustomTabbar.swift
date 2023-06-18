@@ -19,13 +19,13 @@ struct CustomTabbar: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             TabView(selection: $selectedTab) {
-                Text("Home")
+                HomeView()
                     .tag("Home")
-                Text("Blog")
-                    .tag("Blog")
-                Text("Messenger")
+                NewsView()
+                    .tag("News")
+                MessagesView()
                     .tag("Messenger")
-                Text("Profile")
+                ProfileView()
                     .tag("Profile")
             }
             
