@@ -12,12 +12,14 @@ import FirebaseCore
 struct levelApp: App {
     
     init() {
-       setupAuthentication()
+        setupAuthentication()
+        
+        print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true))
      }
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SignUpView()
         }
     }
 }

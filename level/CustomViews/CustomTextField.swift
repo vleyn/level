@@ -10,21 +10,22 @@ import SwiftUI
 struct CustomTextField: View {
 
     @Binding var bindingValue: String
-    var headerText: String
+    var image: String
     var placeHolder: String
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(headerText)
-                .font(.system(size: 14))
-                .foregroundColor(.gray)
-                .padding(.leading)
-            TextField(placeHolder, text: $bindingValue)
-                .padding(.leading, 25)
-                .padding([.top, .bottom], 15)
-                .textFieldStyle(.automatic)
-                .background(.gray.opacity(0.1))
-                .cornerRadius(18)
+            ZStack(alignment: .leading) {
+                TextField(placeHolder, text: $bindingValue)
+                    .padding(.leading, 45)
+                    .padding([.top, .bottom], 13)
+                    .textFieldStyle(.automatic)
+                    .background(.gray.opacity(0.1))
+                    .cornerRadius(20)
+                Image(systemName: image)
+                    .padding(.leading)
+                    .foregroundColor(.gray)
+            }
         }
         .padding([.leading, .trailing])
     }
@@ -33,21 +34,22 @@ struct CustomTextField: View {
 struct CustomSecureTextField: View {
 
     @Binding var bindingValue: String
-    var headerText: String
+    var image: String
     var placeHolder: String
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(headerText)
-                .font(.system(size: 14))
-                .foregroundColor(.gray)
-                .padding(.leading)
-            SecureField(placeHolder, text: $bindingValue)
-                .padding(.leading, 25)
-                .padding([.top, .bottom], 15)
-                .textFieldStyle(.automatic)
-                .background(.gray.opacity(0.1))
-                .cornerRadius(18)
+            ZStack(alignment: .leading) {
+                SecureField(placeHolder, text: $bindingValue)
+                    .padding(.leading, 45)
+                    .padding([.top, .bottom], 13)
+                    .textFieldStyle(.automatic)
+                    .background(.gray.opacity(0.1))
+                    .cornerRadius(20)
+                Image(systemName: image)
+                    .padding(.leading)
+                    .foregroundColor(.gray)
+            }
         }
         .padding([.leading, .trailing])
     }

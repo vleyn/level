@@ -40,12 +40,21 @@
 		F534BF972A36655F00A9871D /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F534BF962A36655F00A9871D /* RealmSwift */; };
 		F534BF992A36657800A9871D /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F534BF982A36657800A9871D /* RealmManager.swift */; };
 		F534BF9B2A3665C200A9871D /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F534BF9A2A3665C200A9871D /* RealmModel.swift */; };
+		F53703982A3F79400008779D /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53703972A3F79400008779D /* EditProfileView.swift */; };
+		F537039A2A3F79610008779D /* EditProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53703992A3F79610008779D /* EditProfileVM.swift */; };
+		F537039F2A3F94FE0008779D /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F537039E2A3F94FE0008779D /* MessagesView.swift */; };
+		F53703A12A3F950A0008779D /* MessagesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53703A02A3F950A0008779D /* MessagesVM.swift */; };
+		F53703A42A3F952B0008779D /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53703A32A3F952B0008779D /* NewsView.swift */; };
+		F53703A62A3F95340008779D /* NewsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53703A52A3F95340008779D /* NewsVM.swift */; };
 		F5421ACD2A3A219C00A42934 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5421ACC2A3A219C00A42934 /* UserModel.swift */; };
 		F5421AD12A3A3CDC00A42934 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5421AD02A3A3CDC00A42934 /* LoginView.swift */; };
 		F5421AD32A3A3CE900A42934 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5421AD22A3A3CE900A42934 /* LoginVM.swift */; };
 		F5421AD52A3A3CFD00A42934 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5421AD42A3A3CFD00A42934 /* SignUpView.swift */; };
 		F5421AD72A3A3D0800A42934 /* SignUpVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5421AD62A3A3D0800A42934 /* SignUpVM.swift */; };
 		F5421ADA2A3A5A3100A42934 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5421AD92A3A5A3100A42934 /* CustomTextField.swift */; };
+		F54879472A3B90FC00304C76 /* CustomTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54879462A3B90FC00304C76 /* CustomTabbar.swift */; };
+		F548794B2A3C777700304C76 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F548794A2A3C777700304C76 /* ProfileView.swift */; };
+		F548794D2A3C778200304C76 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F548794C2A3C778200304C76 /* ProfileVM.swift */; };
 		F551046E2A30DC32000FB952 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F551046D2A30DC32000FB952 /* ContentViewModel.swift */; };
 		F55104702A30DC95000FB952 /* RawgApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F551046F2A30DC95000FB952 /* RawgApi.swift */; };
 		F55104732A30DCF8000FB952 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = F55104722A30DCF8000FB952 /* CombineMoya */; };
@@ -63,6 +72,9 @@
 		F57D36A12A2E9E250023F479 /* levelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57D36A02A2E9E250023F479 /* levelTests.swift */; };
 		F57D36AB2A2E9E250023F479 /* levelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57D36AA2A2E9E250023F479 /* levelUITests.swift */; };
 		F57D36AD2A2E9E250023F479 /* levelUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57D36AC2A2E9E250023F479 /* levelUITestsLaunchTests.swift */; };
+		F5B2BDEF2A3D89490074E3D5 /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B2BDEE2A3D89490074E3D5 /* GameCell.swift */; };
+		F5B2BDF22A3D8C6D0074E3D5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B2BDF12A3D8C6D0074E3D5 /* HomeView.swift */; };
+		F5B2BDF42A3D8C770074E3D5 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B2BDF32A3D8C770074E3D5 /* HomeVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,12 +99,21 @@
 		F534BF912A36467800A9871D /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		F534BF982A36657800A9871D /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		F534BF9A2A3665C200A9871D /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
+		F53703972A3F79400008779D /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		F53703992A3F79610008779D /* EditProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVM.swift; sourceTree = "<group>"; };
+		F537039E2A3F94FE0008779D /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
+		F53703A02A3F950A0008779D /* MessagesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesVM.swift; sourceTree = "<group>"; };
+		F53703A32A3F952B0008779D /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
+		F53703A52A3F95340008779D /* NewsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVM.swift; sourceTree = "<group>"; };
 		F5421ACC2A3A219C00A42934 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		F5421AD02A3A3CDC00A42934 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F5421AD22A3A3CE900A42934 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
 		F5421AD42A3A3CFD00A42934 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		F5421AD62A3A3D0800A42934 /* SignUpVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVM.swift; sourceTree = "<group>"; };
 		F5421AD92A3A5A3100A42934 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		F54879462A3B90FC00304C76 /* CustomTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbar.swift; sourceTree = "<group>"; };
+		F548794A2A3C777700304C76 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		F548794C2A3C778200304C76 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 		F551046D2A30DC32000FB952 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		F551046F2A30DC95000FB952 /* RawgApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawgApi.swift; sourceTree = "<group>"; };
 		F551047A2A30DD29000FB952 /* MoyaProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaProvider.swift; sourceTree = "<group>"; };
@@ -110,6 +131,9 @@
 		F57D36A62A2E9E250023F479 /* levelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = levelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F57D36AA2A2E9E250023F479 /* levelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = levelUITests.swift; sourceTree = "<group>"; };
 		F57D36AC2A2E9E250023F479 /* levelUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = levelUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F5B2BDEE2A3D89490074E3D5 /* GameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
+		F5B2BDF12A3D8C6D0074E3D5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		F5B2BDF32A3D8C770074E3D5 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +194,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F53703962A3F79200008779D /* EditProfileScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F53703972A3F79400008779D /* EditProfileView.swift */,
+				F53703992A3F79610008779D /* EditProfileVM.swift */,
+			);
+			path = EditProfileScreen;
+			sourceTree = "<group>";
+		};
+		F537039B2A3F79E20008779D /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				F551046F2A30DC95000FB952 /* RawgApi.swift */,
+				F551047A2A30DD29000FB952 /* MoyaProvider.swift */,
+				F534BF912A36467800A9871D /* FirebaseManager.swift */,
+				F534BF982A36657800A9871D /* RealmManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		F537039C2A3F7A0B0008779D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F534BF9A2A3665C200A9871D /* RealmModel.swift */,
+				F551047C2A30DD51000FB952 /* GameListModel.swift */,
+				F551047E2A30DD73000FB952 /* GameDetailModel.swift */,
+				F558790D2A38FCF200AD835E /* GameGenresModel.swift */,
+				F5421ACC2A3A219C00A42934 /* UserModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F537039D2A3F94770008779D /* MessagesScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F537039E2A3F94FE0008779D /* MessagesView.swift */,
+				F53703A02A3F950A0008779D /* MessagesVM.swift */,
+			);
+			path = MessagesScreen;
+			sourceTree = "<group>";
+		};
+		F53703A22A3F951B0008779D /* NewsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F53703A32A3F952B0008779D /* NewsView.swift */,
+				F53703A52A3F95340008779D /* NewsVM.swift */,
+			);
+			path = NewsScreen;
+			sourceTree = "<group>";
+		};
 		F5421ACE2A3A3CA900A42934 /* LoginScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,8 +266,20 @@
 			isa = PBXGroup;
 			children = (
 				F5421AD92A3A5A3100A42934 /* CustomTextField.swift */,
+				F54879462A3B90FC00304C76 /* CustomTabbar.swift */,
+				F5B2BDEE2A3D89490074E3D5 /* GameCell.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		F54879492A3C752400304C76 /* ProfileScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F548794A2A3C777700304C76 /* ProfileView.swift */,
+				F548794C2A3C778200304C76 /* ProfileVM.swift */,
+				F53703962A3F79200008779D /* EditProfileScreen */,
+			);
+			path = ProfileScreen;
 			sourceTree = "<group>";
 		};
 		F57D36832A2E9E240023F479 = {
@@ -219,21 +305,18 @@
 		F57D368E2A2E9E240023F479 /* level */ = {
 			isa = PBXGroup;
 			children = (
+				F57D368F2A2E9E240023F479 /* levelApp.swift */,
 				F5421ACF2A3A3CB500A42934 /* SignUpScreen */,
 				F5421ACE2A3A3CA900A42934 /* LoginScreen */,
-				F57D368F2A2E9E240023F479 /* levelApp.swift */,
+				F5B2BDF02A3D8C5C0074E3D5 /* HomeScreen */,
+				F53703A22A3F951B0008779D /* NewsScreen */,
+				F537039D2A3F94770008779D /* MessagesScreen */,
+				F54879492A3C752400304C76 /* ProfileScreen */,
+				F537039B2A3F79E20008779D /* Managers */,
+				F537039C2A3F7A0B0008779D /* Models */,
+				F5421AD82A3A5A1E00A42934 /* CustomViews */,
 				F57D36912A2E9E240023F479 /* ContentView.swift */,
 				F551046D2A30DC32000FB952 /* ContentViewModel.swift */,
-				F551046F2A30DC95000FB952 /* RawgApi.swift */,
-				F551047A2A30DD29000FB952 /* MoyaProvider.swift */,
-				F534BF912A36467800A9871D /* FirebaseManager.swift */,
-				F534BF982A36657800A9871D /* RealmManager.swift */,
-				F534BF9A2A3665C200A9871D /* RealmModel.swift */,
-				F551047C2A30DD51000FB952 /* GameListModel.swift */,
-				F551047E2A30DD73000FB952 /* GameDetailModel.swift */,
-				F558790D2A38FCF200AD835E /* GameGenresModel.swift */,
-				F5421ACC2A3A219C00A42934 /* UserModel.swift */,
-				F5421AD82A3A5A1E00A42934 /* CustomViews */,
 				F57D36932A2E9E250023F479 /* Assets.xcassets */,
 				F55104802A30DDD7000FB952 /* Info.plist */,
 				F534BF582A3643CD00A9871D /* GoogleService-Info.plist */,
@@ -265,6 +348,15 @@
 				F57D36AC2A2E9E250023F479 /* levelUITestsLaunchTests.swift */,
 			);
 			path = levelUITests;
+			sourceTree = "<group>";
+		};
+		F5B2BDF02A3D8C5C0074E3D5 /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F5B2BDF12A3D8C6D0074E3D5 /* HomeView.swift */,
+				F5B2BDF32A3D8C770074E3D5 /* HomeVM.swift */,
+			);
+			path = HomeScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -443,18 +535,30 @@
 				F5421AD72A3A3D0800A42934 /* SignUpVM.swift in Sources */,
 				F551047B2A30DD29000FB952 /* MoyaProvider.swift in Sources */,
 				F57D36922A2E9E240023F479 /* ContentView.swift in Sources */,
+				F5B2BDF22A3D8C6D0074E3D5 /* HomeView.swift in Sources */,
 				F57D36902A2E9E240023F479 /* levelApp.swift in Sources */,
 				F534BF9B2A3665C200A9871D /* RealmModel.swift in Sources */,
 				F551047D2A30DD51000FB952 /* GameListModel.swift in Sources */,
 				F5421ADA2A3A5A3100A42934 /* CustomTextField.swift in Sources */,
 				F534BF922A36467800A9871D /* FirebaseManager.swift in Sources */,
+				F548794D2A3C778200304C76 /* ProfileVM.swift in Sources */,
 				F534BF992A36657800A9871D /* RealmManager.swift in Sources */,
 				F551046E2A30DC32000FB952 /* ContentViewModel.swift in Sources */,
+				F548794B2A3C777700304C76 /* ProfileView.swift in Sources */,
+				F54879472A3B90FC00304C76 /* CustomTabbar.swift in Sources */,
 				F558790E2A38FCF200AD835E /* GameGenresModel.swift in Sources */,
+				F53703A42A3F952B0008779D /* NewsView.swift in Sources */,
+				F5B2BDF42A3D8C770074E3D5 /* HomeVM.swift in Sources */,
+				F537039A2A3F79610008779D /* EditProfileVM.swift in Sources */,
+				F53703982A3F79400008779D /* EditProfileView.swift in Sources */,
+				F53703A12A3F950A0008779D /* MessagesVM.swift in Sources */,
 				F551047F2A30DD73000FB952 /* GameDetailModel.swift in Sources */,
 				F5421AD12A3A3CDC00A42934 /* LoginView.swift in Sources */,
 				F5421ACD2A3A219C00A42934 /* UserModel.swift in Sources */,
+				F53703A62A3F95340008779D /* NewsVM.swift in Sources */,
 				F55104702A30DC95000FB952 /* RawgApi.swift in Sources */,
+				F537039F2A3F94FE0008779D /* MessagesView.swift in Sources */,
+				F5B2BDEF2A3D89490074E3D5 /* GameCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,6 +726,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -652,6 +757,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
