@@ -17,7 +17,9 @@ final class HomeViewModel: ObservableObject {
         do {
             let data = try await moyaManager.fullGameListRequest(page: page, genres: genres)
             if let games = data.results {
-                results += games
+                await MainActor.run {
+                    results += games
+                }
             }
             print(results)
         } catch {

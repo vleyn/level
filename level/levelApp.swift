@@ -19,7 +19,12 @@ struct levelApp: App {
     
     var body: some Scene {
         WindowGroup {
-            SignUpView()
+            if UserDefaults.standard.bool(forKey: "isAuthorized") {
+                CustomTabbar()
+                    .onAppear()
+            } else {
+                LoginView()
+            }
         }
     }
 }

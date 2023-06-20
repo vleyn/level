@@ -66,8 +66,8 @@ class ContentViewModel: ObservableObject {
         }
     }
     
-    func databaseWrite(nickName: String, email: String, avatar: String, uid: String) {
-        firebaseManager.databaseWrite(nickname: nickName, email: email, avatar: avatar, uid: uid)
+    func databaseWrite(nickName: String, email: String, avatar: String, bio: String, uid: String) {
+        firebaseManager.databaseWrite(nickname: nickName, email: email, avatar: avatar, bio: bio, uid: uid)
     }
     
     func databaseRead(uid: String) async throws {

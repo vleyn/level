@@ -19,7 +19,14 @@ final class LoginViewModel: ObservableObject {
     
     func login() async {
         do {
-            print(try await firebaseManager.login(email: email, password: password))
+            let user = try await firebaseManager.login(email: email, password: password)
+            let userInfo = try await firebaseManager.databaseRead(uid: user.uid)
+            UserCache.shared.saveInfo(user: userInfo)
+            UserDefaults.standard.set(user.uid, forKey: "uid")
+            UserDefaults.standard.set(true, forKey: "isAuthorized")
+            await MainActor.run {
+                self.isPresented = true
+            }
         } catch {
             print(error.localizedDescription)
         }

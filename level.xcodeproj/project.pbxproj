@@ -75,6 +75,8 @@
 		F5B2BDEF2A3D89490074E3D5 /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B2BDEE2A3D89490074E3D5 /* GameCell.swift */; };
 		F5B2BDF22A3D8C6D0074E3D5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B2BDF12A3D8C6D0074E3D5 /* HomeView.swift */; };
 		F5B2BDF42A3D8C770074E3D5 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B2BDF32A3D8C770074E3D5 /* HomeVM.swift */; };
+		F5BDC7ED2A40B24B003DD588 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F5BDC7EC2A40B24B003DD588 /* Kingfisher */; };
+		F5E0DFF52A417C000007747E /* UserCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E0DFF42A417C000007747E /* UserCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +136,7 @@
 		F5B2BDEE2A3D89490074E3D5 /* GameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
 		F5B2BDF12A3D8C6D0074E3D5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F5B2BDF32A3D8C770074E3D5 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
+		F5E0DFF42A417C000007747E /* UserCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +158,7 @@
 				F534BF782A36459E00A9871D /* FirebaseFirestoreSwift in Frameworks */,
 				F534BF742A36459E00A9871D /* FirebaseFirestore in Frameworks */,
 				F534BF7A2A36459E00A9871D /* FirebaseFunctions in Frameworks */,
+				F5BDC7ED2A40B24B003DD588 /* Kingfisher in Frameworks */,
 				F55104792A30DCF8000FB952 /* RxMoya in Frameworks */,
 				F534BF602A36459E00A9871D /* FirebaseAnalyticsSwift in Frameworks */,
 				F534BF5C2A36459E00A9871D /* FirebaseAnalytics in Frameworks */,
@@ -210,6 +214,7 @@
 				F551047A2A30DD29000FB952 /* MoyaProvider.swift */,
 				F534BF912A36467800A9871D /* FirebaseManager.swift */,
 				F534BF982A36657800A9871D /* RealmManager.swift */,
+				F5E0DFF42A417C000007747E /* UserCache.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -409,6 +414,7 @@
 				F534BF8F2A36459E00A9871D /* FirebaseStorageCombine-Community */,
 				F534BF942A36655F00A9871D /* Realm */,
 				F534BF962A36655F00A9871D /* RealmSwift */,
+				F5BDC7EC2A40B24B003DD588 /* Kingfisher */,
 			);
 			productName = level;
 			productReference = F57D368C2A2E9E240023F479 /* level.app */;
@@ -486,6 +492,7 @@
 				F55104712A30DCF8000FB952 /* XCRemoteSwiftPackageReference "Moya" */,
 				F534BF5A2A36459E00A9871D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				F534BF932A36655F00A9871D /* XCRemoteSwiftPackageReference "realm-swift" */,
+				F5BDC7EB2A40B24B003DD588 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = F57D368D2A2E9E240023F479 /* Products */;
 			projectDirPath = "";
@@ -549,6 +556,7 @@
 				F558790E2A38FCF200AD835E /* GameGenresModel.swift in Sources */,
 				F53703A42A3F952B0008779D /* NewsView.swift in Sources */,
 				F5B2BDF42A3D8C770074E3D5 /* HomeVM.swift in Sources */,
+				F5E0DFF52A417C000007747E /* UserCache.swift in Sources */,
 				F537039A2A3F79610008779D /* EditProfileVM.swift in Sources */,
 				F53703982A3F79400008779D /* EditProfileView.swift in Sources */,
 				F53703A12A3F950A0008779D /* MessagesVM.swift in Sources */,
@@ -913,6 +921,14 @@
 				minimumVersion = 15.0.0;
 			};
 		};
+		F5BDC7EB2A40B24B003DD588 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1080,6 +1096,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F55104712A30DCF8000FB952 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = RxMoya;
+		};
+		F5BDC7EC2A40B24B003DD588 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F5BDC7EB2A40B24B003DD588 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
