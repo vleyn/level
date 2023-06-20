@@ -19,7 +19,8 @@ struct levelApp: App {
     
     var body: some Scene {
         WindowGroup {
-            if UserDefaults.standard.bool(forKey: "isAuthorized") {
+            
+            if !(UserDefaults.standard.string(forKey: "uid")?.isEmpty ?? false) {
                 CustomTabbar()
                     .onAppear()
             } else {

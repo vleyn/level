@@ -23,24 +23,27 @@ final class LoginViewModel: ObservableObject {
         }
     }
     
-    func login() async {
+    func login() {
         
-        guard !email.isEmpty && !password.isEmpty else {
-            errorText = ApplicationErrors.emptyFields.errorText
-            return
-        }
-        
-        do {
-            let user = try await firebaseManager.login(email: email, password: password)
-            let userInfo = try await firebaseManager.databaseRead(uid: user.uid)
-            UserCache.shared.saveInfo(user: userInfo)
-            UserDefaults.standard.set(user.uid, forKey: "uid")
-            UserDefaults.standard.set(true, forKey: "isAuthorized")
-            await MainActor.run {
-                self.isPresented = true
+        Task {
+            guard !email.isEmpty && !password.isEmpty else {
+                await MainActor.run {
+                    errorText = ApplicationErrors.emptyFields.errorText
+                }
+                return
             }
-        } catch {
-            errorText = error.localizedDescription
+            
+            do {
+                let user = try await firebaseManager.login(email: email, password: password)
+                let userInfo = try await firebaseManager.databaseRead(uid: user.uid)
+                UserCache.shared.saveInfo(user: userInfo)
+                UserDefaults.standard.set(user.uid, forKey: "uid")
+                await MainActor.run {
+                    self.isPresented = true
+                }
+            } catch {
+                errorText = error.localizedDescription
+            }
         }
     }
 }

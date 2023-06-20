@@ -33,9 +33,7 @@ struct SignUpView: View {
                     CustomSecureTextField(bindingValue: $vm.password, image: "lock", placeHolder: "Password")
                     CustomSecureTextField(bindingValue: $vm.confirmPassword, image: "lock", placeHolder: "Confirm Password")
                     Button {
-                        Task {
-                            await vm.signUp()
-                        }
+                        vm.signUp()
                     } label: {
                         Text("Sign Up")
                             .fontDesign(.rounded)

@@ -39,9 +39,7 @@ struct LoginView: View {
                 .padding([.leading, .trailing])
                 VStack {
                     Button {
-                        Task {
-                            await vm.login()
-                        }
+                        vm.login()
                     } label: {
                         Text("Login")
                             .fontDesign(.rounded)

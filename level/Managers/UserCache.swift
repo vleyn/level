@@ -11,6 +11,8 @@ class UserCache {
     
     static let shared = UserCache()
     
+    private init() {}
+    
     var nickname = ""
     var email = ""
     var avatar = ""

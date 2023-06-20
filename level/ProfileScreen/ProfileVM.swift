@@ -24,15 +24,17 @@ final class ProfileViewModel: ObservableObject {
         nickName = UserCache.shared.nickname
     }
     
-    func logOut() async throws {
-        do {
-            try await firebaseManager.logOut()
-        } catch {
-            
-        }
-        UserDefaults.standard.set(false, forKey: "isAuthorized")
-        await MainActor.run {
-            self.isLogout = true
+    func logOut() {
+        Task {
+            do {
+                try await firebaseManager.logOut()
+            } catch {
+                
+            }
+            UserDefaults.standard.set("", forKey: "uid")
+            await MainActor.run {
+                self.isLogout = true
+            }
         }
     }
 }
