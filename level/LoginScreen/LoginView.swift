@@ -12,6 +12,7 @@ struct LoginView: View {
     @StateObject var vm = LoginViewModel()
     
     var body: some View {
+         
         NavigationView {
             VStack {
                 VStack {
@@ -40,7 +41,6 @@ struct LoginView: View {
                     Button {
                         Task {
                             await vm.login()
-                            print("Login success")
                         }
                     } label: {
                         Text("Login")
@@ -106,7 +106,11 @@ struct LoginView: View {
                 CustomTabbar()
             }
         }
-        
+        .alert("Error", isPresented: $vm.isAlert) {
+            Button("Cancel", role: .cancel) { }
+        } message: {
+            Text(vm.errorText)
+        }     
     }
 }
 

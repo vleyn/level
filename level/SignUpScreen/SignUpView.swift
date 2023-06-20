@@ -35,7 +35,6 @@ struct SignUpView: View {
                     Button {
                         Task {
                             await vm.signUp()
-                            print("SignUp")
                         }
                     } label: {
                         Text("Sign Up")
@@ -56,6 +55,11 @@ struct SignUpView: View {
         }
             .fullScreenCover(isPresented: $vm.isPresented) {
                 CustomTabbar()
+            }
+            .alert("Error", isPresented: $vm.isAlert) {
+                Button("Cancel", role: .cancel) { }
+            } message: {
+                Text(vm.errorText)
             }
     }
 }

@@ -22,6 +22,11 @@ struct HomeView: View {
         .task {
             await vm.getGameList(page: 1, genres: 34)
         }
+        .alert("Error", isPresented: $vm.isAlert) {
+            Button("Cancel", role: .cancel) { }
+        } message: {
+            Text(vm.errorText)
+        }   
     }
 }
 

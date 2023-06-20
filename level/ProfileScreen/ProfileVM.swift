@@ -13,13 +13,23 @@ final class ProfileViewModel: ObservableObject {
             
     @Published var nickName = ""
     @Published var isLogout = false
+    @Published var isAlert = false
+    @Published var errorText = "" {
+        didSet {
+            isAlert = true
+        }
+    }
     
     func loadUserInfo() {
         nickName = UserCache.shared.nickname
     }
     
     func logOut() async throws {
-        try await firebaseManager.logOut()
+        do {
+            try await firebaseManager.logOut()
+        } catch {
+            
+        }
         UserDefaults.standard.set(false, forKey: "isAuthorized")
         await MainActor.run {
             self.isLogout = true

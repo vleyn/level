@@ -23,21 +23,14 @@ class ApiManager: ApiProviderProtocol {
             providerRawg.request(.fullGameListRequest(page: page, genres: genres)) { result in
                 switch result {
                 case .success(let response):
-                    print(response)
                     do {
                         let games = try response.map(GameList.self)
                         continuation.resume(with: .success(games))
-                        print("success")
-//                        print(games)
                     } catch {
                         continuation.resume(throwing: error)
-                        print("ne success")
-                        print(error)
                     }
                 case .failure(let error):
                     continuation.resume(with: .failure(error))
-                    print("failure")
-                    
                 }
             }
         }
@@ -48,20 +41,14 @@ class ApiManager: ApiProviderProtocol {
             providerRawg.request(.gameDetailsRequest(id: id)) { result in
                 switch result {
                 case .success(let response):
-                    print(response)
                     do {
                         let gameData = try response.map(GameDetail.self)
                         continuation.resume(with: .success(gameData))
-                        print("success")
-                        print(gameData)
                     } catch {
                         continuation.resume(throwing: error)
-                        print("ne success")
-                        print(error)
                     }
                 case .failure(let error):
                     continuation.resume(with: .failure(error))
-                    print("failure")
                 }
             }
         }
@@ -72,20 +59,14 @@ class ApiManager: ApiProviderProtocol {
             providerRawg.request(.getGameGenresRequest) { result in
                 switch result {
                 case .success(let response):
-                    print(response)
                     do {
                         let genres = try response.map(GameGenres.self)
                         continuation.resume(with: .success(genres))
-                        print("success")
-                        print(genres)
                     } catch {
                         continuation.resume(throwing: error)
-                        print("ne success")
-                        print(error)
                     }
                 case .failure(let error):
                     continuation.resume(with: .failure(error))
-                    print("failure")
                 }
             }
         }

@@ -16,8 +16,20 @@ final class LoginViewModel: ObservableObject {
     @Published var isPresented = false
     @Published var email: String = ""
     @Published var password: String = ""
+    @Published var isAlert = false
+    @Published var errorText = "" {
+        didSet {
+            isAlert = true
+        }
+    }
     
     func login() async {
+        
+        guard !email.isEmpty && !password.isEmpty else {
+            errorText = ApplicationErrors.emptyFields.errorText
+            return
+        }
+        
         do {
             let user = try await firebaseManager.login(email: email, password: password)
             let userInfo = try await firebaseManager.databaseRead(uid: user.uid)
@@ -28,7 +40,7 @@ final class LoginViewModel: ObservableObject {
                 self.isPresented = true
             }
         } catch {
-            print(error.localizedDescription)
+            errorText = error.localizedDescription
         }
     }
 }

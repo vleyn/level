@@ -103,10 +103,15 @@ struct ProfileView: View {
                 .padding(.top, 100)
         }
         .task {
-            await vm.loadUserInfo()
+            vm.loadUserInfo()
         }
         .fullScreenCover(isPresented: $vm.isLogout) {
             LoginView()
+        }
+        .alert("Error", isPresented: $vm.isAlert) {
+            Button("Cancel", role: .cancel) { }
+        } message: {
+            Text(vm.errorText)
         }
     }
 }
