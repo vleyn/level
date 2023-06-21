@@ -28,13 +28,13 @@ final class ProfileViewModel: ObservableObject {
         Task {
             do {
                 try await firebaseManager.logOut()
+                await MainActor.run {
+                    self.isLogout = true
+                }
             } catch {
-                
+                errorText = error.localizedDescription
             }
             UserDefaults.standard.set("", forKey: "uid")
-            await MainActor.run {
-                self.isLogout = true
-            }
         }
     }
 }
