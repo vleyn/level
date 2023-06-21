@@ -16,12 +16,34 @@ final class LoginViewModel: ObservableObject {
     @Published var isPresented = false
     @Published var email: String = ""
     @Published var password: String = ""
+    @Published var isAlert = false
+    @Published var errorText = "" {
+        didSet {
+            isAlert = true
+        }
+    }
     
-    func login() async {
-        do {
-            print(try await firebaseManager.login(email: email, password: password))
-        } catch {
-            print(error.localizedDescription)
+    func login() {
+        
+        Task {
+            guard !email.isEmpty && !password.isEmpty else {
+                await MainActor.run {
+                    errorText = ApplicationErrors.emptyFields.errorText
+                }
+                return
+            }
+            
+            do {
+                let user = try await firebaseManager.login(email: email, password: password)
+                let userInfo = try await firebaseManager.databaseRead(uid: user.uid)
+                UserCache.shared.saveInfo(user: userInfo)
+                UserDefaults.standard.set(user.uid, forKey: "uid")
+                await MainActor.run {
+                    self.isPresented = true
+                }
+            } catch {
+                errorText = error.localizedDescription
+            }
         }
     }
 }

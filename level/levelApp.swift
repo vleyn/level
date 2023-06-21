@@ -19,7 +19,13 @@ struct levelApp: App {
     
     var body: some Scene {
         WindowGroup {
-            SignUpView()
+            
+            if !(UserDefaults.standard.string(forKey: "uid")?.isEmpty ?? false) {
+                CustomTabbar()
+                    .onAppear()
+            } else {
+                LoginView()
+            }
         }
     }
 }

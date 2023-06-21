@@ -17,17 +17,42 @@ final class SignUpViewModel: ObservableObject {
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var confirmPassword: String = ""
+    @Published var isAlert = false
+    @Published var errorText = "" {
+        didSet {
+            isAlert = true
+        }
+    }
 
-    func signUp() async {
-        do {
-            let user = try await firebaseManager.signUpEmail(email: email, password: password)
-            UserDefaults.standard.set(user.uid, forKey: "uid")
-            firebaseManager.databaseWrite(nickname: nickname, email: email, avatar: "", uid: user.uid)
-            await MainActor.run {
-                self.isPresented = true
+    func signUp() {
+        
+        Task {
+            guard password == confirmPassword else {
+                await MainActor.run {
+                    errorText = ApplicationErrors.passwordsDontMatch.errorText
+                }
+                return
             }
-        } catch {
-            print(error.localizedDescription)
+            
+            guard !nickname.isEmpty && !email.isEmpty && !password.isEmpty && !confirmPassword.isEmpty else {
+                await MainActor.run {
+                    errorText = ApplicationErrors.emptyFields.errorText
+                }
+                return
+            }
+            
+            do {
+                let user = try await firebaseManager.signUpEmail(email: email, password: password)
+                UserDefaults.standard.set(user.uid, forKey: "uid")
+                firebaseManager.databaseWrite(nickname: nickname, email: email, avatar: "", bio: "", uid: user.uid)
+                let cachedUser = UserModel(nickname: nickname, email: email, avatar: "", bio: "")
+                UserCache.shared.saveInfo(user: cachedUser)
+                await MainActor.run {
+                    self.isPresented = true
+                }
+            } catch {
+                errorText = error.localizedDescription
+            }
         }
     }
 }

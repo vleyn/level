@@ -82,9 +82,7 @@ struct ProfileView: View {
                         .padding(.top, 30)
                         Spacer()
                         Button {
-                            Task {
-                                try await vm.logOut()
-                            }
+                            vm.logOut()
                         } label: {
                             Text("Logout")
                                 .fontDesign(.rounded)
@@ -103,10 +101,15 @@ struct ProfileView: View {
                 .padding(.top, 100)
         }
         .task {
-            await vm.loadUserInfo()
+            vm.loadUserInfo()
         }
         .fullScreenCover(isPresented: $vm.isLogout) {
             LoginView()
+        }
+        .alert("Error", isPresented: $vm.isAlert) {
+            Button("Cancel", role: .cancel) { }
+        } message: {
+            Text(vm.errorText)
         }
     }
 }

@@ -12,16 +12,23 @@ final class HomeViewModel: ObservableObject {
     private let moyaManager: ApiProviderProtocol = ApiManager()
 
     @Published var results: [Results] = []
+    @Published var isAlert = false
+    @Published var errorText = "" {
+        didSet {
+            isAlert = true
+        }
+    }
     
     func getGameList(page: Int, genres: Int) async {
         do {
             let data = try await moyaManager.fullGameListRequest(page: page, genres: genres)
             if let games = data.results {
-                results += games
+                await MainActor.run {
+                    results += games
+                }
             }
-            print(results)
         } catch {
-            print(error.localizedDescription)
+            errorText = error.localizedDescription
         }
     }
 }

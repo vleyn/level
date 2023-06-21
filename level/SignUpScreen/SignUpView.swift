@@ -33,10 +33,7 @@ struct SignUpView: View {
                     CustomSecureTextField(bindingValue: $vm.password, image: "lock", placeHolder: "Password")
                     CustomSecureTextField(bindingValue: $vm.confirmPassword, image: "lock", placeHolder: "Confirm Password")
                     Button {
-                        Task {
-                            await vm.signUp()
-                            print("SignUp")
-                        }
+                        vm.signUp()
                     } label: {
                         Text("Sign Up")
                             .fontDesign(.rounded)
@@ -56,6 +53,11 @@ struct SignUpView: View {
         }
             .fullScreenCover(isPresented: $vm.isPresented) {
                 CustomTabbar()
+            }
+            .alert("Error", isPresented: $vm.isAlert) {
+                Button("Cancel", role: .cancel) { }
+            } message: {
+                Text(vm.errorText)
             }
     }
 }
