@@ -11,6 +11,7 @@ struct CustomTabbar: View {
     
     @State var selectedTab = "Home"
     let tabs = ["Home", "News", "Messenger", "Profile"]
+    @StateObject var vm = CustomTabbarViewModel()
     
     init() {
         UITabBar.appearance().isHidden = true
@@ -40,6 +41,9 @@ struct CustomTabbar: View {
             .padding(.bottom, 5)
             .frame(maxWidth: .infinity)
             .background(Color(.lightGray))
+        }
+        .task {
+            await vm.cacheUser()
         }
     }
 }

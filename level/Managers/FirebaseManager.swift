@@ -12,17 +12,20 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 protocol FirebaseProtocol {
+    var auth: Auth { get }
+    var database: Firestore { get }
+    var ref: DatabaseReference { get }
     func signUpEmail(email: String, password: String) async throws -> User
     func login(email: String, password: String) async throws -> User
     func logOut() async throws
     func databaseWrite(nickname: String, email: String, avatar: String, bio: String, uid: String)
+    func databaseEdit(uid: String, nickname: String, email: String, avatar: String, bio: String)
     func databaseRead(uid: String) async throws -> UserModel
-    func currentLoginnedUser() -> User?
 }
 
 class FirebaseManager: FirebaseProtocol {
     
-    let firebaseAuth = Auth.auth()
+    let auth = Auth.auth()
     let database = Firestore.firestore()
     let ref = Database.database().reference()
     
@@ -35,12 +38,12 @@ class FirebaseManager: FirebaseProtocol {
     }
     
     func logOut() async throws {
-        try firebaseAuth.signOut()
+        try auth.signOut()
     }
     
     func databaseWrite(nickname: String, email: String, avatar: String, bio: String, uid: String) {
 
-        let user = UserModel(nickname: nickname, email: email, avatar: avatar, bio: bio)
+        let user = UserModel(uid: uid, nickname: nickname, email: email, avatar: avatar, bio: bio)
             do {
                try database.collection("Users").document(uid).setData(from: user)
             } catch {
@@ -48,12 +51,17 @@ class FirebaseManager: FirebaseProtocol {
             }
         }
     
-    func databaseRead(uid: String) async throws -> UserModel  {
-        try await database.collection("Users").document(uid).getDocument(as: UserModel.self)
+    func databaseEdit(uid: String, nickname: String, email: String, avatar: String, bio: String) {
+        
+        let users = database.collection("Users").document(uid)
+        users.updateData(["nickname" : nickname,
+                          "email" : email,
+                          "avatar" : avatar,
+                          "bio" : bio,
+                          "uid" : uid ])
     }
     
-    //MARK: - Debug
-    func currentLoginnedUser() -> User? {
-        firebaseAuth.currentUser
+    func databaseRead(uid: String) async throws -> UserModel  {
+        try await database.collection("Users").document(uid).getDocument(as: UserModel.self)
     }
 }

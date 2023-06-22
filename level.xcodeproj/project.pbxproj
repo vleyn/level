@@ -55,6 +55,8 @@
 		F54879472A3B90FC00304C76 /* CustomTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54879462A3B90FC00304C76 /* CustomTabbar.swift */; };
 		F548794B2A3C777700304C76 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F548794A2A3C777700304C76 /* ProfileView.swift */; };
 		F548794D2A3C778200304C76 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F548794C2A3C778200304C76 /* ProfileVM.swift */; };
+		F54D53312A44FDAE00708684 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D53302A44FDAE00708684 /* ImagePicker.swift */; };
+		F54D53332A45092D00708684 /* CustomTabbarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D53322A45092D00708684 /* CustomTabbarVM.swift */; };
 		F55104702A30DC95000FB952 /* RawgApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F551046F2A30DC95000FB952 /* RawgApi.swift */; };
 		F55104732A30DCF8000FB952 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = F55104722A30DCF8000FB952 /* CombineMoya */; };
 		F55104752A30DCF8000FB952 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = F55104742A30DCF8000FB952 /* Moya */; };
@@ -115,6 +117,8 @@
 		F54879462A3B90FC00304C76 /* CustomTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbar.swift; sourceTree = "<group>"; };
 		F548794A2A3C777700304C76 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		F548794C2A3C778200304C76 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
+		F54D53302A44FDAE00708684 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		F54D53322A45092D00708684 /* CustomTabbarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbarVM.swift; sourceTree = "<group>"; };
 		F551046F2A30DC95000FB952 /* RawgApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawgApi.swift; sourceTree = "<group>"; };
 		F551047A2A30DD29000FB952 /* MoyaProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaProvider.swift; sourceTree = "<group>"; };
 		F551047C2A30DD51000FB952 /* GameListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListModel.swift; sourceTree = "<group>"; };
@@ -271,7 +275,9 @@
 			children = (
 				F5421AD92A3A5A3100A42934 /* CustomTextField.swift */,
 				F54879462A3B90FC00304C76 /* CustomTabbar.swift */,
+				F54D53322A45092D00708684 /* CustomTabbarVM.swift */,
 				F5B2BDEE2A3D89490074E3D5 /* GameCell.swift */,
+				F54D53302A44FDAE00708684 /* ImagePicker.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -548,6 +554,7 @@
 				F534BF992A36657800A9871D /* RealmManager.swift in Sources */,
 				F548794B2A3C777700304C76 /* ProfileView.swift in Sources */,
 				F54879472A3B90FC00304C76 /* CustomTabbar.swift in Sources */,
+				F54D53332A45092D00708684 /* CustomTabbarVM.swift in Sources */,
 				F558790E2A38FCF200AD835E /* GameGenresModel.swift in Sources */,
 				F53703A42A3F952B0008779D /* NewsView.swift in Sources */,
 				F5B2BDF42A3D8C770074E3D5 /* HomeVM.swift in Sources */,
@@ -561,6 +568,7 @@
 				F53703A62A3F95340008779D /* NewsVM.swift in Sources */,
 				F55104702A30DC95000FB952 /* RawgApi.swift in Sources */,
 				F537039F2A3F94FE0008779D /* MessagesView.swift in Sources */,
+				F54D53312A44FDAE00708684 /* ImagePicker.swift in Sources */,
 				F5B2BDEF2A3D89490074E3D5 /* GameCell.swift in Sources */,
 				F5E0DFF72A418D2E0007747E /* ErrorsHadler.swift in Sources */,
 			);

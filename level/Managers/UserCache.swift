@@ -13,12 +13,14 @@ class UserCache {
     
     private init() {}
     
+    var uid = ""
     var nickname = ""
     var email = ""
     var avatar = ""
     var bio = ""
     
     func saveInfo(user: UserModel) {
+        uid = user.uid
         nickname = user.nickname
         email = user.email
         avatar = user.avatar
