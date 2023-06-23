@@ -62,6 +62,7 @@
 		F54D533B2A45359100708684 /* ChatLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D533A2A45359100708684 /* ChatLogView.swift */; };
 		F54D533D2A45359D00708684 /* ChatLogVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D533C2A45359D00708684 /* ChatLogVM.swift */; };
 		F54D53402A45AD9200708684 /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D533F2A45AD9200708684 /* FirebaseConstants.swift */; };
+		F54D53432A45B61500708684 /* ChatMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D53422A45B61500708684 /* ChatMessageModel.swift */; };
 		F55104702A30DC95000FB952 /* RawgApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F551046F2A30DC95000FB952 /* RawgApi.swift */; };
 		F55104732A30DCF8000FB952 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = F55104722A30DCF8000FB952 /* CombineMoya */; };
 		F55104752A30DCF8000FB952 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = F55104742A30DCF8000FB952 /* Moya */; };
@@ -129,6 +130,7 @@
 		F54D533A2A45359100708684 /* ChatLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogView.swift; sourceTree = "<group>"; };
 		F54D533C2A45359D00708684 /* ChatLogVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogVM.swift; sourceTree = "<group>"; };
 		F54D533F2A45AD9200708684 /* FirebaseConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
+		F54D53422A45B61500708684 /* ChatMessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageModel.swift; sourceTree = "<group>"; };
 		F551046F2A30DC95000FB952 /* RawgApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawgApi.swift; sourceTree = "<group>"; };
 		F551047A2A30DD29000FB952 /* MoyaProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaProvider.swift; sourceTree = "<group>"; };
 		F551047C2A30DD51000FB952 /* GameListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListModel.swift; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 				F54D53322A45092D00708684 /* CustomTabbarVM.swift */,
 				F5B2BDEE2A3D89490074E3D5 /* GameCell.swift */,
 				F54D53302A44FDAE00708684 /* ImagePicker.swift */,
+				F54D53422A45B61500708684 /* ChatMessageModel.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -611,6 +614,7 @@
 				F53703A62A3F95340008779D /* NewsVM.swift in Sources */,
 				F55104702A30DC95000FB952 /* RawgApi.swift in Sources */,
 				F537039F2A3F94FE0008779D /* MessagesView.swift in Sources */,
+				F54D53432A45B61500708684 /* ChatMessageModel.swift in Sources */,
 				F54D53402A45AD9200708684 /* FirebaseConstants.swift in Sources */,
 				F54D53312A44FDAE00708684 /* ImagePicker.swift in Sources */,
 				F5B2BDEF2A3D89490074E3D5 /* GameCell.swift in Sources */,

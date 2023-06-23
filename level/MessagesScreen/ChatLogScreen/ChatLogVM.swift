@@ -8,34 +8,21 @@
 import Foundation
 import Firebase
 
-struct ChatMessageModel: Identifiable {
-    
-    var documentId: String { id }
-    
-    let id: String
-    let fromId, toId, text: String
-    
-    init(documentId: String, data: [String: Any]) {
-        self.id = documentId
-        self.fromId = data[MessagesConstants.fromId] as? String ?? ""
-        self.toId = data[MessagesConstants.toId] as? String ?? ""
-        self.text = data[MessagesConstants.text] as? String ?? ""
-    }
-}
-
 final class ChatLogViewModel: ObservableObject {
     
     let firebaseManager: FirebaseProtocol = FirebaseManager()
+    let emptyScrollToString = "Empty"
     
     @Published var chatText = ""
     @Published var chatMessages = [ChatMessageModel]()
+    @Published var newMessageCount = 0
     
     let chatUser: ChatUser?
     
     init(chatUser: ChatUser?) {
         self.chatUser = chatUser
         fetchMessages()
-    } 
+    }
     
     func handleSend() {
         Task {
@@ -55,6 +42,7 @@ final class ChatLogViewModel: ObservableObject {
                 try await document.setData(messageData)
                 await MainActor.run {
                     self.chatText = ""
+                    self.newMessageCount += 1
                 }
             } catch {
                 print(error.localizedDescription)
@@ -86,15 +74,18 @@ final class ChatLogViewModel: ObservableObject {
                     print(error.localizedDescription)
                     return
                 }
-                    
-            snapshot?.documentChanges.forEach({ change in
-                if change.type == .added {
-                    let data = change.document.data()
-                    self.chatMessages.append(.init(documentId: change.document.documentID, data: data))
+                
+                snapshot?.documentChanges.forEach({ change in
+                    if change.type == .added {
+                        let data = change.document.data()
+                        self.chatMessages.append(.init(documentId: change.document.documentID, data: data))
+                    }
+                })
+                DispatchQueue.main.async {
+                    self.newMessageCount += 1
                 }
-            })
-        }
+            }
     }
 }
-    
+
 

@@ -29,37 +29,46 @@ struct ChatLogView: View {
     private var messagesView: some View {
         VStack {
             ScrollView {
-                ForEach(vm.chatMessages) { message in
+                ScrollViewReader { scrollViewProxy in
                     VStack {
-                        if message.fromId == vm.firebaseManager.auth.currentUser?.uid {
-                            HStack {
-                                Spacer()
-                                HStack {
-                                    Text(message.text)
-                                        .foregroundColor(.white)
+                        ForEach(vm.chatMessages) { message in
+                            VStack {
+                                if message.fromId == vm.firebaseManager.auth.currentUser?.uid {
+                                    HStack {
+                                        Spacer()
+                                        HStack {
+                                            Text(message.text)
+                                                .foregroundColor(.white)
+                                        }
+                                        .padding()
+                                        .background(Color.blue)
+                                        .cornerRadius(20)
+                                    }
+                                } else {
+                                    HStack {
+                                        HStack {
+                                            Text(message.text)
+                                                .foregroundColor(.black)
+                                        }
+                                        .padding()
+                                        .background(Color.white)
+                                        .cornerRadius(20)
+                                        Spacer()
+                                    }
                                 }
-                                .padding()
-                                .background(Color.blue)
-                                .cornerRadius(20)
                             }
-                        } else {
-                            HStack {
-                                HStack {
-                                    Text(message.text)
-                                        .foregroundColor(.black)
-                                }
-                                .padding()
-                                .background(Color.white)
-                                .cornerRadius(20)
-                                Spacer()
-                            }
+                            .padding(.horizontal)
+                            .padding(.top, 8)
                         }
                     }
-                    .padding(.horizontal)
-                    .padding(.top, 8)
+                    HStack { Spacer() }
+                        .id(vm.emptyScrollToString)
+                        .onReceive(vm.$newMessageCount) { _ in
+                            withAnimation(.easeOut(duration: 0.5)) {
+                                scrollViewProxy.scrollTo(vm.emptyScrollToString, anchor: .bottom)
+                            }
+                        }
                 }
-                
-                HStack { Spacer() }
             }
             .background(Color(.init(white: 0.95, alpha: 1)))
             .safeAreaInset(edge: .bottom) {
