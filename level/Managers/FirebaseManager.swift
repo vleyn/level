@@ -23,6 +23,7 @@ protocol FirebaseProtocol {
     func databaseEdit(uid: String, nickname: String, email: String, avatar: String, bio: String)
     func databaseRead(uid: String) async throws -> UserModel
     func databaseSaveImage(image: UIImage?) async throws
+    func getAllUsers() async throws -> [ChatUser]
 }
 
 class FirebaseManager: FirebaseProtocol {
@@ -72,7 +73,7 @@ class FirebaseManager: FirebaseProtocol {
         let uid = auth.currentUser?.uid ?? ""
         let ref = storage.reference(withPath: uid)
         guard let imageData = image?.jpegData(compressionQuality: 0.5) else { return }
-        let data = ref.putData(imageData)
+        ref.putData(imageData)
         let url = try await ref.downloadURL()
         self.attachUserImageUrl(uid: uid, url: url)
     }
@@ -81,4 +82,18 @@ class FirebaseManager: FirebaseProtocol {
         let user = database.collection("Users").document(uid)
         user.updateData(["avatar" : url.absoluteString])
     }
+    
+    func getAllUsers() async throws -> [ChatUser] {
+            
+        var users: [ChatUser] = []
+            
+        let collection = try await database.collection("Users").getDocuments()
+            collection.documents.forEach { document in
+                let user = ChatUser(data: document.data())
+                if user.uid != auth.currentUser?.uid {
+                    users.append(user)
+                }
+            }
+            return users
+        }
 }

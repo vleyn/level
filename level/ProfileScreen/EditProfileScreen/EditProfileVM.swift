@@ -8,8 +8,16 @@
 import Foundation
 import Kingfisher
 import SwiftUI
+import Combine
 
 final class EditProfileViewModel: ObservableObject {
+//    
+//    var viewDismissalModePublisher = PassthroughSubject<Bool, Never>()
+//    private var shouldDismissView = false {
+//        didSet {
+//            viewDismissalModePublisher.send(shouldDismissView)
+//        }
+//    }
     
     private let firebaseManager: FirebaseProtocol = FirebaseManager()
     
@@ -46,5 +54,9 @@ final class EditProfileViewModel: ObservableObject {
                 print(error.localizedDescription)
             }
         }
+        
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//            self.shouldDismissView = true
+//        }
     }
 }

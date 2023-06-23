@@ -117,7 +117,7 @@ struct MessagesView: View {
         }
         .padding(.bottom, 90)
         .fullScreenCover(isPresented: $vm.showNewMessageScreen) {
-            Text("New messages")
+            WriteNewMessageView()
         }
     }
 }

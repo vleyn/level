@@ -57,6 +57,8 @@
 		F548794D2A3C778200304C76 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F548794C2A3C778200304C76 /* ProfileVM.swift */; };
 		F54D53312A44FDAE00708684 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D53302A44FDAE00708684 /* ImagePicker.swift */; };
 		F54D53332A45092D00708684 /* CustomTabbarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D53322A45092D00708684 /* CustomTabbarVM.swift */; };
+		F54D53362A451E2200708684 /* WriteNewMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D53352A451E2200708684 /* WriteNewMessageView.swift */; };
+		F54D53382A451E3500708684 /* WriteNewMessageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D53372A451E3500708684 /* WriteNewMessageVM.swift */; };
 		F55104702A30DC95000FB952 /* RawgApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F551046F2A30DC95000FB952 /* RawgApi.swift */; };
 		F55104732A30DCF8000FB952 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = F55104722A30DCF8000FB952 /* CombineMoya */; };
 		F55104752A30DCF8000FB952 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = F55104742A30DCF8000FB952 /* Moya */; };
@@ -119,6 +121,8 @@
 		F548794C2A3C778200304C76 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 		F54D53302A44FDAE00708684 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		F54D53322A45092D00708684 /* CustomTabbarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbarVM.swift; sourceTree = "<group>"; };
+		F54D53352A451E2200708684 /* WriteNewMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteNewMessageView.swift; sourceTree = "<group>"; };
+		F54D53372A451E3500708684 /* WriteNewMessageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteNewMessageVM.swift; sourceTree = "<group>"; };
 		F551046F2A30DC95000FB952 /* RawgApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawgApi.swift; sourceTree = "<group>"; };
 		F551047A2A30DD29000FB952 /* MoyaProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaProvider.swift; sourceTree = "<group>"; };
 		F551047C2A30DD51000FB952 /* GameListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListModel.swift; sourceTree = "<group>"; };
@@ -239,6 +243,7 @@
 			children = (
 				F537039E2A3F94FE0008779D /* MessagesView.swift */,
 				F53703A02A3F950A0008779D /* MessagesVM.swift */,
+				F54D53342A451E0400708684 /* WriteNewMessageScreen */,
 			);
 			path = MessagesScreen;
 			sourceTree = "<group>";
@@ -290,6 +295,15 @@
 				F53703962A3F79200008779D /* EditProfileScreen */,
 			);
 			path = ProfileScreen;
+			sourceTree = "<group>";
+		};
+		F54D53342A451E0400708684 /* WriteNewMessageScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F54D53352A451E2200708684 /* WriteNewMessageView.swift */,
+				F54D53372A451E3500708684 /* WriteNewMessageVM.swift */,
+			);
+			path = WriteNewMessageScreen;
 			sourceTree = "<group>";
 		};
 		F57D36832A2E9E240023F479 = {
@@ -545,10 +559,12 @@
 				F5421AD72A3A3D0800A42934 /* SignUpVM.swift in Sources */,
 				F551047B2A30DD29000FB952 /* MoyaProvider.swift in Sources */,
 				F5B2BDF22A3D8C6D0074E3D5 /* HomeView.swift in Sources */,
+				F54D53382A451E3500708684 /* WriteNewMessageVM.swift in Sources */,
 				F57D36902A2E9E240023F479 /* levelApp.swift in Sources */,
 				F534BF9B2A3665C200A9871D /* RealmModel.swift in Sources */,
 				F551047D2A30DD51000FB952 /* GameListModel.swift in Sources */,
 				F5421ADA2A3A5A3100A42934 /* CustomTextField.swift in Sources */,
+				F54D53362A451E2200708684 /* WriteNewMessageView.swift in Sources */,
 				F534BF922A36467800A9871D /* FirebaseManager.swift in Sources */,
 				F548794D2A3C778200304C76 /* ProfileVM.swift in Sources */,
 				F534BF992A36657800A9871D /* RealmManager.swift in Sources */,
