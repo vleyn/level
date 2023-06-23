@@ -12,6 +12,7 @@ final class ProfileViewModel: ObservableObject {
     private let firebaseManager: FirebaseProtocol = FirebaseManager()
             
     @Published var nickName = ""
+    @Published var avatar = ""
     @Published var isLogout = false
     @Published var isAlert = false
     @Published var errorText = "" {
@@ -22,6 +23,7 @@ final class ProfileViewModel: ObservableObject {
     
     func loadUserInfo() {
         nickName = UserCache.shared.nickname
+        avatar = UserCache.shared.avatar
     }
     
     func logOut() {

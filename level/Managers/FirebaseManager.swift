@@ -14,6 +14,7 @@ import FirebaseFirestoreSwift
 protocol FirebaseProtocol {
     var auth: Auth { get }
     var database: Firestore { get }
+    var storage: Storage { get }
     var ref: DatabaseReference { get }
     func signUpEmail(email: String, password: String) async throws -> User
     func login(email: String, password: String) async throws -> User
@@ -21,12 +22,14 @@ protocol FirebaseProtocol {
     func databaseWrite(nickname: String, email: String, avatar: String, bio: String, uid: String)
     func databaseEdit(uid: String, nickname: String, email: String, avatar: String, bio: String)
     func databaseRead(uid: String) async throws -> UserModel
+    func databaseSaveImage(image: UIImage?) async throws
 }
 
 class FirebaseManager: FirebaseProtocol {
     
     let auth = Auth.auth()
     let database = Firestore.firestore()
+    let storage = Storage.storage()
     let ref = Database.database().reference()
     
     func signUpEmail(email: String, password: String) async throws -> User {
@@ -53,8 +56,8 @@ class FirebaseManager: FirebaseProtocol {
     
     func databaseEdit(uid: String, nickname: String, email: String, avatar: String, bio: String) {
         
-        let users = database.collection("Users").document(uid)
-        users.updateData(["nickname" : nickname,
+        let user = database.collection("Users").document(uid)
+        user.updateData(["nickname" : nickname,
                           "email" : email,
                           "avatar" : avatar,
                           "bio" : bio,
@@ -63,5 +66,19 @@ class FirebaseManager: FirebaseProtocol {
     
     func databaseRead(uid: String) async throws -> UserModel  {
         try await database.collection("Users").document(uid).getDocument(as: UserModel.self)
+    }
+    
+    func databaseSaveImage(image: UIImage?) async throws {
+        let uid = auth.currentUser?.uid ?? ""
+        let ref = storage.reference(withPath: uid)
+        guard let imageData = image?.jpegData(compressionQuality: 0.5) else { return }
+        let data = ref.putData(imageData)
+        let url = try await ref.downloadURL()
+        self.attachUserImageUrl(uid: uid, url: url)
+    }
+    
+    private func attachUserImageUrl(uid: String, url: URL) {
+        let user = database.collection("Users").document(uid)
+        user.updateData(["avatar" : url.absoluteString])
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct EditProfileView: View {
     
@@ -14,9 +15,30 @@ struct EditProfileView: View {
     var body: some View {
         VStack(spacing: 16) {
             Button {
-                print("edit photo")
+                vm.showImagePicker.toggle()
             } label: {
-                Image("avatar")
+                VStack {
+                    if let image = vm.image {
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 128, height: 128)
+                            .cornerRadius(64)
+                    } else {
+                        KFImage(URL(string: vm.avatar))
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 128, height: 128)
+                            .clipped()
+                            .cornerRadius(64)
+                            .overlay(RoundedRectangle(cornerRadius: 64)
+                            .stroke(Color(.label), lineWidth: 1))
+                            .shadow(radius: 5)
+                    }
+                }
+                .overlay(RoundedRectangle(cornerRadius: 64)
+                            .stroke(Color.black, lineWidth: 3)
+                )
             }
             CustomTextField(bindingValue: $vm.nickname, image: "person.fill", placeHolder: "Nickname")
             CustomTextField(bindingValue: $vm.email, image: "envelope", placeHolder: "Email")
@@ -33,6 +55,10 @@ struct EditProfileView: View {
         .padding([.leading, .trailing])
         .task {
             vm.getUserInfo()
+        }
+        .fullScreenCover(isPresented: $vm.showImagePicker, onDismiss: nil) {
+            ImagePicker(image: $vm.image)
+                .ignoresSafeArea()
         }
     }
 }

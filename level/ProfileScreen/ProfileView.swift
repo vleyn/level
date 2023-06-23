@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ProfileView: View {
     
@@ -101,7 +102,15 @@ struct ProfileView: View {
                         }
                     }
                 }
-                Image("avatar")
+                KFImage(URL(string: vm.avatar))
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 120, height: 120)
+                    .clipped()
+                    .cornerRadius(60)
+                    .overlay(RoundedRectangle(cornerRadius: 60)
+                    .stroke(Color(.label), lineWidth: 1))
+                    .shadow(radius: 5)
                     .padding(.top, 100)
             }
             .task {

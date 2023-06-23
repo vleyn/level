@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct CustomTabbar: View {
     
@@ -51,12 +52,14 @@ struct CustomTabbar: View {
 struct TabbarItem: View {
     @State var tab: String
     @Binding var selected: String
+    @StateObject var vm = CustomTabbarViewModel()
     
     var body: some View {
         if tab == "Profile" {
             Button {
                 withAnimation(.spring()) {
                     selected = tab
+                    vm.cacheUser()
                 }
                 
             } label: {
@@ -64,10 +67,21 @@ struct TabbarItem: View {
                     Circle()
                         .frame(width: 43, height: 43)
                         .foregroundColor(selected == tab ? Color.white : Color.gray)
-                    Image("avatar")
-                        .resizable()
-                        .frame(width: 35, height: 35)
-                    
+                    if vm.avatar.isEmpty {
+                        Image("avatar")
+                            .resizable()
+                            .frame(width: 35, height: 35)
+                    } else {
+                        KFImage(URL(string: UserCache.shared.avatar))
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 35, height: 35)
+                            .clipped()
+                            .cornerRadius(17)
+                            .overlay(RoundedRectangle(cornerRadius: 17)
+                            .stroke(Color(.label), lineWidth: 1))
+                            .shadow(radius: 5)
+                    }
                 }
             }
         } else {
@@ -97,12 +111,6 @@ struct TabbarItem: View {
         }
     }
 }
-
-
-
-
-
-
 
 struct CustomTabbar_Previews: PreviewProvider {
     static var previews: some View {
