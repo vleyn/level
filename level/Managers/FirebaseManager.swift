@@ -58,11 +58,11 @@ class FirebaseManager: FirebaseProtocol {
     func databaseEdit(uid: String, nickname: String, email: String, avatar: String, bio: String) {
         
         let user = database.collection("Users").document(uid)
-        user.updateData(["nickname" : nickname,
-                          "email" : email,
-                          "avatar" : avatar,
-                          "bio" : bio,
-                          "uid" : uid ])
+        user.updateData([DatabaseConstants.nickname : nickname,
+                         DatabaseConstants.email : email,
+                         DatabaseConstants.avatar : avatar,
+                         DatabaseConstants.bio : bio,
+                         DatabaseConstants.uid : uid ])
     }
     
     func databaseRead(uid: String) async throws -> UserModel  {
@@ -80,7 +80,7 @@ class FirebaseManager: FirebaseProtocol {
     
     private func attachUserImageUrl(uid: String, url: URL) {
         let user = database.collection("Users").document(uid)
-        user.updateData(["avatar" : url.absoluteString])
+        user.updateData([DatabaseConstants.avatar : url.absoluteString])
     }
     
     func getAllUsers() async throws -> [ChatUser] {

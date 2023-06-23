@@ -21,7 +21,7 @@ struct WriteNewMessageView: View {
                         print("hello")
                     } label: {
                         NavigationLink {
-//                            ChatLogView(chatUser: user)
+                            ChatLogView(chatUser: user)
                         } label: {
                             HStack(spacing: 16) {
                                 KFImage(URL(string: user.avatar))

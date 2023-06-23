@@ -20,8 +20,8 @@ struct ChatUser: Identifiable {
     let uid, nickname, avatar: String
     
     init(data: [String: Any]) {
-        self.uid = data["uid"] as? String ?? ""
-        self.nickname = data["nickname"] as? String ?? ""
-        self.avatar = data["avatar"] as? String ?? ""
+        self.uid = data[ChatUserConstants.uid] as? String ?? ""
+        self.nickname = data[ChatUserConstants.nickname] as? String ?? ""
+        self.avatar = data[ChatUserConstants.avatar] as? String ?? ""
     }
 }
