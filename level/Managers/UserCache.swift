@@ -26,4 +26,8 @@ class UserCache {
         avatar = user.avatar
         bio = user.bio
     }
+    
+    func getInfo() -> UserModel {
+        UserModel(uid: uid, nickname: nickname, email: email, avatar: avatar, bio: bio)
+    }
 }

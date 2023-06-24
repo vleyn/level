@@ -111,7 +111,8 @@ final class ChatLogViewModel: ObservableObject {
         
         document.setData(data)
 
-        guard let currentUser = firebaseManager.currentUser else { return }
+        let currentUser = UserCache.shared.getInfo()
+        
         let recipientRecentMessageDictionary = [
             DatabaseConstants.timestamp: Timestamp(),
             MessagesConstants.text: self.chatText,
@@ -126,8 +127,7 @@ final class ChatLogViewModel: ObservableObject {
             .document(toId)
             .collection("messages")
             .document(currentUser.uid)
-            
-            document.setData(recipientRecentMessageDictionary)
+            .setData(recipientRecentMessageDictionary)
     }
 }
 
