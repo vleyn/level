@@ -18,6 +18,7 @@ final class ChatLogViewModel: ObservableObject {
     @Published var newMessageCount = 0
     
     let chatUser: ChatUser?
+    var currentUser: ChatUser?
     
     init(chatUser: ChatUser?) {
         self.chatUser = chatUser
@@ -41,13 +42,14 @@ final class ChatLogViewModel: ObservableObject {
             do {
                 try await document.setData(messageData)
                 await MainActor.run {
+                    persistRecentMessage()
                     self.chatText = ""
                     self.newMessageCount += 1
                 }
             } catch {
                 print(error.localizedDescription)
             }
-            
+                        
             let recipientMessageDocument = firebaseManager.database.collection("Messages")
                 .document(toId)
                 .collection(fromId)
@@ -85,6 +87,47 @@ final class ChatLogViewModel: ObservableObject {
                     self.newMessageCount += 1
                 }
             }
+    }
+    
+    private func persistRecentMessage() {
+        guard let chatUser = chatUser else { return }
+        guard let uid = firebaseManager.auth.currentUser?.uid else { return }
+        guard let toId = self.chatUser?.uid else { return }
+        
+        let document = firebaseManager.database
+            .collection("recent_messages")
+            .document(uid)
+            .collection("messages")
+            .document(toId)
+        
+        let data = [
+            DatabaseConstants.timestamp: Timestamp(),
+            MessagesConstants.text: self.chatText,
+            MessagesConstants.fromId: uid,
+            MessagesConstants.toId: toId,
+            DatabaseConstants.avatar: chatUser.avatar,
+            DatabaseConstants.nickname: chatUser.nickname
+        ] as [String : Any]
+        
+        document.setData(data)
+
+        guard let currentUser = firebaseManager.currentUser else { return }
+        let recipientRecentMessageDictionary = [
+            DatabaseConstants.timestamp: Timestamp(),
+            MessagesConstants.text: self.chatText,
+            MessagesConstants.fromId: uid,
+            MessagesConstants.toId: toId,
+            DatabaseConstants.avatar: currentUser.avatar,
+            DatabaseConstants.nickname: currentUser.nickname
+        ] as [String : Any]
+        
+        firebaseManager.database
+            .collection("recent_messages")
+            .document(toId)
+            .collection("messages")
+            .document(currentUser.uid)
+            
+            document.setData(recipientRecentMessageDictionary)
     }
 }
 

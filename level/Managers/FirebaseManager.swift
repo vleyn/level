@@ -16,6 +16,7 @@ protocol FirebaseProtocol {
     var database: Firestore { get }
     var storage: Storage { get }
     var ref: DatabaseReference { get }
+    var currentUser: ChatUser? { get }
     func signUpEmail(email: String, password: String) async throws -> User
     func login(email: String, password: String) async throws -> User
     func logOut() async throws
@@ -32,6 +33,7 @@ class FirebaseManager: FirebaseProtocol {
     let database = Firestore.firestore()
     let storage = Storage.storage()
     let ref = Database.database().reference()
+    var currentUser: ChatUser?
     
     func signUpEmail(email: String, password: String) async throws -> User {
         try await Auth.auth().createUser(withEmail: email, password: password).user

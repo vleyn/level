@@ -12,6 +12,7 @@ final class MessagesViewModel: ObservableObject {
     private let firebaseManager: FirebaseProtocol = FirebaseManager()
     
     @Published var chatUser: UserModel?
+    @Published var recentMessages = [RecentMessage]()
     @Published var showNewMessageScreen: Bool = false
     
     func getChatUser() {
@@ -22,4 +23,32 @@ final class MessagesViewModel: ObservableObject {
                              avatar: UserCache.shared.avatar,
                              bio: UserCache.shared.bio)
     }
+    
+    func getRecentMessages() {
+        guard let uid = firebaseManager.auth.currentUser?.uid else { return }
+        
+        firebaseManager.database
+            .collection("recent_messages")
+            .document(uid)
+            .collection("messages")
+            .order(by: "timestamp")
+            .addSnapshotListener { querySnapshot, error in
+                if let error = error {
+                    print(error)
+                    return
+                }
+                
+                querySnapshot?.documentChanges.forEach({ change in
+                    let docId = change.document.documentID
+                    
+                    if let index = self.recentMessages.firstIndex(where: { rm in
+                        return rm.documentId == docId
+                    }) {
+                        self.recentMessages.remove(at: index)
+                    }
+                    self.recentMessages.insert(.init(documentId: docId, data: change.document.data()), at: 0)
+                })
+            }
+    }
 }
+

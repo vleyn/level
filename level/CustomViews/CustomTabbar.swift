@@ -44,7 +44,7 @@ struct CustomTabbar: View {
             .background(Color(.lightGray))
         }
         .task {
-            await vm.cacheUser()
+            vm.cacheUser()
         }
     }
 }

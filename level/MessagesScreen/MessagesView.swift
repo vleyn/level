@@ -23,6 +23,7 @@ struct MessagesView: View {
             .navigationBarHidden(true)
             .task {
                 vm.getChatUser()
+                vm.getRecentMessages()
             }
         }
     }
@@ -61,25 +62,29 @@ struct MessagesView: View {
     
     private var messagesView: some View {
         ScrollView {
-            ForEach(0..<10, id: \.self) { num in
+            ForEach(vm.recentMessages) { message in
                 VStack {
                     NavigationLink {
                         Text("Destination")
                     } label: {
                         HStack(spacing: 16) {
-                            Image(systemName: "person.fill")
-                                .font(.system(size: 32))
-                                .padding(8)
-                                .overlay(RoundedRectangle(cornerRadius: 44)
-                                            .stroke(Color(.label), lineWidth: 1)
-                                )
-                            
-                            VStack(alignment: .leading) {
-                                Text("Username")
+                            KFImage(URL(string: message.avatar))
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 64, height: 64)
+                                .clipped()
+                                .cornerRadius(64)
+                                .overlay(RoundedRectangle(cornerRadius: 64)
+                                        .stroke(Color.black, lineWidth: 2))
+                        
+                            VStack(alignment: .leading, spacing: 7) {
+                                Text(message.nickname)
                                     .font(.system(size: 16, weight: .bold))
-                                Text("Message sent to user")
+                                    .foregroundColor(Color(.label))
+                                Text(message.text)
                                     .font(.system(size: 14))
                                     .foregroundColor(Color(.lightGray))
+                                    .multilineTextAlignment(.leading)
                             }
                             Spacer()
                             
