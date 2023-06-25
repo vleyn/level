@@ -14,10 +14,6 @@ struct CustomTabbar: View {
     let tabs = ["Home", "News", "Messenger", "Profile"]
     @StateObject var vm = CustomTabbarViewModel()
     
-    init() {
-        UITabBar.appearance().isHidden = true
-    }
-    
     var body: some View {
         ZStack(alignment: .bottom) {
             TabView(selection: $selectedTab) {
@@ -38,7 +34,7 @@ struct CustomTabbar: View {
                     Spacer()
                 }
             }
-            .padding(.top, 20)
+            .padding(.top, 15)
             .padding(.bottom, 5)
             .frame(maxWidth: .infinity)
             .background(Color(.lightGray))

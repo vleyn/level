@@ -10,6 +10,7 @@ import SwiftUI
 struct ChatLogView: View {
     
     let chatUser: ChatUser?
+    let tabbBar = CustomTabbar()
     
     init(chatUser: ChatUser?) {
         self.chatUser = chatUser
@@ -17,12 +18,13 @@ struct ChatLogView: View {
     }
     
     @ObservedObject var vm: ChatLogViewModel
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         ZStack {
             messagesView
         }
-        .navigationTitle(chatUser?.nickname ?? "")
+        .navigationTitle(vm.chatUser?.nickname ?? "")
         .navigationBarTitleDisplayMode(.inline)
     }
     
@@ -121,10 +123,10 @@ private struct DescriptionPlaceholder: View {
     }
 }
 
-struct ChatLogView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            ChatLogView(chatUser: .init(data: ["uid": "XEzvBurLIketeRaIgpV3M30mRal1", "nickname": "vlad"]))
-        }
-    }
-}
+//struct ChatLogView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationView {
+//            ChatLogView(chatUser: .init(data: ["uid": "XEzvBurLIketeRaIgpV3M30mRal1", "nickname": "vlad"]))
+//        }
+//    }
+//}

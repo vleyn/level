@@ -9,11 +9,12 @@ import Foundation
 
 final class MessagesViewModel: ObservableObject {
     
-    private let firebaseManager: FirebaseProtocol = FirebaseManager()
+    let firebaseManager: FirebaseProtocol = FirebaseManager()
     
     @Published var chatUser: UserModel?
     @Published var recentMessages = [RecentMessage]()
     @Published var showNewMessageScreen: Bool = false
+    @Published var showChatLogScreen: Bool = false
     
     func getChatUser() {
         
@@ -50,5 +51,6 @@ final class MessagesViewModel: ObservableObject {
                 })
             }
     }
+    
 }
 

@@ -11,7 +11,9 @@ import Kingfisher
 struct MessagesView: View {
     
     @StateObject var vm = MessagesViewModel()
-    
+    private var chatLogViewModel = ChatLogViewModel(chatUser: nil)
+    @State var chatUser: ChatUser?
+
     var body: some View {
         NavigationView {
             
@@ -59,13 +61,20 @@ struct MessagesView: View {
         }
         .padding()
     }
-    
+        
     private var messagesView: some View {
         ScrollView {
             ForEach(vm.recentMessages) { message in
                 VStack {
                     NavigationLink {
-                        Text("Destination")
+                        let uid = vm.firebaseManager.auth.currentUser?.uid == message.fromId ? message.toId : message.fromId
+                        
+                        let targetChatUser = ChatUser(data: [DatabaseConstants.uid : uid,
+                                                             DatabaseConstants.nickname: message.nickname,
+                                                             DatabaseConstants.avatar: message.avatar
+                                                             ])
+                        
+                        ChatLogView(chatUser: targetChatUser)
                     } label: {
                         HStack(spacing: 16) {
                             KFImage(URL(string: message.avatar))

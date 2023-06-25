@@ -17,7 +17,7 @@ final class ChatLogViewModel: ObservableObject {
     @Published var chatMessages = [ChatMessageModel]()
     @Published var newMessageCount = 0
     
-    let chatUser: ChatUser?
+    var chatUser: ChatUser?
     var currentUser: ChatUser?
     
     init(chatUser: ChatUser?) {
@@ -63,7 +63,7 @@ final class ChatLogViewModel: ObservableObject {
         }
     }
     
-    private func fetchMessages() {
+    func fetchMessages() {
         guard let fromId = firebaseManager.auth.currentUser?.uid else { return }
         guard let toId = chatUser?.uid else { return }
         firebaseManager.database
