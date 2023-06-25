@@ -26,6 +26,11 @@ struct ChatLogView: View {
         }
         .navigationTitle(vm.chatUser?.nickname ?? "")
         .navigationBarTitleDisplayMode(.inline)
+        .alert("Error", isPresented: $vm.isAlert) {
+            Button("Cancel", role: .cancel) { }
+        } message: {
+            Text(vm.errorText)
+        } 
     }
     
     private var messagesView: some View {

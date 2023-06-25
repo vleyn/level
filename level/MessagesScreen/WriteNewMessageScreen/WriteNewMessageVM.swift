@@ -11,6 +11,12 @@ final class WriteNewMessageViewModel: ObservableObject {
     
     private let firebaseManager: FirebaseProtocol = FirebaseManager()
     @Published var users: [ChatUser] = []
+    @Published var isAlert = false
+    @Published var errorText = "" {
+            didSet {
+                isAlert = true
+            }
+        }
     
     func getAllUsers() async {
         do {
@@ -19,7 +25,9 @@ final class WriteNewMessageViewModel: ObservableObject {
                 self.users = users
             }
         } catch {
-            print(error.localizedDescription)
+            await MainActor.run {
+                errorText = error.localizedDescription
+            }
         }
     }
     

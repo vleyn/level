@@ -16,6 +16,12 @@ final class ChatLogViewModel: ObservableObject {
     @Published var chatText = ""
     @Published var chatMessages = [ChatMessageModel]()
     @Published var newMessageCount = 0
+    @Published var isAlert = false
+    @Published var errorText = "" {
+        didSet {
+            isAlert = true
+        }
+    }
     
     var chatUser: ChatUser?
     var currentUser: ChatUser?
@@ -27,7 +33,6 @@ final class ChatLogViewModel: ObservableObject {
     
     func handleSend() {
         Task {
-            print(chatText)
             guard let fromId = self.firebaseManager.auth.currentUser?.uid else { return }
             
             guard let toId = self.chatUser?.uid else { return }
@@ -47,7 +52,9 @@ final class ChatLogViewModel: ObservableObject {
                     self.newMessageCount += 1
                 }
             } catch {
-                print(error.localizedDescription)
+                await MainActor.run {
+                    errorText = error.localizedDescription
+                }
             }
                         
             let recipientMessageDocument = firebaseManager.database.collection("Messages")
@@ -58,7 +65,9 @@ final class ChatLogViewModel: ObservableObject {
             do {
                 try await recipientMessageDocument.setData(messageData)
             } catch {
-                print(error.localizedDescription)
+                await MainActor.run {
+                    errorText = error.localizedDescription
+                }
             }
         }
     }
@@ -73,16 +82,12 @@ final class ChatLogViewModel: ObservableObject {
             .order(by: "timestamp")
             .addSnapshotListener { snapshot, error in
                 if let error = error {
-                    print(error.localizedDescription)
+                    self.errorText = error.localizedDescription
                     return
                 }
                 
-                snapshot?.documentChanges.forEach({ change in
-                    if change.type == .added {
-                        let data = change.document.data()
-                        self.chatMessages.append(.init(documentId: change.document.documentID, data: data))
-                    }
-                })
+                self.chatMessages.append(contentsOf: snapshot?.documentChanges.filter({$0.type == .added}).map({ChatMessageModel(documentId: $0.document.documentID, data: $0.document.data())}) ?? [ChatMessageModel(documentId: "", data: [:])])
+                
                 DispatchQueue.main.async {
                     self.newMessageCount += 1
                 }

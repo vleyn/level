@@ -11,7 +11,6 @@ import Kingfisher
 struct CustomTabbar: View {
     
     @State var selectedTab = "Home"
-    let tabs = ["Home", "News", "Messenger", "Profile"]
     @StateObject var vm = CustomTabbarViewModel()
     
     var body: some View {
@@ -28,7 +27,7 @@ struct CustomTabbar: View {
             }
             
             HStack {
-                ForEach(tabs, id: \.self) { tab in
+                ForEach(vm.tabs, id: \.self) { tab in
                     Spacer()
                     TabbarItem(tab: tab, selected: $selectedTab)
                     Spacer()
@@ -42,6 +41,11 @@ struct CustomTabbar: View {
         .task {
             vm.cacheUser()
         }
+        .alert("Error", isPresented: $vm.isAlert) {
+            Button("Cancel", role: .cancel) { }
+        } message: {
+            Text(vm.errorText)
+        } 
     }
 }
 

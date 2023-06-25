@@ -11,8 +11,6 @@ import Kingfisher
 struct MessagesView: View {
     
     @StateObject var vm = MessagesViewModel()
-    private var chatLogViewModel = ChatLogViewModel(chatUser: nil)
-    @State var chatUser: ChatUser?
 
     var body: some View {
         NavigationView {
@@ -27,22 +25,34 @@ struct MessagesView: View {
                 vm.getChatUser()
                 vm.getRecentMessages()
             }
+            .alert("Error", isPresented: $vm.isAlert) {
+                Button("Cancel", role: .cancel) { }
+            } message: {
+                Text(vm.errorText)
+            } 
         }
     }
     
     private var customNavBar: some View {
         HStack(spacing: 16) {
             
-            KFImage(URL(string: vm.chatUser?.avatar ?? ""))
-                .resizable()
-                .scaledToFill()
-                .frame(width: 50, height: 50)
-                .clipped()
-                .cornerRadius(50)
-                .overlay(RoundedRectangle(cornerRadius: 44)
-                            .stroke(Color(.label), lineWidth: 1)
-                )
-                .shadow(radius: 5)
+            if vm.chatUser?.avatar != "" {
+                KFImage(URL(string: vm.chatUser?.avatar ?? ""))
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 50, height: 50)
+                    .clipped()
+                    .cornerRadius(50)
+                    .overlay(RoundedRectangle(cornerRadius: 44)
+                                .stroke(Color(.label), lineWidth: 1)
+                    )
+                    .shadow(radius: 5)
+            } else {
+                Image(systemName: "person.fill")
+                    .resizable()
+                    .frame(width: 40, height: 40)
+                    .shadow(radius: 5)
+            }
             
             VStack(alignment: .leading, spacing: 4) {
                 Text(vm.chatUser?.nickname ?? "")
@@ -64,7 +74,7 @@ struct MessagesView: View {
         
     private var messagesView: some View {
         ScrollView {
-            ForEach(vm.recentMessages) { message in
+            ForEach(vm.recentMessages, id: \.id) { message in
                 VStack {
                     NavigationLink {
                         let uid = vm.firebaseManager.auth.currentUser?.uid == message.fromId ? message.toId : message.fromId

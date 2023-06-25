@@ -9,23 +9,32 @@ import Foundation
 
 final class CustomTabbarViewModel: ObservableObject {
     
+    @Published var tabs = ["Home", "News", "Messenger", "Profile"]
     private let firebaseManager: FirebaseProtocol = FirebaseManager()
     @Published var avatar = ""
+    @Published var isAlert = false
+    @Published var errorText = "" {
+        didSet {
+            isAlert = true
+        }
+    }
     
     func cacheUser() {
         
         Task {
-            let uid = firebaseManager.auth.currentUser?.uid ?? ""
-            if uid != "" {
+            if let uid = firebaseManager.auth.currentUser?.uid, uid != "" {
                 do {
                     let user = try await firebaseManager.databaseRead(uid: uid)
+                    let userCache = UserModel(uid: uid, nickname: user.nickname, email: user.email, avatar: user.avatar, bio: user.bio)
+                    UserCache.shared.saveInfo(user: userCache)
+
                     await MainActor.run {
-                        let userCache = UserModel(uid: uid, nickname: user.nickname, email: user.email, avatar: user.avatar, bio: user.bio)
-                        UserCache.shared.saveInfo(user: userCache)
                         avatar = userCache.avatar
                     }
                 } catch {
-                    print(error.localizedDescription)
+                    await MainActor.run {
+                        errorText = error.localizedDescription
+                    }
                 }
             }
         }

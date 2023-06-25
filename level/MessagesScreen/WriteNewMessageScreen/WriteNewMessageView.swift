@@ -18,21 +18,29 @@ struct WriteNewMessageView: View {
             ScrollView {
                 ForEach(vm.users) { user in
                     Button {
-                        print("hello")
                     } label: {
                         NavigationLink {
                             ChatLogView(chatUser: user)
                         } label: {
                             HStack(spacing: 16) {
-                                KFImage(URL(string: user.avatar))
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 50, height: 50)
-                                    .clipped()
-                                    .cornerRadius(50)
-                                    .overlay(RoundedRectangle(cornerRadius: 50)
-                                        .stroke(.black, lineWidth: 2)
-                                    )
+                                if user.avatar.isEmpty {
+                                    Image(systemName: "person.fill")
+                                        .resizable()
+                                        .frame(width: 40, height: 40)
+                                        .foregroundColor(.black)
+                                }
+                                else {
+                                    KFImage(URL(string: user.avatar))
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 50, height: 50)
+                                        .clipped()
+                                        .cornerRadius(50)
+                                        .overlay(RoundedRectangle(cornerRadius: 50)
+                                            .stroke(.black, lineWidth: 2)
+                                        )
+                                }
+                                
                                 Text(user.nickname)
                                     .foregroundColor(.black)
                                 Spacer()
@@ -60,6 +68,11 @@ struct WriteNewMessageView: View {
         .task {
             await vm.getAllUsers()
         }
+        .alert("Error", isPresented: $vm.isAlert) {
+            Button("Cancel", role: .cancel) { }
+        } message: {
+            Text(vm.errorText)
+        } 
     }
 }
 

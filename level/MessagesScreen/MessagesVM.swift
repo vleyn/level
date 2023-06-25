@@ -14,7 +14,12 @@ final class MessagesViewModel: ObservableObject {
     @Published var chatUser: UserModel?
     @Published var recentMessages = [RecentMessage]()
     @Published var showNewMessageScreen: Bool = false
-    @Published var showChatLogScreen: Bool = false
+    @Published var isAlert = false
+    @Published var errorText = "" {
+        didSet {
+            isAlert = true
+        }
+    }
     
     func getChatUser() {
         
@@ -35,7 +40,7 @@ final class MessagesViewModel: ObservableObject {
             .order(by: "timestamp")
             .addSnapshotListener { querySnapshot, error in
                 if let error = error {
-                    print(error)
+                    self.errorText = error.localizedDescription
                     return
                 }
                 

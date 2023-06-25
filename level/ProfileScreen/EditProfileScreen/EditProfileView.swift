@@ -11,7 +11,6 @@ import Kingfisher
 struct EditProfileView: View {
     
     @StateObject var vm = EditProfileViewModel()
-//    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack(spacing: 16) {
@@ -25,21 +24,28 @@ struct EditProfileView: View {
                             .scaledToFill()
                             .frame(width: 128, height: 128)
                             .cornerRadius(64)
-                    } else {
-                        KFImage(URL(string: vm.avatar))
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 128, height: 128)
-                            .clipped()
-                            .cornerRadius(64)
                             .overlay(RoundedRectangle(cornerRadius: 64)
-                                .stroke(Color(.label), lineWidth: 1))
-                            .shadow(radius: 5)
+                                .stroke(Color.black, lineWidth: 3)
+                            )
+                    } else {
+                        if vm.avatar.isEmpty {
+                            Image(systemName: "person.fill")
+                                .resizable()
+                                .frame(width: 100, height: 100)
+                                .foregroundColor(.black)
+                        } else {
+                            KFImage(URL(string: vm.avatar))
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 128, height: 128)
+                                .clipped()
+                                .cornerRadius(64)
+                                .overlay(RoundedRectangle(cornerRadius: 64)
+                                    .stroke(Color(.label), lineWidth: 1))
+                                .shadow(radius: 5)
+                        }
                     }
                 }
-                .overlay(RoundedRectangle(cornerRadius: 64)
-                    .stroke(Color.black, lineWidth: 3)
-                )
             }
             CustomTextField(bindingValue: $vm.nickname, image: "person.fill", placeHolder: "Nickname")
             CustomTextField(bindingValue: $vm.email, image: "envelope", placeHolder: "Email")
@@ -61,11 +67,11 @@ struct EditProfileView: View {
             ImagePicker(image: $vm.image)
                 .ignoresSafeArea()
         }
-//        .onReceive(vm.viewDismissalModePublisher) { shouldDismiss in
-//            if shouldDismiss {
-//                dismiss()
-//            }
-//        }
+        .alert("Error", isPresented: $vm.isAlert) {
+            Button("Cancel", role: .cancel) { }
+        } message: {
+            Text(vm.errorText)
+        } 
     }
 }
 

@@ -11,24 +11,21 @@ import SwiftUI
 import Combine
 
 final class EditProfileViewModel: ObservableObject {
-//    
-//    var viewDismissalModePublisher = PassthroughSubject<Bool, Never>()
-//    private var shouldDismissView = false {
-//        didSet {
-//            viewDismissalModePublisher.send(shouldDismissView)
-//        }
-//    }
     
     private let firebaseManager: FirebaseProtocol = FirebaseManager()
     
     @Published var showImagePicker = false
     @Published var image: UIImage?
-
-    
     @Published var avatar = ""
     @Published var nickname = ""
     @Published var email = ""
     @Published var bio = ""
+    @Published var isAlert = false
+    @Published var errorText = "" {
+        didSet {
+            isAlert = true
+        }
+    }
     
     func getUserInfo() {
         nickname = UserCache.shared.nickname
@@ -45,18 +42,16 @@ final class EditProfileViewModel: ObservableObject {
             do {
                 try await firebaseManager.databaseSaveImage(image: image)
                 let fetchedUser = try await firebaseManager.databaseRead(uid: uid)
+                let user = UserModel(uid: uid, nickname: nickname, email: email, avatar: fetchedUser.avatar, bio: bio)
+                UserCache.shared.saveInfo(user: user)
                 await MainActor.run {
-                    let user = UserModel(uid: uid, nickname: nickname, email: email, avatar: fetchedUser.avatar, bio: bio)
-                    UserCache.shared.saveInfo(user: user)
                     avatar = fetchedUser.avatar
                 }
             } catch {
-                print(error.localizedDescription)
+                await MainActor.run {
+                    errorText = error.localizedDescription
+                }
             }
         }
-        
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//            self.shouldDismissView = true
-//        }
     }
 }
