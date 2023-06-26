@@ -55,6 +55,14 @@
 		F54879472A3B90FC00304C76 /* CustomTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54879462A3B90FC00304C76 /* CustomTabbar.swift */; };
 		F548794B2A3C777700304C76 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F548794A2A3C777700304C76 /* ProfileView.swift */; };
 		F548794D2A3C778200304C76 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F548794C2A3C778200304C76 /* ProfileVM.swift */; };
+		F54D53312A44FDAE00708684 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D53302A44FDAE00708684 /* ImagePicker.swift */; };
+		F54D53332A45092D00708684 /* CustomTabbarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D53322A45092D00708684 /* CustomTabbarVM.swift */; };
+		F54D53362A451E2200708684 /* WriteNewMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D53352A451E2200708684 /* WriteNewMessageView.swift */; };
+		F54D53382A451E3500708684 /* WriteNewMessageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D53372A451E3500708684 /* WriteNewMessageVM.swift */; };
+		F54D533B2A45359100708684 /* ChatLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D533A2A45359100708684 /* ChatLogView.swift */; };
+		F54D533D2A45359D00708684 /* ChatLogVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D533C2A45359D00708684 /* ChatLogVM.swift */; };
+		F54D53402A45AD9200708684 /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D533F2A45AD9200708684 /* FirebaseConstants.swift */; };
+		F54D53432A45B61500708684 /* ChatMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D53422A45B61500708684 /* ChatMessageModel.swift */; };
 		F55104702A30DC95000FB952 /* RawgApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F551046F2A30DC95000FB952 /* RawgApi.swift */; };
 		F55104732A30DCF8000FB952 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = F55104722A30DCF8000FB952 /* CombineMoya */; };
 		F55104752A30DCF8000FB952 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = F55104742A30DCF8000FB952 /* Moya */; };
@@ -115,6 +123,14 @@
 		F54879462A3B90FC00304C76 /* CustomTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbar.swift; sourceTree = "<group>"; };
 		F548794A2A3C777700304C76 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		F548794C2A3C778200304C76 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
+		F54D53302A44FDAE00708684 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		F54D53322A45092D00708684 /* CustomTabbarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbarVM.swift; sourceTree = "<group>"; };
+		F54D53352A451E2200708684 /* WriteNewMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteNewMessageView.swift; sourceTree = "<group>"; };
+		F54D53372A451E3500708684 /* WriteNewMessageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteNewMessageVM.swift; sourceTree = "<group>"; };
+		F54D533A2A45359100708684 /* ChatLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogView.swift; sourceTree = "<group>"; };
+		F54D533C2A45359D00708684 /* ChatLogVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogVM.swift; sourceTree = "<group>"; };
+		F54D533F2A45AD9200708684 /* FirebaseConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
+		F54D53422A45B61500708684 /* ChatMessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageModel.swift; sourceTree = "<group>"; };
 		F551046F2A30DC95000FB952 /* RawgApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawgApi.swift; sourceTree = "<group>"; };
 		F551047A2A30DD29000FB952 /* MoyaProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaProvider.swift; sourceTree = "<group>"; };
 		F551047C2A30DD51000FB952 /* GameListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListModel.swift; sourceTree = "<group>"; };
@@ -235,6 +251,8 @@
 			children = (
 				F537039E2A3F94FE0008779D /* MessagesView.swift */,
 				F53703A02A3F950A0008779D /* MessagesVM.swift */,
+				F54D53342A451E0400708684 /* WriteNewMessageScreen */,
+				F54D53392A45357900708684 /* ChatLogScreen */,
 			);
 			path = MessagesScreen;
 			sourceTree = "<group>";
@@ -271,7 +289,10 @@
 			children = (
 				F5421AD92A3A5A3100A42934 /* CustomTextField.swift */,
 				F54879462A3B90FC00304C76 /* CustomTabbar.swift */,
+				F54D53322A45092D00708684 /* CustomTabbarVM.swift */,
 				F5B2BDEE2A3D89490074E3D5 /* GameCell.swift */,
+				F54D53302A44FDAE00708684 /* ImagePicker.swift */,
+				F54D53422A45B61500708684 /* ChatMessageModel.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -284,6 +305,32 @@
 				F53703962A3F79200008779D /* EditProfileScreen */,
 			);
 			path = ProfileScreen;
+			sourceTree = "<group>";
+		};
+		F54D53342A451E0400708684 /* WriteNewMessageScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F54D53352A451E2200708684 /* WriteNewMessageView.swift */,
+				F54D53372A451E3500708684 /* WriteNewMessageVM.swift */,
+			);
+			path = WriteNewMessageScreen;
+			sourceTree = "<group>";
+		};
+		F54D53392A45357900708684 /* ChatLogScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F54D533A2A45359100708684 /* ChatLogView.swift */,
+				F54D533C2A45359D00708684 /* ChatLogVM.swift */,
+			);
+			path = ChatLogScreen;
+			sourceTree = "<group>";
+		};
+		F54D533E2A45AD7B00708684 /* FirebaseConstants */ = {
+			isa = PBXGroup;
+			children = (
+				F54D533F2A45AD9200708684 /* FirebaseConstants.swift */,
+			);
+			path = FirebaseConstants;
 			sourceTree = "<group>";
 		};
 		F57D36832A2E9E240023F479 = {
@@ -319,6 +366,7 @@
 				F537039B2A3F79E20008779D /* Managers */,
 				F537039C2A3F7A0B0008779D /* Models */,
 				F5421AD82A3A5A1E00A42934 /* CustomViews */,
+				F54D533E2A45AD7B00708684 /* FirebaseConstants */,
 				F57D36932A2E9E250023F479 /* Assets.xcassets */,
 				F55104802A30DDD7000FB952 /* Info.plist */,
 				F534BF582A3643CD00A9871D /* GoogleService-Info.plist */,
@@ -539,15 +587,18 @@
 				F5421AD72A3A3D0800A42934 /* SignUpVM.swift in Sources */,
 				F551047B2A30DD29000FB952 /* MoyaProvider.swift in Sources */,
 				F5B2BDF22A3D8C6D0074E3D5 /* HomeView.swift in Sources */,
+				F54D53382A451E3500708684 /* WriteNewMessageVM.swift in Sources */,
 				F57D36902A2E9E240023F479 /* levelApp.swift in Sources */,
 				F534BF9B2A3665C200A9871D /* RealmModel.swift in Sources */,
 				F551047D2A30DD51000FB952 /* GameListModel.swift in Sources */,
 				F5421ADA2A3A5A3100A42934 /* CustomTextField.swift in Sources */,
+				F54D53362A451E2200708684 /* WriteNewMessageView.swift in Sources */,
 				F534BF922A36467800A9871D /* FirebaseManager.swift in Sources */,
 				F548794D2A3C778200304C76 /* ProfileVM.swift in Sources */,
 				F534BF992A36657800A9871D /* RealmManager.swift in Sources */,
 				F548794B2A3C777700304C76 /* ProfileView.swift in Sources */,
 				F54879472A3B90FC00304C76 /* CustomTabbar.swift in Sources */,
+				F54D53332A45092D00708684 /* CustomTabbarVM.swift in Sources */,
 				F558790E2A38FCF200AD835E /* GameGenresModel.swift in Sources */,
 				F53703A42A3F952B0008779D /* NewsView.swift in Sources */,
 				F5B2BDF42A3D8C770074E3D5 /* HomeVM.swift in Sources */,
@@ -556,11 +607,16 @@
 				F53703982A3F79400008779D /* EditProfileView.swift in Sources */,
 				F53703A12A3F950A0008779D /* MessagesVM.swift in Sources */,
 				F551047F2A30DD73000FB952 /* GameDetailModel.swift in Sources */,
+				F54D533B2A45359100708684 /* ChatLogView.swift in Sources */,
+				F54D533D2A45359D00708684 /* ChatLogVM.swift in Sources */,
 				F5421AD12A3A3CDC00A42934 /* LoginView.swift in Sources */,
 				F5421ACD2A3A219C00A42934 /* UserModel.swift in Sources */,
 				F53703A62A3F95340008779D /* NewsVM.swift in Sources */,
 				F55104702A30DC95000FB952 /* RawgApi.swift in Sources */,
 				F537039F2A3F94FE0008779D /* MessagesView.swift in Sources */,
+				F54D53432A45B61500708684 /* ChatMessageModel.swift in Sources */,
+				F54D53402A45AD9200708684 /* FirebaseConstants.swift in Sources */,
+				F54D53312A44FDAE00708684 /* ImagePicker.swift in Sources */,
 				F5B2BDEF2A3D89490074E3D5 /* GameCell.swift in Sources */,
 				F5E0DFF72A418D2E0007747E /* ErrorsHadler.swift in Sources */,
 			);

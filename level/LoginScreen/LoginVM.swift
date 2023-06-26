@@ -42,7 +42,9 @@ final class LoginViewModel: ObservableObject {
                     self.isPresented = true
                 }
             } catch {
-                errorText = error.localizedDescription
+                await MainActor.run {
+                    errorText = error.localizedDescription
+                }
             }
         }
     }

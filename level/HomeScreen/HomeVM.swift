@@ -28,7 +28,9 @@ final class HomeViewModel: ObservableObject {
                 }
             }
         } catch {
-            errorText = error.localizedDescription
+            await MainActor.run {
+                errorText = error.localizedDescription
+            }
         }
     }
 }

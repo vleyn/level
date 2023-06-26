@@ -6,19 +6,15 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct CustomTabbar: View {
     
-    @State var selectedTab = "Home"
-    let tabs = ["Home", "News", "Messenger", "Profile"]
-    
-    init() {
-        UITabBar.appearance().isHidden = true
-    }
+    @StateObject var vm = CustomTabbarViewModel()
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            TabView(selection: $selectedTab) {
+            TabView(selection: $vm.selectedTab) {
                 HomeView()
                     .tag("Home")
                 NewsView()
@@ -30,29 +26,39 @@ struct CustomTabbar: View {
             }
             
             HStack {
-                ForEach(tabs, id: \.self) { tab in
+                ForEach(vm.tabs, id: \.self) { tab in
                     Spacer()
-                    TabbarItem(tab: tab, selected: $selectedTab)
+                    TabbarItem(tab: tab, selected: $vm.selectedTab)
                     Spacer()
                 }
             }
-            .padding(.top, 20)
+            .padding(.top, 15)
             .padding(.bottom, 5)
             .frame(maxWidth: .infinity)
             .background(Color(.lightGray))
         }
+        .task {
+            vm.cacheUser()
+        }
+        .alert("Error", isPresented: $vm.isAlert) {
+            Button("Cancel", role: .cancel) { }
+        } message: {
+            Text(vm.errorText)
+        } 
     }
 }
 
 struct TabbarItem: View {
     @State var tab: String
     @Binding var selected: String
+    @StateObject var vm = CustomTabbarViewModel()
     
     var body: some View {
         if tab == "Profile" {
             Button {
                 withAnimation(.spring()) {
                     selected = tab
+                    vm.cacheUser()
                 }
                 
             } label: {
@@ -60,9 +66,22 @@ struct TabbarItem: View {
                     Circle()
                         .frame(width: 43, height: 43)
                         .foregroundColor(selected == tab ? Color.white : Color.gray)
-                    Image("avatar")
-                        .resizable()
-                        .frame(width: 35, height: 35)
+                    
+                    KFImage(URL(string: vm.avatar))
+                        .placeholder({
+                            Image(systemName: "person.fill")
+                                .resizable()
+                                .frame(width: 35, height: 35)
+                                .foregroundColor(.black)
+                        })
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 35, height: 35)
+                            .clipped()
+                            .cornerRadius(17)
+                            .overlay(RoundedRectangle(cornerRadius: 17)
+                            .stroke(Color(.label), lineWidth: 1))
+                            .shadow(radius: 5)
                     
                 }
             }
@@ -93,12 +112,6 @@ struct TabbarItem: View {
         }
     }
 }
-
-
-
-
-
-
 
 struct CustomTabbar_Previews: PreviewProvider {
     static var previews: some View {
