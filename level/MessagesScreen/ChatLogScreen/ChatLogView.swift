@@ -10,7 +10,6 @@ import SwiftUI
 struct ChatLogView: View {
     
     let chatUser: ChatUser?
-    let tabbBar = CustomTabbar()
     
     init(chatUser: ChatUser?) {
         self.chatUser = chatUser
@@ -30,7 +29,7 @@ struct ChatLogView: View {
             Button("Cancel", role: .cancel) { }
         } message: {
             Text(vm.errorText)
-        } 
+        }
     }
     
     private var messagesView: some View {

@@ -55,7 +55,9 @@ struct SignUpView: View {
                 CustomTabbar()
             }
             .alert("Error", isPresented: $vm.isAlert) {
-                Button("Cancel", role: .cancel) { }
+                Button("Cancel", role: .cancel) {
+                    return
+                }
             } message: {
                 Text(vm.errorText)
             }

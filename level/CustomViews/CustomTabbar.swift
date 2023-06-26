@@ -10,12 +10,11 @@ import Kingfisher
 
 struct CustomTabbar: View {
     
-    @State var selectedTab = "Home"
     @StateObject var vm = CustomTabbarViewModel()
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            TabView(selection: $selectedTab) {
+            TabView(selection: $vm.selectedTab) {
                 HomeView()
                     .tag("Home")
                 NewsView()
@@ -29,7 +28,7 @@ struct CustomTabbar: View {
             HStack {
                 ForEach(vm.tabs, id: \.self) { tab in
                     Spacer()
-                    TabbarItem(tab: tab, selected: $selectedTab)
+                    TabbarItem(tab: tab, selected: $vm.selectedTab)
                     Spacer()
                 }
             }
@@ -67,12 +66,14 @@ struct TabbarItem: View {
                     Circle()
                         .frame(width: 43, height: 43)
                         .foregroundColor(selected == tab ? Color.white : Color.gray)
-                    if vm.avatar.isEmpty {
-                        Image("avatar")
-                            .resizable()
-                            .frame(width: 35, height: 35)
-                    } else {
-                        KFImage(URL(string: UserCache.shared.avatar))
+                    
+                    KFImage(URL(string: vm.avatar))
+                        .placeholder({
+                            Image(systemName: "person.fill")
+                                .resizable()
+                                .frame(width: 35, height: 35)
+                                .foregroundColor(.black)
+                        })
                             .resizable()
                             .scaledToFill()
                             .frame(width: 35, height: 35)
@@ -81,7 +82,7 @@ struct TabbarItem: View {
                             .overlay(RoundedRectangle(cornerRadius: 17)
                             .stroke(Color(.label), lineWidth: 1))
                             .shadow(radius: 5)
-                    }
+                    
                 }
             }
         } else {

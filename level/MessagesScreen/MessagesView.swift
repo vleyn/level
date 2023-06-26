@@ -11,7 +11,7 @@ import Kingfisher
 struct MessagesView: View {
     
     @StateObject var vm = MessagesViewModel()
-
+    
     var body: some View {
         NavigationView {
             
@@ -29,30 +29,28 @@ struct MessagesView: View {
                 Button("Cancel", role: .cancel) { }
             } message: {
                 Text(vm.errorText)
-            } 
+            }
         }
     }
     
     private var customNavBar: some View {
         HStack(spacing: 16) {
             
-            if vm.chatUser?.avatar != "" {
-                KFImage(URL(string: vm.chatUser?.avatar ?? ""))
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 50, height: 50)
-                    .clipped()
-                    .cornerRadius(50)
-                    .overlay(RoundedRectangle(cornerRadius: 44)
-                                .stroke(Color(.label), lineWidth: 1)
-                    )
-                    .shadow(radius: 5)
-            } else {
-                Image(systemName: "person.fill")
-                    .resizable()
-                    .frame(width: 40, height: 40)
-                    .shadow(radius: 5)
-            }
+            KFImage(URL(string: vm.chatUser?.avatar ?? ""))
+                .placeholder({
+                    Image(systemName: "person.fill")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                })
+                .resizable()
+                .scaledToFill()
+                .frame(width: 50, height: 50)
+                .clipped()
+                .cornerRadius(50)
+                .overlay(RoundedRectangle(cornerRadius: 44)
+                    .stroke(Color(.label), lineWidth: 1)
+                )
+                .shadow(radius: 5)
             
             VStack(alignment: .leading, spacing: 4) {
                 Text(vm.chatUser?.nickname ?? "")
@@ -71,7 +69,7 @@ struct MessagesView: View {
         }
         .padding()
     }
-        
+    
     private var messagesView: some View {
         ScrollView {
             ForEach(vm.recentMessages, id: \.id) { message in
@@ -82,20 +80,25 @@ struct MessagesView: View {
                         let targetChatUser = ChatUser(data: [DatabaseConstants.uid : uid,
                                                              DatabaseConstants.nickname: message.nickname,
                                                              DatabaseConstants.avatar: message.avatar
-                                                             ])
+                                                            ])
                         
                         ChatLogView(chatUser: targetChatUser)
                     } label: {
                         HStack(spacing: 16) {
                             KFImage(URL(string: message.avatar))
+                                .placeholder({
+                                    Image(systemName: "person.fill")
+                                        .resizable()
+                                        .frame(width: 64, height: 64)
+                                })
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 64, height: 64)
                                 .clipped()
                                 .cornerRadius(64)
                                 .overlay(RoundedRectangle(cornerRadius: 64)
-                                        .stroke(Color.black, lineWidth: 2))
-                        
+                                    .stroke(Color.black, lineWidth: 2))
+                            
                             VStack(alignment: .leading, spacing: 7) {
                                 Text(message.nickname)
                                     .font(.system(size: 16, weight: .bold))
@@ -111,7 +114,7 @@ struct MessagesView: View {
                                 .font(.system(size: 14, weight: .semibold))
                         }
                     }
-
+                    
                     Divider()
                         .padding(.vertical, 8)
                 }
@@ -121,7 +124,7 @@ struct MessagesView: View {
         }
         .padding(.bottom, 70)
     }
-        
+    
     private var newMessageButton: some View {
         Button {
             vm.showNewMessageScreen.toggle()

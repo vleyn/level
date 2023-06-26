@@ -23,23 +23,21 @@ struct WriteNewMessageView: View {
                             ChatLogView(chatUser: user)
                         } label: {
                             HStack(spacing: 16) {
-                                if user.avatar.isEmpty {
-                                    Image(systemName: "person.fill")
-                                        .resizable()
-                                        .frame(width: 40, height: 40)
-                                        .foregroundColor(.black)
-                                }
-                                else {
-                                    KFImage(URL(string: user.avatar))
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 50, height: 50)
-                                        .clipped()
-                                        .cornerRadius(50)
-                                        .overlay(RoundedRectangle(cornerRadius: 50)
-                                            .stroke(.black, lineWidth: 2)
-                                        )
-                                }
+                                KFImage(URL(string: user.avatar))
+                                    .placeholder({
+                                        Image(systemName: "person.fill")
+                                            .resizable()
+                                            .frame(width: 50, height: 50)
+                                            .foregroundColor(.black)
+                                    })
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 50, height: 50)
+                                    .clipped()
+                                    .cornerRadius(50)
+                                    .overlay(RoundedRectangle(cornerRadius: 50)
+                                        .stroke(.black, lineWidth: 2)
+                                    )
                                 
                                 Text(user.nickname)
                                     .foregroundColor(.black)
@@ -49,9 +47,9 @@ struct WriteNewMessageView: View {
                             Divider()
                                 .padding(.vertical, 8)
                         }
-
+                        
                     }
-
+                    
                 }
             }
             .navigationTitle("New message")
@@ -72,7 +70,7 @@ struct WriteNewMessageView: View {
             Button("Cancel", role: .cancel) { }
         } message: {
             Text(vm.errorText)
-        } 
+        }
     }
 }
 

@@ -28,12 +28,12 @@ struct ProfileView: View {
                                     EditProfileView()
                                 } label: {
                                     Image(systemName: "pencil")
-                                            .foregroundColor(.black)
-                                            .padding(14)
-                                            .background(.white)
-                                            .clipShape(Circle())
+                                        .foregroundColor(.black)
+                                        .padding(14)
+                                        .background(.white)
+                                        .clipShape(Circle())
                                 }
-
+                                
                             }
                             .padding()
                         }
@@ -102,24 +102,22 @@ struct ProfileView: View {
                         }
                     }
                 }
-                if vm.avatar.isEmpty {
-                    Image(systemName: "person.fill")
-                        .resizable()
-                        .frame(width: 100, height: 100)
-                        .foregroundColor(.black)
-                        .padding(.top, 100)
-                } else {
-                    KFImage(URL(string: vm.avatar))
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 120, height: 120)
-                        .clipped()
-                        .cornerRadius(60)
-                        .overlay(RoundedRectangle(cornerRadius: 60)
+                KFImage(URL(string: vm.avatar))
+                    .placeholder({
+                        Image(systemName: "person.fill")
+                            .resizable()
+                            .frame(width: 120, height: 120)
+                    })
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 120, height: 120)
+                    .clipped()
+                    .cornerRadius(60)
+                    .overlay(RoundedRectangle(cornerRadius: 60)
                         .stroke(Color(.label), lineWidth: 1))
-                        .shadow(radius: 5)
-                        .padding(.top, 100)
-                }
+                    .shadow(radius: 5)
+                    .padding(.top, 100)
+                
             }
             .task {
                 vm.loadUserInfo()

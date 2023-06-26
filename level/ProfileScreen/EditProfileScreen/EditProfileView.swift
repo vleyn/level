@@ -28,22 +28,22 @@ struct EditProfileView: View {
                                 .stroke(Color.black, lineWidth: 3)
                             )
                     } else {
-                        if vm.avatar.isEmpty {
-                            Image(systemName: "person.fill")
-                                .resizable()
-                                .frame(width: 100, height: 100)
-                                .foregroundColor(.black)
-                        } else {
-                            KFImage(URL(string: vm.avatar))
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 128, height: 128)
-                                .clipped()
-                                .cornerRadius(64)
-                                .overlay(RoundedRectangle(cornerRadius: 64)
-                                    .stroke(Color(.label), lineWidth: 1))
-                                .shadow(radius: 5)
-                        }
+                        KFImage(URL(string: vm.avatar))
+                            .placeholder({
+                                Image(systemName: "person.fill")
+                                    .resizable()
+                                    .frame(width: 128, height: 128)
+                                    .foregroundColor(.black)
+                            })
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 128, height: 128)
+                            .clipped()
+                            .cornerRadius(64)
+                            .overlay(RoundedRectangle(cornerRadius: 64)
+                                .stroke(Color(.label), lineWidth: 1))
+                            .shadow(radius: 5)
+                        
                     }
                 }
             }
@@ -52,7 +52,7 @@ struct EditProfileView: View {
             CustomTextField(bindingValue: $vm.bio, image: "folder", placeHolder: "Bio")
             
             Button {
-                vm.saveChanges() 
+                vm.saveChanges()
             } label: {
                 Text("Save changes")
             }
@@ -71,7 +71,7 @@ struct EditProfileView: View {
             Button("Cancel", role: .cancel) { }
         } message: {
             Text(vm.errorText)
-        } 
+        }
     }
 }
 

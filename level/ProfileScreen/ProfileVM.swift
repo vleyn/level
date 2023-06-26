@@ -34,7 +34,9 @@ final class ProfileViewModel: ObservableObject {
                     self.isLogout = true
                 }
             } catch {
-                errorText = error.localizedDescription
+                await MainActor.run {
+                    errorText = error.localizedDescription
+                }
             }
             UserDefaults.standard.set("", forKey: "uid")
         }

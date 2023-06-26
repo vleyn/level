@@ -9,8 +9,10 @@ import Foundation
 
 final class CustomTabbarViewModel: ObservableObject {
     
-    @Published var tabs = ["Home", "News", "Messenger", "Profile"]
     private let firebaseManager: FirebaseProtocol = FirebaseManager()
+    
+    @Published var tabs = ["Home", "News", "Messenger", "Profile"]
+    @Published var selectedTab = "Home"
     @Published var avatar = ""
     @Published var isAlert = false
     @Published var errorText = "" {
