@@ -32,8 +32,7 @@ struct CustomTabbar: View {
                     Spacer()
                 }
             }
-            .padding(.top, 15)
-            .padding(.bottom, 5)
+            .padding(.top, 12)
             .frame(maxWidth: .infinity)
             .background(Color(.lightGray))
         }
