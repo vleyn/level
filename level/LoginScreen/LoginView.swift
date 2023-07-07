@@ -12,8 +12,8 @@ struct LoginView: View {
     @StateObject var vm = LoginViewModel()
     
     var body: some View {
-         
-        NavigationView {
+        
+        NavigationStack {
             VStack {
                 VStack {
                     Image("gamepad")
@@ -29,7 +29,7 @@ struct LoginView: View {
                     Spacer()
                     CustomTextField(bindingValue: $vm.email, image: "envelope", placeHolder: "Email")
                     CustomSecureTextField(bindingValue: $vm.password, image: "lock", placeHolder: "Password")
-
+                    
                     Button {
                         print("forgot password")
                     } label: {
@@ -53,7 +53,7 @@ struct LoginView: View {
                     .frame(maxWidth: .infinity)
                     .padding(.bottom)
                     .padding(.top)
-
+                    
                     Divider()
                         .padding([.leading, .trailing], 50)
                     
@@ -102,12 +102,13 @@ struct LoginView: View {
             .fullScreenCover(isPresented: $vm.isPresented) {
                 CustomTabbar()
             }
+            
+            .alert("Error", isPresented: $vm.isAlert) {
+                Button("Cancel", role: .cancel) { }
+            } message: {
+                Text(vm.errorText)
+            }
         }
-        .alert("Error", isPresented: $vm.isAlert) {
-            Button("Cancel", role: .cancel) { }
-        } message: {
-            Text(vm.errorText)
-        }     
     }
 }
 

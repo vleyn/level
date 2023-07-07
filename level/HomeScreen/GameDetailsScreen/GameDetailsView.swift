@@ -39,6 +39,21 @@ struct GameDetailsView: View {
                 .bold()
                 .padding()
             VStack(alignment: .leading, spacing: 16) {
+                if let genres = vm.gameInfo?.genres.map({$0.map({$0.name}).compactMap({$0})}) {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(genres, id: \.self) { item in
+                                Text(item)
+                                    .padding(8)
+                                    .background(.gray)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(16)
+                            }
+                        }
+                    }
+    
+                    
+                }
                 Text("About")
                     .bold()
                 Button {
@@ -61,18 +76,11 @@ struct GameDetailsView: View {
                     .bold()
                 Text(vm.gameInfo?.website ?? "")
                 
-                Text("Genres")
-                    .bold()
-                let i = vm.gameInfo?.genres.map({$0.map({$0.name}).compactMap({$0})})
-                if let i {
-                    Text(i.joined(separator: ", "))
-                }
-                
             }
             .padding()
             .task {
-                            await vm.getGameInfo(id: gameId ?? 0)
-//                await vm.getGameInfo(id: 3348)
+                await vm.getGameInfo(id: gameId ?? 0)
+//                await vm.getGameInfo(id: 1264)
                 
             }
             .alert("Error", isPresented: $vm.isAlert) {
@@ -81,6 +89,7 @@ struct GameDetailsView: View {
                 Text(vm.errorText)
             }
         }
+        .navigationTitle(vm.gameInfo?.name ?? "")
     }
     
     struct GameDetailsView_Previews: PreviewProvider {

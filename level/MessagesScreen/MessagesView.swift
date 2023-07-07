@@ -13,8 +13,6 @@ struct MessagesView: View {
     @StateObject var vm = MessagesViewModel()
     
     var body: some View {
-        NavigationView {
-            
             VStack {
                 customNavBar
                 messagesView
@@ -30,7 +28,6 @@ struct MessagesView: View {
             } message: {
                 Text(vm.errorText)
             }
-        }
     }
     
     private var customNavBar: some View {
@@ -90,6 +87,7 @@ struct MessagesView: View {
                                     Image(systemName: "person.fill")
                                         .resizable()
                                         .frame(width: 64, height: 64)
+                                        .foregroundColor(.black)
                                 })
                                 .resizable()
                                 .scaledToFill()

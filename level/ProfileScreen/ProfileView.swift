@@ -13,7 +13,7 @@ struct ProfileView: View {
     @StateObject var vm = ProfileViewModel()
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack(alignment: .top) {
                 VStack(spacing: 0) {
                     ZStack(alignment: .topTrailing) {

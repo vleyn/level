@@ -15,14 +15,22 @@ struct CustomTabbar: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             TabView(selection: $vm.selectedTab) {
-                HomeView()
-                    .tag("Home")
+                NavigationStack {
+                    HomeView()
+                       
+                }
+                .tag("Home")
                 NewsView()
                     .tag("News")
-                MessagesView()
-                    .tag("Messenger")
-                ProfileView()
-                    .tag("Profile")
+                NavigationStack {
+                    MessagesView()
+                }
+                .tag("Messenger")
+                NavigationStack {
+                    ProfileView()
+                }
+                .tag("Profile")
+                
             }
             
             HStack {
@@ -43,7 +51,9 @@ struct CustomTabbar: View {
             Button("Cancel", role: .cancel) { }
         } message: {
             Text(vm.errorText)
-        } 
+        }
+        .navigationTitle("Test")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
