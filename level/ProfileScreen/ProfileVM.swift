@@ -15,6 +15,7 @@ final class ProfileViewModel: ObservableObject {
     @Published var avatar = ""
     @Published var isLogout = false
     @Published var isAlert = false
+    @Published var showPrivacyPolicy = false
     @Published var errorText = "" {
         didSet {
             isAlert = true
