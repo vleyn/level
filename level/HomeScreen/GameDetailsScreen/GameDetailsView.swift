@@ -17,9 +17,6 @@ struct GameDetailsView: View {
     var body: some View {
         ScrollView {
             ScrollView(.horizontal, showsIndicators: false) {
-                    
-                
-                
                 if let screenshots = gameInfo?.shortScreenshots {
                     ScrollView(.horizontal, showsIndicators: false) {
                         
@@ -40,7 +37,6 @@ struct GameDetailsView: View {
                 }
             }
             
-            
             Text(gameInfo?.name ?? "")
                 .bold()
                 .padding()
@@ -57,9 +53,10 @@ struct GameDetailsView: View {
                             }
                         }
                     }
-    
                     
                 }
+                Divider()
+                
                 Text("About")
                     .bold()
                 Button {
@@ -72,17 +69,27 @@ struct GameDetailsView: View {
                 }
                 Divider()
                 
+                Text("Rating")
+                    .bold()
+                let rating = "\(gameInfo?.rating ?? 0) / \(gameInfo?.ratingTop ?? 0) ★"
+                Text(rating)
+                    .bold()
+                    .padding(8)
+                    .background(.green)
+                    .foregroundColor(.yellow)
+                    .cornerRadius(16)
+                
+                Divider()
+                
                 Text("Released at")
                     .bold()
                 Text(gameInfo?.released ?? "")
-                
             }
             .padding()
         }
         .task {
             await vm.getAdditionalInfo(id: gameInfo?.id ?? 0)
             await vm.getGameTrailer(id: gameInfo?.id ?? 0)
-            print(vm.gameTrailers?.results?.count)
         }
         .alert("Error", isPresented: $vm.isAlert) {
             Button("Cancel", role: .cancel) { }

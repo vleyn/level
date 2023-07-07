@@ -45,10 +45,18 @@ struct HomeView: View {
                     
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack {
+                                Button {
+                                    Task {
+                                    }
+                                } label: {
+                                    Text("All")
+                                        .padding(10)
+                                        .foregroundColor(.white)
+                                }
                                 ForEach(vm.genres.prefix(10), id: \.id) { item in
                                     Button {
                                         Task {
-                                            await vm.getGameList(genres: item)
+                                            await vm.getGenresGameList(genres: item)
                                         }
                                     } label: {
                                         Text(item.name ?? "")
@@ -84,7 +92,7 @@ struct HomeView: View {
             }
             .task {
                 if let currentGenre = vm.currentPickedGenre {
-                    await vm.getGameList(genres: currentGenre)
+                    await vm.getGenresGameList(genres: currentGenre)
                 }
                 await vm.getGameGenres()
             }
