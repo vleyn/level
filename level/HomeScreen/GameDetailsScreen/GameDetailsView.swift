@@ -7,43 +7,49 @@
 
 import SwiftUI
 import Kingfisher
+import AVKit
 
 struct GameDetailsView: View {
-    
-    var gameId: Int?
-    
+        
+    var gameInfo: Results?
     @StateObject var vm = GameDetailsViewModel()
     
     var body: some View {
         ScrollView {
-            
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
-                        KFImage(URL(string: vm.gameInfo?.backgroundImage ?? ""))
-                            .resizable()
-                            .frame(width: 400, height: 250)
-                            .ignoresSafeArea()
-                            .cornerRadius(20)
-                            .padding()
-                        KFImage(URL(string: vm.gameInfo?.backgroundImageAdditional ?? ""))
-                            .resizable()
-                            .frame(width: 400, height: 250)
-                            .ignoresSafeArea()
-                            .cornerRadius(20)
-                            .padding()
+                    
+                
+                
+                if let screenshots = gameInfo?.shortScreenshots {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        
+                        HStack {
+                            ForEach(screenshots, id: \.id) { screenShot in
+                                KFImage(URL(string: screenShot.image ?? ""))
+                                    .placeholder({
+                                        Image(systemName: "folder")
+                                    })
+                                    .resizable()
+                                    .frame(width: 400, height: 250)
+                                    .ignoresSafeArea()
+                                    .cornerRadius(20)
+                                    .padding()
+                            }
+                        }
+                    }
                 }
             }
-                        
             
-            Text(vm.gameInfo?.name ?? "")
+            
+            Text(gameInfo?.name ?? "")
                 .bold()
                 .padding()
             VStack(alignment: .leading, spacing: 16) {
-                if let genres = vm.gameInfo?.genres.map({$0.map({$0.name}).compactMap({$0})}) {
+                if let genres = gameInfo?.genres {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
-                            ForEach(genres, id: \.self) { item in
-                                Text(item)
+                            ForEach(genres, id: \.id) { genre in
+                                Text(genre.name ?? "")
                                     .padding(8)
                                     .background(.gray)
                                     .foregroundColor(.white)
@@ -59,7 +65,7 @@ struct GameDetailsView: View {
                 Button {
                     vm.isViewed.toggle()
                 } label: {
-                    Text(vm.gameInfo?.descriptionRaw ?? "")
+                    Text(vm.additionalInfo?.descriptionRaw ?? "")
                         .multilineTextAlignment(.leading)
                         .lineLimit(vm.isViewed ? 100 : 7)
                         .foregroundColor(.black)
@@ -68,28 +74,22 @@ struct GameDetailsView: View {
                 
                 Text("Released at")
                     .bold()
-                Text(vm.gameInfo?.released ?? "")
-                
-                Divider()
-                
-                Text("Website")
-                    .bold()
-                Text(vm.gameInfo?.website ?? "")
+                Text(gameInfo?.released ?? "")
                 
             }
             .padding()
-            .task {
-                await vm.getGameInfo(id: gameId ?? 0)
-//                await vm.getGameInfo(id: 1264)
-                
-            }
-            .alert("Error", isPresented: $vm.isAlert) {
-                Button("Cancel", role: .cancel) { }
-            } message: {
-                Text(vm.errorText)
-            }
         }
-        .navigationTitle(vm.gameInfo?.name ?? "")
+        .task {
+            await vm.getAdditionalInfo(id: gameInfo?.id ?? 0)
+            await vm.getGameTrailer(id: gameInfo?.id ?? 0)
+            print(vm.gameTrailers?.results?.count)
+        }
+        .alert("Error", isPresented: $vm.isAlert) {
+            Button("Cancel", role: .cancel) { }
+        } message: {
+            Text(vm.errorText)
+        }
+        .navigationTitle(gameInfo?.name ?? "")
     }
     
     struct GameDetailsView_Previews: PreviewProvider {

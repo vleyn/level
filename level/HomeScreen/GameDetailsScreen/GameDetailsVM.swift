@@ -11,7 +11,9 @@ final class GameDetailsViewModel: ObservableObject {
     
     private let apiManager: ApiProviderProtocol = ApiManager()
     
-    @Published var gameInfo: GameDetail?
+    @Published var gameInfo: Results?
+    @Published var additionalInfo: GameDetail?
+    @Published var gameTrailers: Trailers?
     @Published var isAlert = false
     @Published var isViewed = false
     @Published var errorText = "" {
@@ -20,11 +22,24 @@ final class GameDetailsViewModel: ObservableObject {
         }
     }
     
-    func getGameInfo(id: Int) async {
+    func getAdditionalInfo(id: Int) async {
         do {
             let data = try await apiManager.gameDetailsRequest(id: id)
             await MainActor.run {
-                gameInfo = data
+                additionalInfo = data
+            }
+        } catch {
+            await MainActor.run {
+                errorText = error.localizedDescription
+            }
+        }
+    }
+    
+    func getGameTrailer(id: Int) async {
+        do {
+            let data = try await apiManager.gameTrailersRequest(id: id)
+            await MainActor.run {
+                gameTrailers = data
             }
         } catch {
             await MainActor.run {

@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct NewsView: View {
     var body: some View {
-        Text("News")
+        VideoPlayer(player: AVPlayer(url:  URL(string: "https://media.rawg.io/media/stories/8a1/8a17d3fc984d01379a83338b2d753c37.mp4")!))
+            .frame(height: 400)
     }
 }
 

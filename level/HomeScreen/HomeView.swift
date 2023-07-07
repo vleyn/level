@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct HomeView: View {
     
@@ -17,9 +18,17 @@ struct HomeView: View {
                     Text("Welcome, \(UserCache.shared.nickname)!")
                         .font(.system(size: 30))
                     Spacer()
-                    Image(systemName: "person.circle")
+                    KFImage(URL(string: UserCache.shared.avatar))
+                        .placeholder {
+                            Image(systemName: "person.fill")
+                        }
                         .resizable()
+                        .scaledToFill()
                         .frame(width: 50, height: 50)
+                        .clipped()
+                        .cornerRadius(50)
+                        .overlay(RoundedRectangle(cornerRadius: 50)
+                            .stroke(Color(.label), lineWidth: 1))
                 }.padding()
                 VStack {
                     HStack {
@@ -55,8 +64,9 @@ struct HomeView: View {
                 }.padding()
                 ScrollView {
                     ForEach(vm.results, id: \.id) { item in
+                        
                         NavigationLink {
-                            GameDetailsView(gameId: item.id)
+                            GameDetailsView(gameInfo: item)
                         } label: {
                             GameCell(results: item)
                                 .padding(5)

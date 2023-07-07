@@ -9,6 +9,7 @@ import Foundation
 
 final class HomeViewModel: ObservableObject {
     
+    
     private let moyaManager: ApiProviderProtocol = ApiManager()
 
     var currentPage: Int = 1

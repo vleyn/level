@@ -12,6 +12,7 @@ protocol ApiProviderProtocol: AnyObject {
     func fullGameListRequest(page: Int, genres: Int) async throws -> GameList
     func gameDetailsRequest(id: Int) async throws -> GameDetail
     func getGameGenresRequest() async throws -> GameGenres
+    func gameTrailersRequest(id: Int) async throws -> Trailers
 }
 
 class ApiManager: ApiProviderProtocol {
@@ -62,6 +63,24 @@ class ApiManager: ApiProviderProtocol {
                     do {
                         let genres = try response.map(GameGenres.self)
                         continuation.resume(with: .success(genres))
+                    } catch {
+                        continuation.resume(throwing: error)
+                    }
+                case .failure(let error):
+                    continuation.resume(with: .failure(error))
+                }
+            }
+        }
+    }
+    
+    func gameTrailersRequest(id: Int) async throws -> Trailers {
+        return try await withCheckedThrowingContinuation { continuation in
+            providerRawg.request(.gameTrailersRequest(id: id)) { result in
+                switch result {
+                case .success(let response):
+                    do {
+                        let trailers = try response.map(Trailers.self)
+                        continuation.resume(with: .success(trailers))
                     } catch {
                         continuation.resume(throwing: error)
                     }

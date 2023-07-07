@@ -134,3 +134,27 @@ struct Publishers: Decodable {
         case id, name, slug
     }
 }
+
+struct Trailers: Decodable {
+    let count: Int?
+    let next: String?
+    let previous: String?
+    let results: [TrailerResults]?
+}
+
+struct TrailerResults: Decodable {
+    let id: Int?
+    let name: String?
+    let preview: String?
+    let data: TrailerData?
+}
+
+struct TrailerData: Decodable {
+    let p480: String?
+    let max: String
+    
+    enum CodingKeys: String, CodingKey {
+        case p480 = "480"
+        case max
+    }
+}
