@@ -13,7 +13,6 @@ struct ProfileView: View {
     @StateObject var vm = ProfileViewModel()
     
     var body: some View {
-        NavigationStack {
             ZStack(alignment: .top) {
                 VStack(spacing: 0) {
                     Image("ImagePlaceHolder")
@@ -150,7 +149,7 @@ struct ProfileView: View {
                         .padding(.top, 100)
                 }
             }
-        }
+        
         .task {
             vm.loadUserInfo()
         }
