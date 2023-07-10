@@ -71,8 +71,8 @@ struct GameDetailsView: View {
                 
                 Text("Rating")
                     .bold()
-                let rating = "\(gameInfo?.rating ?? 0) / \(gameInfo?.ratingTop ?? 0) ★"
-                Text(rating)
+                
+                Text(vm.fullRating ?? "")
                     .bold()
                     .padding(8)
                     .background(.green)
@@ -89,7 +89,6 @@ struct GameDetailsView: View {
         }
         .task {
             await vm.getAdditionalInfo(id: gameInfo?.id ?? 0)
-            await vm.getGameTrailer(id: gameInfo?.id ?? 0)
         }
         .alert("Error", isPresented: $vm.isAlert) {
             Button("Cancel", role: .cancel) { }

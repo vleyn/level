@@ -13,142 +13,129 @@ struct ProfileView: View {
     @StateObject var vm = ProfileViewModel()
     
     var body: some View {
-            ZStack(alignment: .top) {
-                VStack(spacing: 0) {
-                    Image("ImagePlaceHolder")
-                        .resizable()
-                        .ignoresSafeArea()
-                        .frame(height: 170)
+        ZStack(alignment: .top) {
+            VStack(spacing: 0) {
+                Image("ImagePlaceHolder")
+                    .resizable()
+                    .ignoresSafeArea()
+                    .frame(height: 170)
+                
+                List {
+                    HStack {
+                        Spacer()
+                        Text(vm.nickName)
+                            .bold()
+                            .font(.system(size: 28))
+                            .padding(.top)
+                        Spacer()
+                    }
+                    .listRowSeparator(.hidden)
                     
-                    List {
+                    NavigationLink {
+                        EditProfileView()
+                    } label: {
+                        
                         HStack {
-                            Spacer()
-                            Text(vm.nickName)
-                                .bold()
-                                .font(.system(size: 28))
-                                .padding(.top)
-                            Spacer()
-                        }
-                        .listRowSeparator(.hidden)
-                        
-                            NavigationLink {
-                                EditProfileView()
-                            } label: {
-                                Button {
-                                    //
-                                } label: {
-                                    HStack {
-                                        Image(systemName: "person.fill")
-                                        Text("Account")
-                                    }
-                                }
-                            }
-                            .padding()
-                        
-                        
-                        Section {
-                            NavigationLink {
-                                UserGamesView()
-                            } label: {
-                                Button {
-                                    //
-                                } label: {
-                                    HStack {
-                                        Image(systemName: "person.fill")
-                                        Text("Games")
-                                    }
-                                }
-                            }
-                            .padding()
-                            
-                            
-                            NavigationLink {
-                                UserFriendsView()
-                            } label: {
-                                Button {
-                                    //
-                                } label: {
-                                    HStack {
-                                        Image(systemName: "person.fill")
-                                        Text("Friends")
-                                    }
-                                }
-                            }
-                            .padding()
-                            
-                            NavigationLink {
-                                UserWishListView()
-                            } label: {
-                                Button {
-                                    //
-                                } label: {
-                                    HStack {
-                                        Image(systemName: "person.fill")
-                                        Text("Whishlist")
-                                    }
-                                }
-                            }
-                            .padding()
-                            
-                            NavigationLink {
-                                UserWalletView()
-                            } label: {
-                                Button {
-                                    //
-                                } label: {
-                                    HStack {
-                                        Image(systemName: "person.fill")
-                                        Text("Wallet")
-                                    }
-                                }
-                            }
-                            .padding()
-                        }
-                        
-                        
-                        
-                        Section {
-                            Button {
-                                vm.showPrivacyPolicy.toggle()
-                            } label: {
-                                HStack {
-                                    Image(systemName: "person.fill")
-                                    Text("Privacy policy")
-                                }
-                            }
-                            .padding()
-                            
-                            Button {
-                                vm.logOut()
-                            } label: {
-                                HStack {
-                                    Image(systemName: "person.fill")
-                                    Text("Logout")
-                                }
-                            }
-                            .padding()
+                            Image(systemName: "person.fill")
+                            Text("Account")
                         }
                         
                     }
-                }
-                ZStack {
-                    KFImage(URL(string: vm.avatar))
-                        .placeholder({
-                            Image(systemName: "person.fill")
-                                .resizable()
-                                .frame(width: 120, height: 120)
-                        })
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 120, height: 120)
-                        .clipped()
-                        .cornerRadius(60)
-                        .overlay(RoundedRectangle(cornerRadius: 60)
-                            .stroke(Color(.label), lineWidth: 1))
-                        .shadow(radius: 5)
-                        .padding(.top, 100)
+                    .padding()
+                    
+                    
+                    Section {
+                        NavigationLink {
+                            UserGamesView()
+                        } label: {
+                            
+                            HStack {
+                                Image(systemName: "person.fill")
+                                Text("Games")
+                            }
+                            
+                        }
+                        .padding()
+                        
+                        
+                        NavigationLink {
+                            UserFriendsView()
+                        } label: {
+                            
+                            HStack {
+                                Image(systemName: "person.fill")
+                                Text("Friends")
+                            }
+                            
+                        }
+                        .padding()
+                        
+                        NavigationLink {
+                            UserWishListView()
+                        } label: {
+                            
+                            HStack {
+                                Image(systemName: "person.fill")
+                                Text("Whishlist")
+                            }
+                            
+                        }
+                        .padding()
+                        
+                        NavigationLink {
+                            UserWalletView()
+                        } label: {
+                            HStack {
+                                Image(systemName: "person.fill")
+                                Text("Wallet")
+                            }
+                        }
+                        .padding()
+                    }
+                    
+                    
+                    Section {
+                        Button {
+                            vm.showPrivacyPolicy.toggle()
+                        } label: {
+                            HStack {
+                                Image(systemName: "person.fill")
+                                Text("Privacy policy")
+                            }
+                        }
+                        .padding()
+                        
+                        Button {
+                            vm.logOut()
+                        } label: {
+                            HStack {
+                                Image(systemName: "person.fill")
+                                Text("Logout")
+                            }
+                        }
+                        .padding()
+                    }
+                    
                 }
             }
+            ZStack {
+                KFImage(URL(string: vm.avatar))
+                    .placeholder({
+                        Image(systemName: "person.fill")
+                            .resizable()
+                            .frame(width: 120, height: 120)
+                    })
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 120, height: 120)
+                    .clipped()
+                    .cornerRadius(60)
+                    .overlay(RoundedRectangle(cornerRadius: 60)
+                        .stroke(Color(.label), lineWidth: 1))
+                    .shadow(radius: 5)
+                    .padding(.top, 100)
+            }
+        }
         
         .task {
             vm.loadUserInfo()

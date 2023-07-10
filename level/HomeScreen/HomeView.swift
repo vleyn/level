@@ -19,9 +19,6 @@ struct HomeView: View {
             gameList
         }
         .task {
-            if let currentGenre = vm.currentPickedGenre {
-                await vm.getGameList(genres: currentGenre)
-            }
             await vm.getGameGenres()
         }
         .alert("Error", isPresented: $vm.isAlert) {

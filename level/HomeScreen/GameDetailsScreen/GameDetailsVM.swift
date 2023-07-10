@@ -12,6 +12,7 @@ final class GameDetailsViewModel: ObservableObject {
     private let apiManager: ApiProviderProtocol = ApiManager()
     
     @Published var gameInfo: Results?
+    var fullRating: String?
     @Published var additionalInfo: GameDetail?
     @Published var gameTrailers: Trailers?
     @Published var isAlert = false
@@ -24,22 +25,14 @@ final class GameDetailsViewModel: ObservableObject {
     
     func getAdditionalInfo(id: Int) async {
         do {
-            let data = try await apiManager.gameDetailsRequest(id: id)
+            let detailsData = try await apiManager.gameDetailsRequest(id: id)
+            let trailerData = try await apiManager.gameTrailersRequest(id: id)
             await MainActor.run {
-                additionalInfo = data
-            }
-        } catch {
-            await MainActor.run {
-                errorText = error.localizedDescription
-            }
-        }
-    }
-    
-    func getGameTrailer(id: Int) async {
-        do {
-            let data = try await apiManager.gameTrailersRequest(id: id)
-            await MainActor.run {
-                gameTrailers = data
+                additionalInfo = detailsData
+                if let rating = detailsData.rating, let ratingTop = detailsData.ratingTop {
+                    fullRating = "\(rating) / \(ratingTop) ★"
+                }
+                gameTrailers = trailerData
             }
         } catch {
             await MainActor.run {

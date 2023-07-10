@@ -23,14 +23,14 @@ final class HomeViewModel: ObservableObject {
     }
     @Published var currentPickedGenre: GenresResults?
     
-    func getGameList(genres: GenresResults) async {
+    func getGameGenres() async {
         do {
-            let data = try await moyaManager.fullGameListRequest(page: currentPage, genres: genres.id ?? 0)
-            if let games = data.results {
-                await MainActor.run {
-                    results = games
-                    currentPickedGenre = genres
-                }
+            let genres = try await moyaManager.getGameGenresRequest()
+            await MainActor.run {
+                self.genres = genres.results ?? []
+            }
+            if let currentPickedGenre = currentPickedGenre {
+                await getGameList(genres: currentPickedGenre)
             }
         } catch {
             await MainActor.run {
@@ -39,11 +39,14 @@ final class HomeViewModel: ObservableObject {
         }
     }
     
-    func getGameGenres() async {
+    func getGameList(genres: GenresResults) async {
         do {
-            let genres = try await moyaManager.getGameGenresRequest()
-            await MainActor.run {
-                self.genres = genres.results ?? []
+            let data = try await moyaManager.fullGameListRequest(page: currentPage, genres: genres.id ?? 0)
+            if let games = data.results {
+                await MainActor.run {
+                    results = games
+                    currentPickedGenre = genres
+                }
             }
         } catch {
             await MainActor.run {
