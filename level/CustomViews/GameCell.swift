@@ -6,12 +6,11 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct GameCell: View {
     
-    var image: String = ""
-    var gameName: String = ""
-    var gameTags: String = ""
+    var results: Results?
     
     var body: some View {
         ZStack {
@@ -20,17 +19,15 @@ struct GameCell: View {
                 .cornerRadius(30)
                 .foregroundColor(.gray)
             HStack {
-                Image("ImagePlaceHolder")
+                KFImage(URL(string: results?.backgroundImage ?? ""))
                     .resizable()
-                    .frame(width: 100, height:  130)
+                    .frame(width: 180, height:  130)
                     .cornerRadius(25)
                 VStack {
-                    Text(gameName)
+                    Text(results?.name ?? "")
                         .foregroundColor(.white)
                         .padding()
-                    Text(gameTags)
-                        .foregroundColor(.white)
-                        .padding()
+                    Spacer()
                     
                 }
                 Spacer()

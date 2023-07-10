@@ -72,6 +72,13 @@
 		F551047D2A30DD51000FB952 /* GameListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F551047C2A30DD51000FB952 /* GameListModel.swift */; };
 		F551047F2A30DD73000FB952 /* GameDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F551047E2A30DD73000FB952 /* GameDetailModel.swift */; };
 		F558790E2A38FCF200AD835E /* GameGenresModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F558790D2A38FCF200AD835E /* GameGenresModel.swift */; };
+		F55E007C2A58358A0085FDEE /* UserGamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55E007B2A58358A0085FDEE /* UserGamesView.swift */; };
+		F55E007E2A5835A20085FDEE /* UserFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55E007D2A5835A20085FDEE /* UserFriendsView.swift */; };
+		F55E00812A5835C10085FDEE /* UserWishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55E00802A5835C10085FDEE /* UserWishListView.swift */; };
+		F55E00832A5835DB0085FDEE /* UserWalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55E00822A5835DB0085FDEE /* UserWalletView.swift */; };
+		F55E00852A5835E90085FDEE /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55E00842A5835E90085FDEE /* PrivacyPolicyView.swift */; };
+		F560B1422A4C411300937038 /* GameDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F560B1412A4C411300937038 /* GameDetailsView.swift */; };
+		F560B1442A4C412200937038 /* GameDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F560B1432A4C412200937038 /* GameDetailsVM.swift */; };
 		F57D36902A2E9E240023F479 /* levelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57D368F2A2E9E240023F479 /* levelApp.swift */; };
 		F57D36942A2E9E250023F479 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F57D36932A2E9E250023F479 /* Assets.xcassets */; };
 		F57D36972A2E9E250023F479 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F57D36962A2E9E250023F479 /* Preview Assets.xcassets */; };
@@ -137,6 +144,13 @@
 		F551047E2A30DD73000FB952 /* GameDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailModel.swift; sourceTree = "<group>"; };
 		F55104802A30DDD7000FB952 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F558790D2A38FCF200AD835E /* GameGenresModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameGenresModel.swift; sourceTree = "<group>"; };
+		F55E007B2A58358A0085FDEE /* UserGamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGamesView.swift; sourceTree = "<group>"; };
+		F55E007D2A5835A20085FDEE /* UserFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFriendsView.swift; sourceTree = "<group>"; };
+		F55E00802A5835C10085FDEE /* UserWishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWishListView.swift; sourceTree = "<group>"; };
+		F55E00822A5835DB0085FDEE /* UserWalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWalletView.swift; sourceTree = "<group>"; };
+		F55E00842A5835E90085FDEE /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
+		F560B1412A4C411300937038 /* GameDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsView.swift; sourceTree = "<group>"; };
+		F560B1432A4C412200937038 /* GameDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsVM.swift; sourceTree = "<group>"; };
 		F57D368C2A2E9E240023F479 /* level.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = level.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F57D368F2A2E9E240023F479 /* levelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = levelApp.swift; sourceTree = "<group>"; };
 		F57D36932A2E9E250023F479 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -303,6 +317,11 @@
 				F548794A2A3C777700304C76 /* ProfileView.swift */,
 				F548794C2A3C778200304C76 /* ProfileVM.swift */,
 				F53703962A3F79200008779D /* EditProfileScreen */,
+				F55E00762A582FE00085FDEE /* UserGamesScreen */,
+				F55E00772A582FF00085FDEE /* UserFriendsScreen */,
+				F55E00782A582FFA0085FDEE /* UserWishListScreen */,
+				F55E00792A58300B0085FDEE /* UserWalletScreen */,
+				F55E007A2A5830170085FDEE /* PrivacyPolicyScreen */,
 			);
 			path = ProfileScreen;
 			sourceTree = "<group>";
@@ -331,6 +350,55 @@
 				F54D533F2A45AD9200708684 /* FirebaseConstants.swift */,
 			);
 			path = FirebaseConstants;
+			sourceTree = "<group>";
+		};
+		F55E00762A582FE00085FDEE /* UserGamesScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F55E007B2A58358A0085FDEE /* UserGamesView.swift */,
+			);
+			path = UserGamesScreen;
+			sourceTree = "<group>";
+		};
+		F55E00772A582FF00085FDEE /* UserFriendsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F55E007D2A5835A20085FDEE /* UserFriendsView.swift */,
+			);
+			path = UserFriendsScreen;
+			sourceTree = "<group>";
+		};
+		F55E00782A582FFA0085FDEE /* UserWishListScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F55E00802A5835C10085FDEE /* UserWishListView.swift */,
+			);
+			path = UserWishListScreen;
+			sourceTree = "<group>";
+		};
+		F55E00792A58300B0085FDEE /* UserWalletScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F55E00822A5835DB0085FDEE /* UserWalletView.swift */,
+			);
+			path = UserWalletScreen;
+			sourceTree = "<group>";
+		};
+		F55E007A2A5830170085FDEE /* PrivacyPolicyScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F55E00842A5835E90085FDEE /* PrivacyPolicyView.swift */,
+			);
+			path = PrivacyPolicyScreen;
+			sourceTree = "<group>";
+		};
+		F560B1402A4C40F700937038 /* GameDetailsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F560B1412A4C411300937038 /* GameDetailsView.swift */,
+				F560B1432A4C412200937038 /* GameDetailsVM.swift */,
+			);
+			path = GameDetailsScreen;
 			sourceTree = "<group>";
 		};
 		F57D36832A2E9E240023F479 = {
@@ -405,6 +473,7 @@
 			children = (
 				F5B2BDF12A3D8C6D0074E3D5 /* HomeView.swift */,
 				F5B2BDF32A3D8C770074E3D5 /* HomeVM.swift */,
+				F560B1402A4C40F700937038 /* GameDetailsScreen */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -587,6 +656,7 @@
 				F5421AD72A3A3D0800A42934 /* SignUpVM.swift in Sources */,
 				F551047B2A30DD29000FB952 /* MoyaProvider.swift in Sources */,
 				F5B2BDF22A3D8C6D0074E3D5 /* HomeView.swift in Sources */,
+				F55E00832A5835DB0085FDEE /* UserWalletView.swift in Sources */,
 				F54D53382A451E3500708684 /* WriteNewMessageVM.swift in Sources */,
 				F57D36902A2E9E240023F479 /* levelApp.swift in Sources */,
 				F534BF9B2A3665C200A9871D /* RealmModel.swift in Sources */,
@@ -595,17 +665,23 @@
 				F54D53362A451E2200708684 /* WriteNewMessageView.swift in Sources */,
 				F534BF922A36467800A9871D /* FirebaseManager.swift in Sources */,
 				F548794D2A3C778200304C76 /* ProfileVM.swift in Sources */,
+				F560B1422A4C411300937038 /* GameDetailsView.swift in Sources */,
+				F55E00852A5835E90085FDEE /* PrivacyPolicyView.swift in Sources */,
 				F534BF992A36657800A9871D /* RealmManager.swift in Sources */,
 				F548794B2A3C777700304C76 /* ProfileView.swift in Sources */,
 				F54879472A3B90FC00304C76 /* CustomTabbar.swift in Sources */,
 				F54D53332A45092D00708684 /* CustomTabbarVM.swift in Sources */,
 				F558790E2A38FCF200AD835E /* GameGenresModel.swift in Sources */,
+				F560B1442A4C412200937038 /* GameDetailsVM.swift in Sources */,
 				F53703A42A3F952B0008779D /* NewsView.swift in Sources */,
+				F55E007C2A58358A0085FDEE /* UserGamesView.swift in Sources */,
 				F5B2BDF42A3D8C770074E3D5 /* HomeVM.swift in Sources */,
 				F5E0DFF52A417C000007747E /* UserCache.swift in Sources */,
 				F537039A2A3F79610008779D /* EditProfileVM.swift in Sources */,
 				F53703982A3F79400008779D /* EditProfileView.swift in Sources */,
 				F53703A12A3F950A0008779D /* MessagesVM.swift in Sources */,
+				F55E007E2A5835A20085FDEE /* UserFriendsView.swift in Sources */,
+				F55E00812A5835C10085FDEE /* UserWishListView.swift in Sources */,
 				F551047F2A30DD73000FB952 /* GameDetailModel.swift in Sources */,
 				F54D533B2A45359100708684 /* ChatLogView.swift in Sources */,
 				F54D533D2A45359D00708684 /* ChatLogVM.swift in Sources */,

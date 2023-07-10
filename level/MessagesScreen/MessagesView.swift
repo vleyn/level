@@ -13,8 +13,6 @@ struct MessagesView: View {
     @StateObject var vm = MessagesViewModel()
     
     var body: some View {
-        NavigationView {
-            
             VStack {
                 customNavBar
                 messagesView
@@ -30,7 +28,6 @@ struct MessagesView: View {
             } message: {
                 Text(vm.errorText)
             }
-        }
     }
     
     private var customNavBar: some View {
@@ -90,6 +87,7 @@ struct MessagesView: View {
                                     Image(systemName: "person.fill")
                                         .resizable()
                                         .frame(width: 64, height: 64)
+                                        .foregroundColor(.black)
                                 })
                                 .resizable()
                                 .scaledToFill()
@@ -122,7 +120,6 @@ struct MessagesView: View {
             }
             .padding(.bottom, 50)
         }
-        .padding(.bottom, 70)
     }
     
     private var newMessageButton: some View {
@@ -142,7 +139,7 @@ struct MessagesView: View {
             .padding(.horizontal)
             .shadow(radius: 15)
         }
-        .padding(.bottom, 90)
+        .padding(.bottom, 40)
         .fullScreenCover(isPresented: $vm.showNewMessageScreen) {
             WriteNewMessageView()
         }

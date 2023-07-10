@@ -13,95 +13,112 @@ struct ProfileView: View {
     @StateObject var vm = ProfileViewModel()
     
     var body: some View {
-        NavigationView {
-            ZStack(alignment: .top) {
-                VStack(spacing: 0) {
-                    ZStack(alignment: .topTrailing) {
-                        Image("ImagePlaceHolder")
-                            .resizable()
-                            .ignoresSafeArea()
-                            .frame(height: 170)
-                        ZStack {
-                            Button {
-                            } label: {
-                                NavigationLink {
-                                    EditProfileView()
-                                } label: {
-                                    Image(systemName: "pencil")
-                                        .foregroundColor(.black)
-                                        .padding(14)
-                                        .background(.white)
-                                        .clipShape(Circle())
-                                }
-                                
-                            }
-                            .padding()
-                        }
+        ZStack(alignment: .top) {
+            VStack(spacing: 0) {
+                Image("ImagePlaceHolder")
+                    .resizable()
+                    .ignoresSafeArea()
+                    .frame(height: 170)
+                
+                List {
+                    HStack {
+                        Spacer()
+                        Text(vm.nickName)
+                            .bold()
+                            .font(.system(size: 28))
+                            .padding(.top)
+                        Spacer()
                     }
-                    ZStack {
-                        Rectangle()
-                            .foregroundColor(.gray)
-                            .ignoresSafeArea()
-                        VStack {
-                            Text(vm.nickName)
-                                .bold()
-                                .font(.system(size: 28))
-                                .padding(.top, 70)
+                    .listRowSeparator(.hidden)
+                    
+                    NavigationLink {
+                        EditProfileView()
+                    } label: {
+                        
+                        HStack {
+                            Image(systemName: "person.fill")
+                            Text("Account")
+                        }
+                        
+                    }
+                    .padding()
+                    
+                    
+                    Section {
+                        NavigationLink {
+                            UserGamesView()
+                        } label: {
+                            
                             HStack {
-                                Button {
-                                    print("friends")
-                                } label: {
-                                    VStack {
-                                        Text("24")
-                                            .bold()
-                                        Text("Friends")
-                                    }
-                                    .foregroundColor(.black)
-                                }
-                                .frame(width: 130, height: 70)
-                                .background(.blue)
-                                .cornerRadius(25)
-                                Button {
-                                    print("games")
-                                } label: {
-                                    VStack {
-                                        Text("12")
-                                            .bold()
-                                        Text("Games")
-                                    }
-                                    .foregroundColor(.black)
-                                }
-                                .frame(width: 130, height: 70)
-                                .background(.blue)
-                                .cornerRadius(25)
+                                Image(systemName: "person.fill")
+                                Text("Games")
                             }
-                            VStack(alignment: .leading) {
-                                Section("Bio") {
-                                    Text("Some info about user")
-                                }
-                                Section("Links") {
-                                    Text("User links")
-                                }
-                            }
-                            .padding(.trailing, 100)
-                            .padding(.top, 30)
-                            Spacer()
-                            Button {
-                                vm.logOut()
-                            } label: {
-                                Text("Logout")
-                                    .fontDesign(.rounded)
-                                    .font(.system(size: 16, weight: .semibold))
-                                    .foregroundColor(.white)
-                                    .padding([.top, .bottom], 12)
-                                    .padding([.leading, .trailing], 76)
-                                    .background(.blue)
-                                    .cornerRadius(8)
-                            }
-                            .padding(.bottom, 90)
+                            
                         }
+                        .padding()
+                        
+                        
+                        NavigationLink {
+                            UserFriendsView()
+                        } label: {
+                            
+                            HStack {
+                                Image(systemName: "person.fill")
+                                Text("Friends")
+                            }
+                            
+                        }
+                        .padding()
+                        
+                        NavigationLink {
+                            UserWishListView()
+                        } label: {
+                            
+                            HStack {
+                                Image(systemName: "person.fill")
+                                Text("Whishlist")
+                            }
+                            
+                        }
+                        .padding()
+                        
+                        NavigationLink {
+                            UserWalletView()
+                        } label: {
+                            HStack {
+                                Image(systemName: "person.fill")
+                                Text("Wallet")
+                            }
+                        }
+                        .padding()
                     }
+                    
+                    
+                    Section {
+                        Button {
+                            vm.showPrivacyPolicy.toggle()
+                        } label: {
+                            HStack {
+                                Image(systemName: "person.fill")
+                                Text("Privacy policy")
+                            }
+                        }
+                        .padding()
+                        
+                        Button {
+                            vm.logOut()
+                        } label: {
+                            HStack {
+                                Image(systemName: "person.fill")
+                                Text("Logout")
+                            }
+                        }
+                        .padding()
+                    }
+                    
                 }
+            }
+            ZStack {
                 KFImage(URL(string: vm.avatar))
                     .placeholder({
                         Image(systemName: "person.fill")
@@ -117,19 +134,22 @@ struct ProfileView: View {
                         .stroke(Color(.label), lineWidth: 1))
                     .shadow(radius: 5)
                     .padding(.top, 100)
-                
             }
-            .task {
-                vm.loadUserInfo()
-            }
-            .fullScreenCover(isPresented: $vm.isLogout) {
-                LoginView()
-            }
-            .alert("Error", isPresented: $vm.isAlert) {
-                Button("Cancel", role: .cancel) { }
-            } message: {
-                Text(vm.errorText)
-            }
+        }
+        
+        .task {
+            vm.loadUserInfo()
+        }
+        .fullScreenCover(isPresented: $vm.isLogout) {
+            LoginView()
+        }
+        .sheet(isPresented: $vm.showPrivacyPolicy, content: {
+            PrivacyPolicyView()
+        })
+        .alert("Error", isPresented: $vm.isAlert) {
+            Button("Cancel", role: .cancel) { }
+        } message: {
+            Text(vm.errorText)
         }
     }
 }

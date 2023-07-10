@@ -9,22 +9,43 @@ import Foundation
 
 final class HomeViewModel: ObservableObject {
     
+    
     private let moyaManager: ApiProviderProtocol = ApiManager()
 
+    var currentPage: Int = 1
     @Published var results: [Results] = []
+    @Published var genres: [GenresResults] = []
     @Published var isAlert = false
     @Published var errorText = "" {
         didSet {
             isAlert = true
         }
     }
+    @Published var currentPickedGenre: GenresResults?
     
-    func getGameList(page: Int, genres: Int) async {
+    func getGameGenres() async {
         do {
-            let data = try await moyaManager.fullGameListRequest(page: page, genres: genres)
+            let genres = try await moyaManager.getGameGenresRequest()
+            await MainActor.run {
+                self.genres = genres.results ?? []
+            }
+            if let currentPickedGenre = currentPickedGenre {
+                await getGameList(genres: currentPickedGenre)
+            }
+        } catch {
+            await MainActor.run {
+                errorText = error.localizedDescription
+            }
+        }
+    }
+    
+    func getGameList(genres: GenresResults) async {
+        do {
+            let data = try await moyaManager.fullGameListRequest(page: currentPage, genres: genres.id ?? 0)
             if let games = data.results {
                 await MainActor.run {
-                    results += games
+                    results = games
+                    currentPickedGenre = genres
                 }
             }
         } catch {

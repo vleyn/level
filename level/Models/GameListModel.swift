@@ -57,7 +57,8 @@ struct Results: Decodable {
         case saturatedColor = "saturated_color"
         case dominantColor = "dominant_color"
         case parentPlatforms = "parent_platforms"
-        case id, slug, name, released, tba, rating, ratings, added, metacritic, playtime, updated, platforms, genres, stores, clip, tags, esrbRating, shortScreenshots
+        case shortScreenshots = "short_screenshots"
+        case id, slug, name, released, tba, rating, ratings, added, metacritic, playtime, updated, platforms, genres, stores, clip, tags, esrbRating
     }
 }
 

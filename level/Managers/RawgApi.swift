@@ -12,13 +12,14 @@ enum RawgAPI {
     case fullGameListRequest(page: Int, genres: Int)
     case gameDetailsRequest(id: Int)
     case getGameGenresRequest
+    case gameTrailersRequest(id: Int)
 }
 
 extension RawgAPI: TargetType {
     
     var baseURL: URL {
         switch self {
-        case .fullGameListRequest, .gameDetailsRequest, .getGameGenresRequest:
+        case .fullGameListRequest, .gameDetailsRequest, .getGameGenresRequest, .gameTrailersRequest:
             guard let url = URL(string: "https://api.rawg.io/api/") else {
                 fatalError("Wrong API url")
             }
@@ -34,6 +35,8 @@ extension RawgAPI: TargetType {
              return "games/\(id)"
         case .getGameGenresRequest:
             return "genres"
+        case .gameTrailersRequest(let id):
+            return "games/\(id)/movies"
         }
     }
 
@@ -49,7 +52,7 @@ extension RawgAPI: TargetType {
                 params["page"] = page
                 params["genres"] = genres
                 params["key"] = returnApi
-            case .gameDetailsRequest, .getGameGenresRequest:
+        case .gameDetailsRequest, .getGameGenresRequest, .gameTrailersRequest:
                 params["key"] = returnApi
             }
             return params
