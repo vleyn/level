@@ -9,10 +9,13 @@ import SwiftUI
 import AVKit
 
 struct NewsView: View {
+    
+    @StateObject var vm = NewsViewModel()
+    
     var body: some View {
-        VideoPlayer(player: AVPlayer(url:  URL(string: "https://media.rawg.io/media/stories/8a1/8a17d3fc984d01379a83338b2d753c37.mp4")!))
-            .frame(height: 400)
+        Text("News will be soon")
     }
+    
 }
 
 struct NewsView_Previews: PreviewProvider {

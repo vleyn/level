@@ -8,35 +8,27 @@
 import SwiftUI
 import Kingfisher
 
-struct CustomTabbar: View {
+struct TabBarView: View {
     
-    @StateObject var vm = CustomTabbarViewModel()
+    @StateObject var vm = TabBarViewModel()
     
     var body: some View {
         TabView {
-            NavigationStack {
-                HomeView()
-            }
-            .tabItem {
-                Image(systemName: "magnifyingglass")
-            }
-            NavigationStack {
-                NewsView()
-            }
-            .tabItem {
-                Image(systemName: "play.circle")
-            }
-            NavigationStack {
-                MessagesView()
-            }
+            NavigationStack { HomeView() }
             .tabItem {
                 Image(systemName: "house")
             }
-            NavigationStack {
-                ProfileView()
-            }
+            NavigationStack { NewsView() }
             .tabItem {
-                Image(systemName: "heart")
+                Image(systemName: "newspaper")
+            }
+            NavigationStack { MessagesView() }
+            .tabItem {
+                Image(systemName: "message")
+            }
+            NavigationStack { ProfileView() }
+            .tabItem {
+                Image(systemName: "person")
             }
         }
         .task {
@@ -47,13 +39,11 @@ struct CustomTabbar: View {
         } message: {
             Text(vm.errorText)
         }
-        .navigationTitle("Test")
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 struct CustomTabbar_Previews: PreviewProvider {
     static var previews: some View {
-        CustomTabbar()
+        TabBarView()
     }
 }

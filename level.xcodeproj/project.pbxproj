@@ -52,11 +52,11 @@
 		F5421AD52A3A3CFD00A42934 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5421AD42A3A3CFD00A42934 /* SignUpView.swift */; };
 		F5421AD72A3A3D0800A42934 /* SignUpVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5421AD62A3A3D0800A42934 /* SignUpVM.swift */; };
 		F5421ADA2A3A5A3100A42934 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5421AD92A3A5A3100A42934 /* CustomTextField.swift */; };
-		F54879472A3B90FC00304C76 /* CustomTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54879462A3B90FC00304C76 /* CustomTabbar.swift */; };
+		F54879472A3B90FC00304C76 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54879462A3B90FC00304C76 /* TabBarView.swift */; };
 		F548794B2A3C777700304C76 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F548794A2A3C777700304C76 /* ProfileView.swift */; };
 		F548794D2A3C778200304C76 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F548794C2A3C778200304C76 /* ProfileVM.swift */; };
 		F54D53312A44FDAE00708684 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D53302A44FDAE00708684 /* ImagePicker.swift */; };
-		F54D53332A45092D00708684 /* CustomTabbarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D53322A45092D00708684 /* CustomTabbarVM.swift */; };
+		F54D53332A45092D00708684 /* TabBarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D53322A45092D00708684 /* TabBarVM.swift */; };
 		F54D53362A451E2200708684 /* WriteNewMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D53352A451E2200708684 /* WriteNewMessageView.swift */; };
 		F54D53382A451E3500708684 /* WriteNewMessageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D53372A451E3500708684 /* WriteNewMessageVM.swift */; };
 		F54D533B2A45359100708684 /* ChatLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D533A2A45359100708684 /* ChatLogView.swift */; };
@@ -127,11 +127,11 @@
 		F5421AD42A3A3CFD00A42934 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		F5421AD62A3A3D0800A42934 /* SignUpVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVM.swift; sourceTree = "<group>"; };
 		F5421AD92A3A5A3100A42934 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
-		F54879462A3B90FC00304C76 /* CustomTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbar.swift; sourceTree = "<group>"; };
+		F54879462A3B90FC00304C76 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		F548794A2A3C777700304C76 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		F548794C2A3C778200304C76 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 		F54D53302A44FDAE00708684 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		F54D53322A45092D00708684 /* CustomTabbarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbarVM.swift; sourceTree = "<group>"; };
+		F54D53322A45092D00708684 /* TabBarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVM.swift; sourceTree = "<group>"; };
 		F54D53352A451E2200708684 /* WriteNewMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteNewMessageView.swift; sourceTree = "<group>"; };
 		F54D53372A451E3500708684 /* WriteNewMessageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteNewMessageVM.swift; sourceTree = "<group>"; };
 		F54D533A2A45359100708684 /* ChatLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogView.swift; sourceTree = "<group>"; };
@@ -226,6 +226,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F51191E82A5CAE3000B4B327 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				F54879462A3B90FC00304C76 /* TabBarView.swift */,
+				F54D53322A45092D00708684 /* TabBarVM.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		F53703962A3F79200008779D /* EditProfileScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,8 +311,6 @@
 			isa = PBXGroup;
 			children = (
 				F5421AD92A3A5A3100A42934 /* CustomTextField.swift */,
-				F54879462A3B90FC00304C76 /* CustomTabbar.swift */,
-				F54D53322A45092D00708684 /* CustomTabbarVM.swift */,
 				F5B2BDEE2A3D89490074E3D5 /* GameCell.swift */,
 				F54D53302A44FDAE00708684 /* ImagePicker.swift */,
 				F54D53422A45B61500708684 /* ChatMessageModel.swift */,
@@ -425,6 +432,7 @@
 			isa = PBXGroup;
 			children = (
 				F57D368F2A2E9E240023F479 /* levelApp.swift */,
+				F51191E82A5CAE3000B4B327 /* TabBar */,
 				F5421ACF2A3A3CB500A42934 /* SignUpScreen */,
 				F5421ACE2A3A3CA900A42934 /* LoginScreen */,
 				F5B2BDF02A3D8C5C0074E3D5 /* HomeScreen */,
@@ -669,8 +677,8 @@
 				F55E00852A5835E90085FDEE /* PrivacyPolicyView.swift in Sources */,
 				F534BF992A36657800A9871D /* RealmManager.swift in Sources */,
 				F548794B2A3C777700304C76 /* ProfileView.swift in Sources */,
-				F54879472A3B90FC00304C76 /* CustomTabbar.swift in Sources */,
-				F54D53332A45092D00708684 /* CustomTabbarVM.swift in Sources */,
+				F54879472A3B90FC00304C76 /* TabBarView.swift in Sources */,
+				F54D53332A45092D00708684 /* TabBarVM.swift in Sources */,
 				F558790E2A38FCF200AD835E /* GameGenresModel.swift in Sources */,
 				F560B1442A4C412200937038 /* GameDetailsVM.swift in Sources */,
 				F53703A42A3F952B0008779D /* NewsView.swift in Sources */,

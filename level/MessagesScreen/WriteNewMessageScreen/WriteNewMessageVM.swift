@@ -30,8 +30,6 @@ final class WriteNewMessageViewModel: ObservableObject {
             }
         }
     }
-    
-    
 }
 
 

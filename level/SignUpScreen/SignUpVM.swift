@@ -10,7 +10,6 @@ import Foundation
 final class SignUpViewModel: ObservableObject {
     
     private let firebaseManager: FirebaseProtocol = FirebaseManager()
-    private let realmManager: RealmManagerProtocol = RealmManager()
             
     @Published var isPresented = false
     @Published var nickname: String = ""
@@ -26,21 +25,17 @@ final class SignUpViewModel: ObservableObject {
 
     func signUp() {
         
+        guard password == confirmPassword else {
+            errorText = ApplicationErrors.passwordsDontMatch.errorText
+            return
+        }
+        
+        guard !nickname.isEmpty && !email.isEmpty && !password.isEmpty && !confirmPassword.isEmpty else {
+            errorText = ApplicationErrors.emptyFields.errorText
+            return
+        }
+        
         Task {
-            guard password == confirmPassword else {
-                await MainActor.run {
-                    errorText = ApplicationErrors.passwordsDontMatch.errorText
-                }
-                return
-            }
-            
-            guard !nickname.isEmpty && !email.isEmpty && !password.isEmpty && !confirmPassword.isEmpty else {
-                await MainActor.run {
-                    errorText = ApplicationErrors.emptyFields.errorText
-                }
-                return
-            }
-            
             do {
                 let user = try await firebaseManager.signUpEmail(email: email, password: password)
                 UserDefaults.standard.set(user.uid, forKey: "uid")

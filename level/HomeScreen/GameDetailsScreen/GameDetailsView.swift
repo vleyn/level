@@ -10,36 +10,54 @@ import Kingfisher
 import AVKit
 
 struct GameDetailsView: View {
-        
+    
     var gameInfo: Results?
     @StateObject var vm = GameDetailsViewModel()
     
     var body: some View {
         ScrollView {
-            ScrollView(.horizontal, showsIndicators: false) {
-                if let screenshots = gameInfo?.shortScreenshots {
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        
-                        HStack {
-                            ForEach(screenshots, id: \.id) { screenShot in
-                                KFImage(URL(string: screenShot.image ?? ""))
-                                    .placeholder({
-                                        Image(systemName: "folder")
-                                    })
-                                    .resizable()
-                                    .frame(width: 400, height: 250)
-                                    .ignoresSafeArea()
-                                    .cornerRadius(20)
-                                    .padding()
-                            }
+            screenShotsView
+            descriptionView
+        }
+        .task {
+            await vm.getAdditionalInfo(id: gameInfo?.id ?? 0)
+        }
+        .alert("Error", isPresented: $vm.isAlert) {
+            Button("Cancel", role: .cancel) { }
+        } message: {
+            Text(vm.errorText)
+        }
+        .navigationTitle(gameInfo?.name ?? "")
+    }
+    
+    private var screenShotsView: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            if let screenshots = gameInfo?.shortScreenshots {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    
+                    HStack {
+                        ForEach(screenshots, id: \.id) { screenShot in
+                            KFImage(URL(string: screenShot.image ?? ""))
+                                .placeholder({
+                                    Image(systemName: "folder")
+                                })
+                                .resizable()
+                                .frame(width: 400, height: 250)
+                                .ignoresSafeArea()
+                                .cornerRadius(20)
+                                .padding()
                         }
                     }
                 }
             }
-            
+        }
+    }
+    private var descriptionView: some View {
+        VStack {
             Text(gameInfo?.name ?? "")
                 .bold()
                 .padding()
+            
             VStack(alignment: .leading, spacing: 16) {
                 if let genres = gameInfo?.genres {
                     ScrollView(.horizontal, showsIndicators: false) {
@@ -87,15 +105,6 @@ struct GameDetailsView: View {
             }
             .padding()
         }
-        .task {
-            await vm.getAdditionalInfo(id: gameInfo?.id ?? 0)
-        }
-        .alert("Error", isPresented: $vm.isAlert) {
-            Button("Cancel", role: .cancel) { }
-        } message: {
-            Text(vm.errorText)
-        }
-        .navigationTitle(gameInfo?.name ?? "")
     }
     
     struct GameDetailsView_Previews: PreviewProvider {

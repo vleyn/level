@@ -12,7 +12,6 @@ final class GameDetailsViewModel: ObservableObject {
     private let apiManager: ApiProviderProtocol = ApiManager()
     
     @Published var gameInfo: Results?
-    var fullRating: String?
     @Published var additionalInfo: GameDetail?
     @Published var gameTrailers: Trailers?
     @Published var isAlert = false
@@ -22,6 +21,7 @@ final class GameDetailsViewModel: ObservableObject {
             isAlert = true
         }
     }
+    var fullRating: String?
     
     func getAdditionalInfo(id: Int) async {
         do {

@@ -83,9 +83,6 @@ struct ChatLogView: View {
             }
         }
     }
-    
-    
-    
     private var chatBottomBar: some View {
         HStack(spacing: 16) {
             Image(systemName: "photo.on.rectangle")
@@ -126,11 +123,3 @@ private struct DescriptionPlaceholder: View {
         }
     }
 }
-
-//struct ChatLogView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NavigationView {
-//            ChatLogView(chatUser: .init(data: ["uid": "XEzvBurLIketeRaIgpV3M30mRal1", "nickname": "vlad"]))
-//        }
-//    }
-//}

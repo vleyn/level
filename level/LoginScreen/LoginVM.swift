@@ -25,14 +25,12 @@ final class LoginViewModel: ObservableObject {
     
     func login() {
         
+        guard !email.isEmpty && !password.isEmpty else {
+            errorText = ApplicationErrors.emptyFields.errorText
+            return
+        }
+        
         Task {
-            guard !email.isEmpty && !password.isEmpty else {
-                await MainActor.run {
-                    errorText = ApplicationErrors.emptyFields.errorText
-                }
-                return
-            }
-            
             do {
                 let user = try await firebaseManager.login(email: email, password: password)
                 let userInfo = try await firebaseManager.databaseRead(uid: user.uid)

@@ -12,6 +12,20 @@ struct SignUpView: View {
     @StateObject var vm = SignUpViewModel()
     
     var body: some View {
+        signUpView
+            .fullScreenCover(isPresented: $vm.isPresented) {
+                TabBarView()
+            }
+            .alert("Error", isPresented: $vm.isAlert) {
+                Button("Cancel", role: .cancel) {
+                    return
+                }
+            } message: {
+                Text(vm.errorText)
+            }
+    }
+    
+    private var signUpView: some View {
         VStack(spacing: 0) {
             Image("signUpImage")
                 .resizable()
@@ -39,28 +53,18 @@ struct SignUpView: View {
                             .fontDesign(.rounded)
                             .font(.system(size: 16, weight: .semibold))
                             .foregroundColor(.white)
-                            .padding([.top, .bottom], 12)
-                            .padding([.leading, .trailing], 72)
+                            .padding(.vertical, 12)
+                            .padding(.horizontal, 72)
                             .background(Color.gray)
                             .cornerRadius(10)
                     }
                     .padding(.top)
                     .padding(.bottom, 20)
-                    
                 }
-                .padding([.leading, .trailing])
+                .padding(.horizontal)
             }
         }
-            .fullScreenCover(isPresented: $vm.isPresented) {
-                CustomTabbar()
-            }
-            .alert("Error", isPresented: $vm.isAlert) {
-                Button("Cancel", role: .cancel) {
-                    return
-                }
-            } message: {
-                Text(vm.errorText)
-            }
+        
     }
 }
 

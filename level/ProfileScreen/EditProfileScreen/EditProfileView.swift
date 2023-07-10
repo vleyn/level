@@ -13,6 +13,23 @@ struct EditProfileView: View {
     @StateObject var vm = EditProfileViewModel()
     
     var body: some View {
+        editProfileForm
+            .padding(.horizontal)
+        .task {
+            vm.getUserInfo()
+        }
+        .fullScreenCover(isPresented: $vm.showImagePicker, onDismiss: nil) {
+            ImagePicker(image: $vm.image)
+                .ignoresSafeArea()
+        }
+        .alert("Error", isPresented: $vm.isAlert) {
+            Button("Cancel", role: .cancel) { }
+        } message: {
+            Text(vm.errorText)
+        }
+    }
+    
+    private var editProfileForm: some View {
         VStack(spacing: 16) {
             Button {
                 vm.showImagePicker.toggle()
@@ -58,19 +75,6 @@ struct EditProfileView: View {
             }
             
             
-        }
-        .padding([.leading, .trailing])
-        .task {
-            vm.getUserInfo()
-        }
-        .fullScreenCover(isPresented: $vm.showImagePicker, onDismiss: nil) {
-            ImagePicker(image: $vm.image)
-                .ignoresSafeArea()
-        }
-        .alert("Error", isPresented: $vm.isAlert) {
-            Button("Cancel", role: .cancel) { }
-        } message: {
-            Text(vm.errorText)
         }
     }
 }

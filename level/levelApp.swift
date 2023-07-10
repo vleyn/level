@@ -21,7 +21,7 @@ struct levelApp: App {
         WindowGroup {
             
             if !(UserDefaults.standard.string(forKey: "uid")?.isEmpty ?? false) {
-                CustomTabbar()
+                TabBarView()
                     .onAppear()
             } else {
                 LoginView()
