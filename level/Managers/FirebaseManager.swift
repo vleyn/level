@@ -19,9 +19,11 @@ protocol FirebaseProtocol {
     func signUpEmail(email: String, password: String) async throws -> User
     func login(email: String, password: String) async throws -> User
     func logOut() async throws
-    func databaseWrite(user: UserModel)
+    func databaseWriteUser(user: UserModel)
+    func databaseWriteCard(card: CardModel)
     func databaseEdit(user: UserModel)
-    func databaseRead(uid: String) async throws -> UserModel
+    func databaseReadUser(uid: String) async throws -> UserModel
+    func databaseReadCards(uid: String) async throws -> CardModel
     func databaseSaveImage(image: UIImage?) async throws
     func getAllUsers() async throws -> [ChatUser]
 }
@@ -45,7 +47,7 @@ class FirebaseManager: FirebaseProtocol {
         try auth.signOut()
     }
     
-    func databaseWrite(user: UserModel) {
+    func databaseWriteUser(user: UserModel) {
 
         let user = UserModel(uid: user.uid, nickname: user.nickname, email: user.email, avatar: user.avatar, bio: user.bio, wishList: user.wishList)
             do {
@@ -53,7 +55,17 @@ class FirebaseManager: FirebaseProtocol {
             } catch {
                 print("Error write user")
             }
+    }
+    
+    func databaseWriteCard(card: CardModel) {
+        let card = CardModel(id: card.id, cardNumber: card.cardNumber, expirationDate: card.expirationDate, cvvCode: card.cvvCode, cardholderName: card.cardholderName, balance: 0)
+        
+        do {
+            try database.collection("Users").document(auth.currentUser?.uid ?? "").collection("Cards").document(card.id).setData(from: card)
+        } catch {
+            print("Error write card")
         }
+    }
     
     func databaseEdit(user: UserModel) {
         
@@ -67,8 +79,12 @@ class FirebaseManager: FirebaseProtocol {
                                 ])
     }
     
-    func databaseRead(uid: String) async throws -> UserModel  {
+    func databaseReadUser(uid: String) async throws -> UserModel  {
         try await database.collection("Users").document(uid).getDocument(as: UserModel.self)
+    }
+    
+    func databaseReadCards(uid: String) async throws -> CardModel {
+        try await database.collection("Users").document(uid).collection("Cards").document(uid).getDocument(as: CardModel.self)
     }
     
     func databaseSaveImage(image: UIImage?) async throws {

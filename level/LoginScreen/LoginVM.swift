@@ -33,7 +33,7 @@ final class LoginViewModel: ObservableObject {
         Task {
             do {
                 let user = try await firebaseManager.login(email: email, password: password)
-                let userInfo = try await firebaseManager.databaseRead(uid: user.uid)
+                let userInfo = try await firebaseManager.databaseReadUser(uid: user.uid)
                 UserCache.shared.saveInfo(user: userInfo)
                 UserDefaults.standard.set(user.uid, forKey: "uid")
                 await MainActor.run {

@@ -42,7 +42,7 @@ final class EditProfileViewModel: ObservableObject {
             firebaseManager.databaseEdit(user: changedUser)
             do {
                 try await firebaseManager.databaseSaveImage(image: image)
-                let fetchedUser = try await firebaseManager.databaseRead(uid: uid)
+                let fetchedUser = try await firebaseManager.databaseReadUser(uid: uid)
                 let user = UserModel(uid: uid, nickname: nickname, email: email, avatar: fetchedUser.avatar, bio: bio, wishList: UserCache.shared.wishList)
                 UserCache.shared.saveInfo(user: user)
                 await MainActor.run {

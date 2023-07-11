@@ -21,7 +21,7 @@ final class UserWishListViewModel: ObservableObject {
             wishListGames = []
         }
         do {
-            let currentUser = try await firebaseManager.databaseRead(uid: firebaseManager.auth.currentUser?.uid ?? "")
+            let currentUser = try await firebaseManager.databaseReadUser(uid: firebaseManager.auth.currentUser?.uid ?? "")
             await MainActor.run {
                 wishListIds = currentUser.wishList
             }

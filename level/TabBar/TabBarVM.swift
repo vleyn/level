@@ -22,7 +22,7 @@ final class TabBarViewModel: ObservableObject {
         Task {
             if let uid = firebaseManager.auth.currentUser?.uid, uid != "" {
                 do {
-                    let user = try await firebaseManager.databaseRead(uid: uid)
+                    let user = try await firebaseManager.databaseReadUser(uid: uid)
                     let userCache = UserModel(uid: uid, nickname: user.nickname, email: user.email, avatar: user.avatar, bio: user.bio, wishList: user.wishList)
                     UserCache.shared.saveInfo(user: userCache)
                 } catch {

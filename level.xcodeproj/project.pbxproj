@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		F50FB0372A5CE0FD0057D2CC /* UserWishListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50FB0362A5CE0FD0057D2CC /* UserWishListVM.swift */; };
 		F50FB0392A5CE3FF0057D2CC /* GameWishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50FB0382A5CE3FF0057D2CC /* GameWishCell.swift */; };
+		F50FB03B2A5CF3B20057D2CC /* UserWalletVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50FB03A2A5CF3B20057D2CC /* UserWalletVM.swift */; };
+		F50FB03F2A5D09C60057D2CC /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50FB03E2A5D09C60057D2CC /* CardModel.swift */; };
 		F534BF592A3643CD00A9871D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F534BF582A3643CD00A9871D /* GoogleService-Info.plist */; };
 		F534BF5C2A36459E00A9871D /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F534BF5B2A36459E00A9871D /* FirebaseAnalytics */; };
 		F534BF5E2A36459E00A9871D /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = F534BF5D2A36459E00A9871D /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -115,6 +117,8 @@
 /* Begin PBXFileReference section */
 		F50FB0362A5CE0FD0057D2CC /* UserWishListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWishListVM.swift; sourceTree = "<group>"; };
 		F50FB0382A5CE3FF0057D2CC /* GameWishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameWishCell.swift; sourceTree = "<group>"; };
+		F50FB03A2A5CF3B20057D2CC /* UserWalletVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWalletVM.swift; sourceTree = "<group>"; };
+		F50FB03E2A5D09C60057D2CC /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		F534BF582A3643CD00A9871D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F534BF912A36467800A9871D /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		F534BF982A36657800A9871D /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
@@ -268,6 +272,7 @@
 				F551047E2A30DD73000FB952 /* GameDetailModel.swift */,
 				F558790D2A38FCF200AD835E /* GameGenresModel.swift */,
 				F5421ACC2A3A219C00A42934 /* UserModel.swift */,
+				F50FB03E2A5D09C60057D2CC /* CardModel.swift */,
 				F5E0DFF62A418D2E0007747E /* ErrorsHadler.swift */,
 			);
 			path = Models;
@@ -393,6 +398,7 @@
 			isa = PBXGroup;
 			children = (
 				F55E00822A5835DB0085FDEE /* UserWalletView.swift */,
+				F50FB03A2A5CF3B20057D2CC /* UserWalletVM.swift */,
 			);
 			path = UserWalletScreen;
 			sourceTree = "<group>";
@@ -670,6 +676,7 @@
 				F5421AD52A3A3CFD00A42934 /* SignUpView.swift in Sources */,
 				F5421AD72A3A3D0800A42934 /* SignUpVM.swift in Sources */,
 				F551047B2A30DD29000FB952 /* MoyaProvider.swift in Sources */,
+				F50FB03F2A5D09C60057D2CC /* CardModel.swift in Sources */,
 				F5B2BDF22A3D8C6D0074E3D5 /* HomeView.swift in Sources */,
 				F50FB0372A5CE0FD0057D2CC /* UserWishListVM.swift in Sources */,
 				F55E00832A5835DB0085FDEE /* UserWalletView.swift in Sources */,
@@ -677,6 +684,7 @@
 				F57D36902A2E9E240023F479 /* levelApp.swift in Sources */,
 				F534BF9B2A3665C200A9871D /* RealmModel.swift in Sources */,
 				F551047D2A30DD51000FB952 /* GameListModel.swift in Sources */,
+				F50FB03B2A5CF3B20057D2CC /* UserWalletVM.swift in Sources */,
 				F5421ADA2A3A5A3100A42934 /* CustomTextField.swift in Sources */,
 				F54D53362A451E2200708684 /* WriteNewMessageView.swift in Sources */,
 				F534BF922A36467800A9871D /* FirebaseManager.swift in Sources */,

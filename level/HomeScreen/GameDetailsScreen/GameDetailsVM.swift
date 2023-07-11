@@ -47,7 +47,7 @@ final class GameDetailsViewModel: ObservableObject {
         isWhishList.toggle()
         Task {
             do {
-                var currentUser = try await firebaseManager.databaseRead(uid: firebaseManager.auth.currentUser?.uid ?? "")
+                var currentUser = try await firebaseManager.databaseReadUser(uid: firebaseManager.auth.currentUser?.uid ?? "")
                 if isWhishList {
                     currentUser.wishList.append(additionalInfo?.id ?? 0)
                     UserCache.shared.wishList.append(additionalInfo?.id ?? 0)
@@ -66,7 +66,7 @@ final class GameDetailsViewModel: ObservableObject {
     
     func fetchUserWishList() async {
         do {
-            let currentUser = try await firebaseManager.databaseRead(uid: firebaseManager.auth.currentUser?.uid ?? "")
+            let currentUser = try await firebaseManager.databaseReadUser(uid: firebaseManager.auth.currentUser?.uid ?? "")
             if currentUser.wishList.contains(where: {$0 == additionalInfo?.id}) {
                 await MainActor.run {
                     isWhishList = true
