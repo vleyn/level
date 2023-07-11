@@ -17,6 +17,7 @@ final class GameDetailsViewModel: ObservableObject {
     @Published var isAlert = false
     @Published var isViewed = false
     @Published var isWhishList = false
+    @Published var showBuyMenu = false
     @Published var errorText = "" {
         didSet {
             isAlert = true
