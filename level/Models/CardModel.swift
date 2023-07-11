@@ -13,5 +13,5 @@ struct CardModel: Codable {
     let expirationDate: String
     let cvvCode: String
     let cardholderName: String
-    let balance: Int
+    var balance: Int
 }

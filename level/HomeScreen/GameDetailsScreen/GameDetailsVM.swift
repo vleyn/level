@@ -18,6 +18,7 @@ final class GameDetailsViewModel: ObservableObject {
     @Published var isViewed = false
     @Published var isWhishList = false
     @Published var showBuyMenu = false
+    @Published var gameCost = Int.random(in: 10..<100)
     @Published var errorText = "" {
         didSet {
             isAlert = true
@@ -80,6 +81,35 @@ final class GameDetailsViewModel: ObservableObject {
         } catch {
             await MainActor.run {
                 errorText = error.localizedDescription
+            }
+        }
+    }
+    
+    func buyGame() {
+        Task {
+            do {
+                var currentUserBalance = try await firebaseManager.databaseReadCards(uid: firebaseManager.auth.currentUser?.uid ?? "")
+                if currentUserBalance.balance > gameCost {
+                    await MainActor.run {
+                        showBuyMenu.toggle()
+                    }
+                    currentUserBalance.balance = currentUserBalance.balance - gameCost
+                    firebaseManager.databaseWriteCard(card: currentUserBalance)
+                    await MainActor.run {
+                        errorText = "You have successfully purchased the game!"
+                    }
+                } else {
+                    await MainActor.run {
+                        showBuyMenu.toggle()
+                    }
+                    await MainActor.run {
+                        errorText = "Oops. Something went wrong. Check your card balance"
+                    }
+                }
+            } catch {
+                await MainActor.run {
+                    errorText = error.localizedDescription
+                }
             }
         }
     }

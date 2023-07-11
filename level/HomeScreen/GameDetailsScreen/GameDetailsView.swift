@@ -117,7 +117,7 @@ struct GameDetailsView: View {
                 vm.showBuyMenu.toggle()
             } label: {
                 HStack {
-                    Text("119$")
+                    Text("\(vm.gameCost) $")
                         .bold()
                     Text("Buy now")
                 }
@@ -206,14 +206,14 @@ struct GameDetailsView: View {
                     Text("PRICE")
                         .foregroundColor(.gray)
                         .font(.system(size: 14))
-                    Text("USD, \(Int.random(in: 10..<100))")
+                    Text("USD, \(vm.gameCost)")
                     Spacer()
                 }
                 .padding(.leading, 59)
             Divider()
             
             Button {
-                //
+                vm.buyGame()
             } label: {
                 Text("Buy")
                     .padding(.horizontal, 30)

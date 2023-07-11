@@ -58,7 +58,7 @@ class FirebaseManager: FirebaseProtocol {
     }
     
     func databaseWriteCard(card: CardModel) {
-        let card = CardModel(id: card.id, cardNumber: card.cardNumber, expirationDate: card.expirationDate, cvvCode: card.cvvCode, cardholderName: card.cardholderName, balance: 0)
+        let card = CardModel(id: card.id, cardNumber: card.cardNumber, expirationDate: card.expirationDate, cvvCode: card.cvvCode, cardholderName: card.cardholderName, balance: card.balance)
         
         do {
             try database.collection("Users").document(auth.currentUser?.uid ?? "").collection("Cards").document(card.id).setData(from: card)
