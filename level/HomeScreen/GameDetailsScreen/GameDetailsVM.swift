@@ -69,14 +69,8 @@ final class GameDetailsViewModel: ObservableObject {
     func fetchUserWishList() async {
         do {
             let currentUser = try await firebaseManager.databaseReadUser(uid: firebaseManager.auth.currentUser?.uid ?? "")
-            if currentUser.wishList.contains(where: {$0 == additionalInfo?.id}) {
-                await MainActor.run {
-                    isWhishList = true
-                }
-            } else {
-                await MainActor.run {
-                    isWhishList = false
-                }
+            await MainActor.run {
+                isWhishList = currentUser.wishList.contains(where: {$0 == additionalInfo?.id})
             }
         } catch {
             await MainActor.run {

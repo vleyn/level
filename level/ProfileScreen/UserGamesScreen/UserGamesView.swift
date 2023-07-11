@@ -18,8 +18,7 @@ struct UserGamesView: View {
             }
             .navigationTitle("Game List")
     }
-    
-    
+
     private var userGameList: some View {
         ScrollView {
             ForEach(vm.purchasedGames, id: \.id) { game in

@@ -32,9 +32,7 @@ final class UserWishListViewModel: ObservableObject {
             do {
                 let game = try await moyaManager.gameDetailsRequest(id: id)
                 await MainActor.run {
-                    withAnimation {
-                        wishListGames.append(game)
-                    }
+                    wishListGames.append(game)
                 }
             } catch {
                 

@@ -17,28 +17,23 @@ final class UserGamesViewModel: ObservableObject {
     @Published var purchasedGames: [GameDetail] = []
     
     func fetchGameList() async {
-        await MainActor.run {
-            purchasedGames = []
-        }
+        await MainActor.run { purchasedGames = [] }
+        
         do {
             let currentUser = try await firebaseManager.databaseReadUser(uid: firebaseManager.auth.currentUser?.uid ?? "")
             await MainActor.run {
                 purchasedGamesIds = currentUser.purchasedGames
             }
-        } catch {
-            
-        }
+        } catch {}
+        
         for id in purchasedGamesIds {
             do {
                 let game = try await moyaManager.gameDetailsRequest(id: id)
                 await MainActor.run {
-                    withAnimation {
-                        purchasedGames.append(game)
-                    }
+                    purchasedGames.append(game)
                 }
-            } catch {
-                
-            }
+            } catch {}
         }
     }
 }
+

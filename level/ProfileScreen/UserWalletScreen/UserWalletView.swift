@@ -42,20 +42,7 @@ struct UserWalletView: View {
                     TextField("XXXX XXXX XXXX XXXX", text: .init(get: {
                         vm.cardNumber
                     }, set: { value in
-                        vm.cardNumber = ""
-                        let startIndex = value.startIndex
-                        for index in 0..<value.count {
-                            let stringIndex = value.index(startIndex, offsetBy: index)
-                            vm.cardNumber += String(value[stringIndex])
-                            
-                            if (index + 1) % 5 == 0 && value[stringIndex] != " " {
-                                vm.cardNumber.insert(" ", at: stringIndex)
-                            }
-                        }
-                        if value.last == " " {
-                            vm.cardNumber.removeLast()
-                        }
-                        vm.cardNumber = String(vm.cardNumber.prefix(19))
+                        vm.cardNumberMask(value: value)
                     }))
                         .font(.title3)
                         .keyboardType(.numberPad)
@@ -72,17 +59,7 @@ struct UserWalletView: View {
                     TextField("MM/YY", text: .init(get: {
                         vm.expireDate
                     }, set: { value in
-                        vm.expireDate = value
-                        if value.count == 3 && !value.contains("/") {
-                            let startIndex = value.startIndex
-                            let thirdPosition = value.index(startIndex, offsetBy: 2)
-                            vm.expireDate.insert("/", at: thirdPosition)
-                        }
-                        
-                        if value.last == "/" {
-                            vm.expireDate.removeLast()
-                        }
-                        vm.expireDate = String(vm.expireDate.prefix(5))
+                        vm.expirationDateMask(value: value)
                     }))
                         .keyboardType(.numberPad)
                         .disabled(vm.shouldHideAddCardButton)
@@ -90,8 +67,7 @@ struct UserWalletView: View {
                     SecureField("CVV", text: .init(get: {
                         vm.cvvCode
                     }, set: { value in
-                        vm.cvvCode = value
-                        vm.cvvCode = String(vm.cvvCode.prefix(3))
+                        vm.cvvCodeMask(value: value)
                     }))
                         .frame(width: 35)
                         .keyboardType(.numberPad)
@@ -123,7 +99,7 @@ struct UserWalletView: View {
                 .background(RoundedRectangle(cornerRadius: 16))
         }
         .padding(.horizontal)
-        .disabled(vm.cardNumber.count != 19 || vm.expireDate.count != 5 || vm.cardHolderName.isEmpty || vm.cvvCode.count != 3)
+        .disabled(vm.checkIsFillCorrectly())
     }
 }
 
