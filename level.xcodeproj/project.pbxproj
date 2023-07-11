@@ -11,6 +11,7 @@
 		F50FB0392A5CE3FF0057D2CC /* GameWishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50FB0382A5CE3FF0057D2CC /* GameWishCell.swift */; };
 		F50FB03B2A5CF3B20057D2CC /* UserWalletVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50FB03A2A5CF3B20057D2CC /* UserWalletVM.swift */; };
 		F50FB03F2A5D09C60057D2CC /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50FB03E2A5D09C60057D2CC /* CardModel.swift */; };
+		F50FB0412A5D2A620057D2CC /* UserGamesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50FB0402A5D2A620057D2CC /* UserGamesVM.swift */; };
 		F534BF592A3643CD00A9871D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F534BF582A3643CD00A9871D /* GoogleService-Info.plist */; };
 		F534BF5C2A36459E00A9871D /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F534BF5B2A36459E00A9871D /* FirebaseAnalytics */; };
 		F534BF5E2A36459E00A9871D /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = F534BF5D2A36459E00A9871D /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -119,6 +120,7 @@
 		F50FB0382A5CE3FF0057D2CC /* GameWishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameWishCell.swift; sourceTree = "<group>"; };
 		F50FB03A2A5CF3B20057D2CC /* UserWalletVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWalletVM.swift; sourceTree = "<group>"; };
 		F50FB03E2A5D09C60057D2CC /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		F50FB0402A5D2A620057D2CC /* UserGamesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGamesVM.swift; sourceTree = "<group>"; };
 		F534BF582A3643CD00A9871D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F534BF912A36467800A9871D /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		F534BF982A36657800A9871D /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 			isa = PBXGroup;
 			children = (
 				F55E007B2A58358A0085FDEE /* UserGamesView.swift */,
+				F50FB0402A5D2A620057D2CC /* UserGamesVM.swift */,
 			);
 			path = UserGamesScreen;
 			sourceTree = "<group>";
@@ -717,6 +720,7 @@
 				F54D53432A45B61500708684 /* ChatMessageModel.swift in Sources */,
 				F54D53402A45AD9200708684 /* FirebaseConstants.swift in Sources */,
 				F54D53312A44FDAE00708684 /* ImagePicker.swift in Sources */,
+				F50FB0412A5D2A620057D2CC /* UserGamesVM.swift in Sources */,
 				F5B2BDEF2A3D89490074E3D5 /* GameCell.swift in Sources */,
 				F5E0DFF72A418D2E0007747E /* ErrorsHadler.swift in Sources */,
 			);

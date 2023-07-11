@@ -88,13 +88,17 @@ final class GameDetailsViewModel: ObservableObject {
     func buyGame() {
         Task {
             do {
-                var currentUserBalance = try await firebaseManager.databaseReadCards(uid: firebaseManager.auth.currentUser?.uid ?? "")
+                let uid = firebaseManager.auth.currentUser?.uid ?? ""
+                var currentUserBalance = try await firebaseManager.databaseReadCards(uid: uid)
+                var currentUser = try await firebaseManager.databaseReadUser(uid: uid)
                 if currentUserBalance.balance > gameCost {
                     await MainActor.run {
                         showBuyMenu.toggle()
                     }
                     currentUserBalance.balance = currentUserBalance.balance - gameCost
                     firebaseManager.databaseWriteCard(card: currentUserBalance)
+                    currentUser.purchasedGames.append(additionalInfo?.id ?? 0)
+                    firebaseManager.databaseEdit(user: currentUser)
                     await MainActor.run {
                         errorText = "You have successfully purchased the game!"
                     }

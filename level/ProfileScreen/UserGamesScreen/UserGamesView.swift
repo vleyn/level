@@ -8,8 +8,24 @@
 import SwiftUI
 
 struct UserGamesView: View {
+    
+    @StateObject var vm = UserGamesViewModel()
+    
     var body: some View {
-        Text("UserGames")
+        userGameList
+            .task {
+                await vm.fetchGameList()
+            }
+            .navigationTitle("Game List")
+    }
+    
+    
+    private var userGameList: some View {
+        ScrollView {
+            ForEach(vm.purchasedGames, id: \.id) { game in
+                GameWishCell(game: game)
+            }
+        }
     }
 }
 

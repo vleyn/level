@@ -39,7 +39,7 @@ final class SignUpViewModel: ObservableObject {
             do {
                 let user = try await firebaseManager.signUpEmail(email: email, password: password)
                 UserDefaults.standard.set(user.uid, forKey: "uid")
-                let dataBaseUser = UserModel(uid: user.uid, nickname: nickname, email: email, avatar: "", bio: "", wishList: [])
+                let dataBaseUser = UserModel(uid: user.uid, nickname: nickname, email: email, avatar: "", bio: "", wishList: [], purchasedGames: [])
                 firebaseManager.databaseWriteUser(user: dataBaseUser)
                 UserCache.shared.saveInfo(user: dataBaseUser)
                 await MainActor.run {

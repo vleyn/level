@@ -14,6 +14,7 @@ struct DatabaseConstants {
     static let bio = "bio"
     static let uid = "uid"
     static let wishList = "wishList"
+    static let purchasedGames = "purchasedGames"
     static let timestamp = "timestamp"
 }
 

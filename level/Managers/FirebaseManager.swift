@@ -49,7 +49,7 @@ class FirebaseManager: FirebaseProtocol {
     
     func databaseWriteUser(user: UserModel) {
 
-        let user = UserModel(uid: user.uid, nickname: user.nickname, email: user.email, avatar: user.avatar, bio: user.bio, wishList: user.wishList)
+        let user = UserModel(uid: user.uid, nickname: user.nickname, email: user.email, avatar: user.avatar, bio: user.bio, wishList: user.wishList, purchasedGames: user.purchasedGames)
             do {
                 try database.collection("Users").document(user.uid).setData(from: user)
             } catch {
@@ -75,7 +75,8 @@ class FirebaseManager: FirebaseProtocol {
                                  DatabaseConstants.avatar : user.avatar,
                                  DatabaseConstants.bio : user.bio,
                                  DatabaseConstants.uid : user.uid,
-                                 DatabaseConstants.wishList: user.wishList
+                                 DatabaseConstants.wishList: user.wishList,
+                                 DatabaseConstants.purchasedGames: user.purchasedGames
                                 ])
     }
     

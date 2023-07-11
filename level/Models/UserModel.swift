@@ -15,6 +15,7 @@ struct UserModel: Codable {
     let avatar: String
     let bio: String
     var wishList: [Int]
+    var purchasedGames: [Int]
 }
 
 struct ChatUser: Identifiable {
