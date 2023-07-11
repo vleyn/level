@@ -19,6 +19,7 @@ struct GameDetailsView: View {
             screenShotsView
             descriptionView
         }
+        .overlay(buyGameButton, alignment: .bottom)
         .task {
             await vm.getAdditionalInfo(id: gameInfo?.id ?? 0)
         }
@@ -105,6 +106,37 @@ struct GameDetailsView: View {
             }
             .padding()
         }
+    }
+    private var buyGameButton: some View {
+        HStack {
+            Button {
+                //
+            } label: {
+                HStack {
+                    Text("119$")
+                    Text("Buy now")
+                }
+                .foregroundColor(.white)
+                .padding(.vertical)
+                .padding(.horizontal)
+                .background(Color.gray)
+                .cornerRadius(32)
+                .shadow(radius: 15)
+            }
+            Button {
+                vm.addToWishList()
+            } label: {
+                Image(systemName: vm.isWhishList ? "heart.fill" : "heart")
+                    .foregroundColor(.white)
+                    .padding(.vertical)
+                    .padding(.horizontal)
+                    .background(Color.gray)
+                    .cornerRadius(32)
+                    .shadow(radius: 15)
+            }
+
+        }
+        .padding(.bottom, 40)
     }
     
     struct GameDetailsView_Previews: PreviewProvider {

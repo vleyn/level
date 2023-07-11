@@ -39,9 +39,9 @@ final class SignUpViewModel: ObservableObject {
             do {
                 let user = try await firebaseManager.signUpEmail(email: email, password: password)
                 UserDefaults.standard.set(user.uid, forKey: "uid")
-                firebaseManager.databaseWrite(nickname: nickname, email: email, avatar: "", bio: "", uid: user.uid)
-                let cachedUser = UserModel(uid: user.uid, nickname: nickname, email: email, avatar: "", bio: "")
-                UserCache.shared.saveInfo(user: cachedUser)
+                let dataBaseUser = UserModel(uid: user.uid, nickname: nickname, email: email, avatar: "", bio: "", wishList: [])
+                firebaseManager.databaseWrite(user: dataBaseUser)
+                UserCache.shared.saveInfo(user: dataBaseUser)
                 await MainActor.run {
                     self.isPresented = true
                 }

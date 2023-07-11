@@ -19,8 +19,8 @@ protocol FirebaseProtocol {
     func signUpEmail(email: String, password: String) async throws -> User
     func login(email: String, password: String) async throws -> User
     func logOut() async throws
-    func databaseWrite(nickname: String, email: String, avatar: String, bio: String, uid: String)
-    func databaseEdit(uid: String, nickname: String, email: String, avatar: String, bio: String)
+    func databaseWrite(user: UserModel)
+    func databaseEdit(user: UserModel)
     func databaseRead(uid: String) async throws -> UserModel
     func databaseSaveImage(image: UIImage?) async throws
     func getAllUsers() async throws -> [ChatUser]
@@ -45,24 +45,26 @@ class FirebaseManager: FirebaseProtocol {
         try auth.signOut()
     }
     
-    func databaseWrite(nickname: String, email: String, avatar: String, bio: String, uid: String) {
+    func databaseWrite(user: UserModel) {
 
-        let user = UserModel(uid: uid, nickname: nickname, email: email, avatar: avatar, bio: bio)
+        let user = UserModel(uid: user.uid, nickname: user.nickname, email: user.email, avatar: user.avatar, bio: user.bio, wishList: user.wishList)
             do {
-               try database.collection("Users").document(uid).setData(from: user)
+                try database.collection("Users").document(user.uid).setData(from: user)
             } catch {
                 print("Error write user")
             }
         }
     
-    func databaseEdit(uid: String, nickname: String, email: String, avatar: String, bio: String) {
+    func databaseEdit(user: UserModel) {
         
-        let user = database.collection("Users").document(uid)
-        user.updateData([DatabaseConstants.nickname : nickname,
-                         DatabaseConstants.email : email,
-                         DatabaseConstants.avatar : avatar,
-                         DatabaseConstants.bio : bio,
-                         DatabaseConstants.uid : uid ])
+        let dataBaseUser = database.collection("Users").document(user.uid)
+        dataBaseUser.updateData([DatabaseConstants.nickname : user.nickname,
+                                 DatabaseConstants.email : user.email,
+                                 DatabaseConstants.avatar : user.avatar,
+                                 DatabaseConstants.bio : user.bio,
+                                 DatabaseConstants.uid : user.uid,
+                                 DatabaseConstants.wishList: user.wishList
+                                ])
     }
     
     func databaseRead(uid: String) async throws -> UserModel  {

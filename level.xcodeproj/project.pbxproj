@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F50FB0372A5CE0FD0057D2CC /* UserWishListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50FB0362A5CE0FD0057D2CC /* UserWishListVM.swift */; };
+		F50FB0392A5CE3FF0057D2CC /* GameWishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50FB0382A5CE3FF0057D2CC /* GameWishCell.swift */; };
 		F534BF592A3643CD00A9871D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F534BF582A3643CD00A9871D /* GoogleService-Info.plist */; };
 		F534BF5C2A36459E00A9871D /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F534BF5B2A36459E00A9871D /* FirebaseAnalytics */; };
 		F534BF5E2A36459E00A9871D /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = F534BF5D2A36459E00A9871D /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -111,6 +113,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F50FB0362A5CE0FD0057D2CC /* UserWishListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWishListVM.swift; sourceTree = "<group>"; };
+		F50FB0382A5CE3FF0057D2CC /* GameWishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameWishCell.swift; sourceTree = "<group>"; };
 		F534BF582A3643CD00A9871D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F534BF912A36467800A9871D /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		F534BF982A36657800A9871D /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
@@ -312,6 +316,7 @@
 			children = (
 				F5421AD92A3A5A3100A42934 /* CustomTextField.swift */,
 				F5B2BDEE2A3D89490074E3D5 /* GameCell.swift */,
+				F50FB0382A5CE3FF0057D2CC /* GameWishCell.swift */,
 				F54D53302A44FDAE00708684 /* ImagePicker.swift */,
 				F54D53422A45B61500708684 /* ChatMessageModel.swift */,
 			);
@@ -379,6 +384,7 @@
 			isa = PBXGroup;
 			children = (
 				F55E00802A5835C10085FDEE /* UserWishListView.swift */,
+				F50FB0362A5CE0FD0057D2CC /* UserWishListVM.swift */,
 			);
 			path = UserWishListScreen;
 			sourceTree = "<group>";
@@ -659,11 +665,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F50FB0392A5CE3FF0057D2CC /* GameWishCell.swift in Sources */,
 				F5421AD32A3A3CE900A42934 /* LoginVM.swift in Sources */,
 				F5421AD52A3A3CFD00A42934 /* SignUpView.swift in Sources */,
 				F5421AD72A3A3D0800A42934 /* SignUpVM.swift in Sources */,
 				F551047B2A30DD29000FB952 /* MoyaProvider.swift in Sources */,
 				F5B2BDF22A3D8C6D0074E3D5 /* HomeView.swift in Sources */,
+				F50FB0372A5CE0FD0057D2CC /* UserWishListVM.swift in Sources */,
 				F55E00832A5835DB0085FDEE /* UserWalletView.swift in Sources */,
 				F54D53382A451E3500708684 /* WriteNewMessageVM.swift in Sources */,
 				F57D36902A2E9E240023F479 /* levelApp.swift in Sources */,
