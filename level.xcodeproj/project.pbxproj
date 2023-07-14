@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F50FB0372A5CE0FD0057D2CC /* UserWishListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50FB0362A5CE0FD0057D2CC /* UserWishListVM.swift */; };
+		F50FB0392A5CE3FF0057D2CC /* GameWishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50FB0382A5CE3FF0057D2CC /* GameWishCell.swift */; };
+		F50FB03B2A5CF3B20057D2CC /* UserWalletVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50FB03A2A5CF3B20057D2CC /* UserWalletVM.swift */; };
+		F50FB03F2A5D09C60057D2CC /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50FB03E2A5D09C60057D2CC /* CardModel.swift */; };
+		F50FB0412A5D2A620057D2CC /* UserGamesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50FB0402A5D2A620057D2CC /* UserGamesVM.swift */; };
 		F534BF592A3643CD00A9871D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F534BF582A3643CD00A9871D /* GoogleService-Info.plist */; };
 		F534BF5C2A36459E00A9871D /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F534BF5B2A36459E00A9871D /* FirebaseAnalytics */; };
 		F534BF5E2A36459E00A9871D /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = F534BF5D2A36459E00A9871D /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -52,11 +57,11 @@
 		F5421AD52A3A3CFD00A42934 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5421AD42A3A3CFD00A42934 /* SignUpView.swift */; };
 		F5421AD72A3A3D0800A42934 /* SignUpVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5421AD62A3A3D0800A42934 /* SignUpVM.swift */; };
 		F5421ADA2A3A5A3100A42934 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5421AD92A3A5A3100A42934 /* CustomTextField.swift */; };
-		F54879472A3B90FC00304C76 /* CustomTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54879462A3B90FC00304C76 /* CustomTabbar.swift */; };
+		F54879472A3B90FC00304C76 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54879462A3B90FC00304C76 /* TabBarView.swift */; };
 		F548794B2A3C777700304C76 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F548794A2A3C777700304C76 /* ProfileView.swift */; };
 		F548794D2A3C778200304C76 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F548794C2A3C778200304C76 /* ProfileVM.swift */; };
 		F54D53312A44FDAE00708684 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D53302A44FDAE00708684 /* ImagePicker.swift */; };
-		F54D53332A45092D00708684 /* CustomTabbarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D53322A45092D00708684 /* CustomTabbarVM.swift */; };
+		F54D53332A45092D00708684 /* TabBarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D53322A45092D00708684 /* TabBarVM.swift */; };
 		F54D53362A451E2200708684 /* WriteNewMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D53352A451E2200708684 /* WriteNewMessageView.swift */; };
 		F54D53382A451E3500708684 /* WriteNewMessageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D53372A451E3500708684 /* WriteNewMessageVM.swift */; };
 		F54D533B2A45359100708684 /* ChatLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D533A2A45359100708684 /* ChatLogView.swift */; };
@@ -111,6 +116,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F50FB0362A5CE0FD0057D2CC /* UserWishListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWishListVM.swift; sourceTree = "<group>"; };
+		F50FB0382A5CE3FF0057D2CC /* GameWishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameWishCell.swift; sourceTree = "<group>"; };
+		F50FB03A2A5CF3B20057D2CC /* UserWalletVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWalletVM.swift; sourceTree = "<group>"; };
+		F50FB03E2A5D09C60057D2CC /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		F50FB0402A5D2A620057D2CC /* UserGamesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGamesVM.swift; sourceTree = "<group>"; };
 		F534BF582A3643CD00A9871D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F534BF912A36467800A9871D /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		F534BF982A36657800A9871D /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
@@ -127,11 +137,11 @@
 		F5421AD42A3A3CFD00A42934 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		F5421AD62A3A3D0800A42934 /* SignUpVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVM.swift; sourceTree = "<group>"; };
 		F5421AD92A3A5A3100A42934 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
-		F54879462A3B90FC00304C76 /* CustomTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbar.swift; sourceTree = "<group>"; };
+		F54879462A3B90FC00304C76 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		F548794A2A3C777700304C76 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		F548794C2A3C778200304C76 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 		F54D53302A44FDAE00708684 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		F54D53322A45092D00708684 /* CustomTabbarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbarVM.swift; sourceTree = "<group>"; };
+		F54D53322A45092D00708684 /* TabBarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVM.swift; sourceTree = "<group>"; };
 		F54D53352A451E2200708684 /* WriteNewMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteNewMessageView.swift; sourceTree = "<group>"; };
 		F54D53372A451E3500708684 /* WriteNewMessageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteNewMessageVM.swift; sourceTree = "<group>"; };
 		F54D533A2A45359100708684 /* ChatLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogView.swift; sourceTree = "<group>"; };
@@ -226,6 +236,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F51191E82A5CAE3000B4B327 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				F54879462A3B90FC00304C76 /* TabBarView.swift */,
+				F54D53322A45092D00708684 /* TabBarVM.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		F53703962A3F79200008779D /* EditProfileScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +274,7 @@
 				F551047E2A30DD73000FB952 /* GameDetailModel.swift */,
 				F558790D2A38FCF200AD835E /* GameGenresModel.swift */,
 				F5421ACC2A3A219C00A42934 /* UserModel.swift */,
+				F50FB03E2A5D09C60057D2CC /* CardModel.swift */,
 				F5E0DFF62A418D2E0007747E /* ErrorsHadler.swift */,
 			);
 			path = Models;
@@ -302,9 +322,8 @@
 			isa = PBXGroup;
 			children = (
 				F5421AD92A3A5A3100A42934 /* CustomTextField.swift */,
-				F54879462A3B90FC00304C76 /* CustomTabbar.swift */,
-				F54D53322A45092D00708684 /* CustomTabbarVM.swift */,
 				F5B2BDEE2A3D89490074E3D5 /* GameCell.swift */,
+				F50FB0382A5CE3FF0057D2CC /* GameWishCell.swift */,
 				F54D53302A44FDAE00708684 /* ImagePicker.swift */,
 				F54D53422A45B61500708684 /* ChatMessageModel.swift */,
 			);
@@ -356,6 +375,7 @@
 			isa = PBXGroup;
 			children = (
 				F55E007B2A58358A0085FDEE /* UserGamesView.swift */,
+				F50FB0402A5D2A620057D2CC /* UserGamesVM.swift */,
 			);
 			path = UserGamesScreen;
 			sourceTree = "<group>";
@@ -372,6 +392,7 @@
 			isa = PBXGroup;
 			children = (
 				F55E00802A5835C10085FDEE /* UserWishListView.swift */,
+				F50FB0362A5CE0FD0057D2CC /* UserWishListVM.swift */,
 			);
 			path = UserWishListScreen;
 			sourceTree = "<group>";
@@ -380,6 +401,7 @@
 			isa = PBXGroup;
 			children = (
 				F55E00822A5835DB0085FDEE /* UserWalletView.swift */,
+				F50FB03A2A5CF3B20057D2CC /* UserWalletVM.swift */,
 			);
 			path = UserWalletScreen;
 			sourceTree = "<group>";
@@ -425,6 +447,7 @@
 			isa = PBXGroup;
 			children = (
 				F57D368F2A2E9E240023F479 /* levelApp.swift */,
+				F51191E82A5CAE3000B4B327 /* TabBar */,
 				F5421ACF2A3A3CB500A42934 /* SignUpScreen */,
 				F5421ACE2A3A3CA900A42934 /* LoginScreen */,
 				F5B2BDF02A3D8C5C0074E3D5 /* HomeScreen */,
@@ -651,16 +674,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F50FB0392A5CE3FF0057D2CC /* GameWishCell.swift in Sources */,
 				F5421AD32A3A3CE900A42934 /* LoginVM.swift in Sources */,
 				F5421AD52A3A3CFD00A42934 /* SignUpView.swift in Sources */,
 				F5421AD72A3A3D0800A42934 /* SignUpVM.swift in Sources */,
 				F551047B2A30DD29000FB952 /* MoyaProvider.swift in Sources */,
+				F50FB03F2A5D09C60057D2CC /* CardModel.swift in Sources */,
 				F5B2BDF22A3D8C6D0074E3D5 /* HomeView.swift in Sources */,
+				F50FB0372A5CE0FD0057D2CC /* UserWishListVM.swift in Sources */,
 				F55E00832A5835DB0085FDEE /* UserWalletView.swift in Sources */,
 				F54D53382A451E3500708684 /* WriteNewMessageVM.swift in Sources */,
 				F57D36902A2E9E240023F479 /* levelApp.swift in Sources */,
 				F534BF9B2A3665C200A9871D /* RealmModel.swift in Sources */,
 				F551047D2A30DD51000FB952 /* GameListModel.swift in Sources */,
+				F50FB03B2A5CF3B20057D2CC /* UserWalletVM.swift in Sources */,
 				F5421ADA2A3A5A3100A42934 /* CustomTextField.swift in Sources */,
 				F54D53362A451E2200708684 /* WriteNewMessageView.swift in Sources */,
 				F534BF922A36467800A9871D /* FirebaseManager.swift in Sources */,
@@ -669,8 +696,8 @@
 				F55E00852A5835E90085FDEE /* PrivacyPolicyView.swift in Sources */,
 				F534BF992A36657800A9871D /* RealmManager.swift in Sources */,
 				F548794B2A3C777700304C76 /* ProfileView.swift in Sources */,
-				F54879472A3B90FC00304C76 /* CustomTabbar.swift in Sources */,
-				F54D53332A45092D00708684 /* CustomTabbarVM.swift in Sources */,
+				F54879472A3B90FC00304C76 /* TabBarView.swift in Sources */,
+				F54D53332A45092D00708684 /* TabBarVM.swift in Sources */,
 				F558790E2A38FCF200AD835E /* GameGenresModel.swift in Sources */,
 				F560B1442A4C412200937038 /* GameDetailsVM.swift in Sources */,
 				F53703A42A3F952B0008779D /* NewsView.swift in Sources */,
@@ -693,6 +720,7 @@
 				F54D53432A45B61500708684 /* ChatMessageModel.swift in Sources */,
 				F54D53402A45AD9200708684 /* FirebaseConstants.swift in Sources */,
 				F54D53312A44FDAE00708684 /* ImagePicker.swift in Sources */,
+				F50FB0412A5D2A620057D2CC /* UserGamesVM.swift in Sources */,
 				F5B2BDEF2A3D89490074E3D5 /* GameCell.swift in Sources */,
 				F5E0DFF72A418D2E0007747E /* ErrorsHadler.swift in Sources */,
 			);
@@ -781,7 +809,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -835,7 +863,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -862,7 +890,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -893,7 +921,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -916,7 +944,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 65F88Q392R;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.leyn.levelTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -936,7 +964,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 65F88Q392R;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.leyn.levelTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -19,9 +19,11 @@ protocol FirebaseProtocol {
     func signUpEmail(email: String, password: String) async throws -> User
     func login(email: String, password: String) async throws -> User
     func logOut() async throws
-    func databaseWrite(nickname: String, email: String, avatar: String, bio: String, uid: String)
-    func databaseEdit(uid: String, nickname: String, email: String, avatar: String, bio: String)
-    func databaseRead(uid: String) async throws -> UserModel
+    func databaseWriteUser(user: UserModel)
+    func databaseWriteCard(card: CardModel)
+    func databaseEdit(user: UserModel)
+    func databaseReadUser(uid: String) async throws -> UserModel
+    func databaseReadCards(uid: String) async throws -> CardModel
     func databaseSaveImage(image: UIImage?) async throws
     func getAllUsers() async throws -> [ChatUser]
 }
@@ -45,28 +47,45 @@ class FirebaseManager: FirebaseProtocol {
         try auth.signOut()
     }
     
-    func databaseWrite(nickname: String, email: String, avatar: String, bio: String, uid: String) {
+    func databaseWriteUser(user: UserModel) {
 
-        let user = UserModel(uid: uid, nickname: nickname, email: email, avatar: avatar, bio: bio)
+        let user = UserModel(uid: user.uid, nickname: user.nickname, email: user.email, avatar: user.avatar, bio: user.bio, wishList: user.wishList, purchasedGames: user.purchasedGames)
             do {
-               try database.collection("Users").document(uid).setData(from: user)
+                try database.collection("Users").document(user.uid).setData(from: user)
             } catch {
                 print("Error write user")
             }
-        }
-    
-    func databaseEdit(uid: String, nickname: String, email: String, avatar: String, bio: String) {
-        
-        let user = database.collection("Users").document(uid)
-        user.updateData([DatabaseConstants.nickname : nickname,
-                         DatabaseConstants.email : email,
-                         DatabaseConstants.avatar : avatar,
-                         DatabaseConstants.bio : bio,
-                         DatabaseConstants.uid : uid ])
     }
     
-    func databaseRead(uid: String) async throws -> UserModel  {
+    func databaseWriteCard(card: CardModel) {
+        let card = CardModel(id: card.id, cardNumber: card.cardNumber, expirationDate: card.expirationDate, cvvCode: card.cvvCode, cardholderName: card.cardholderName, balance: card.balance)
+        
+        do {
+            try database.collection("Users").document(auth.currentUser?.uid ?? "").collection("Cards").document(card.id).setData(from: card)
+        } catch {
+            print("Error write card")
+        }
+    }
+    
+    func databaseEdit(user: UserModel) {
+        
+        let dataBaseUser = database.collection("Users").document(user.uid)
+        dataBaseUser.updateData([DatabaseConstants.nickname : user.nickname,
+                                 DatabaseConstants.email : user.email,
+                                 DatabaseConstants.avatar : user.avatar,
+                                 DatabaseConstants.bio : user.bio,
+                                 DatabaseConstants.uid : user.uid,
+                                 DatabaseConstants.wishList: user.wishList,
+                                 DatabaseConstants.purchasedGames: user.purchasedGames
+                                ])
+    }
+    
+    func databaseReadUser(uid: String) async throws -> UserModel  {
         try await database.collection("Users").document(uid).getDocument(as: UserModel.self)
+    }
+    
+    func databaseReadCards(uid: String) async throws -> CardModel {
+        try await database.collection("Users").document(uid).collection("Cards").document(uid).getDocument(as: CardModel.self)
     }
     
     func databaseSaveImage(image: UIImage?) async throws {

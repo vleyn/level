@@ -18,6 +18,8 @@ class UserCache {
     var email = ""
     var avatar = ""
     var bio = ""
+    var wishList: [Int] = []
+    var purchasedGames: [Int] = []
     
     func saveInfo(user: UserModel) {
         uid = user.uid
@@ -28,6 +30,6 @@ class UserCache {
     }
     
     func getInfo() -> UserModel {
-        UserModel(uid: uid, nickname: nickname, email: email, avatar: avatar, bio: bio)
+        UserModel(uid: uid, nickname: nickname, email: email, avatar: avatar, bio: bio, wishList: wishList, purchasedGames: purchasedGames)
     }
 }

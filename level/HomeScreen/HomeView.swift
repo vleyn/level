@@ -26,7 +26,6 @@ struct HomeView: View {
         } message: {
             Text(vm.errorText)
         }
-        .navigationBarTitleDisplayMode(.inline)
     }
     
     private var welcomeView: some View {
@@ -45,7 +44,8 @@ struct HomeView: View {
                 .cornerRadius(50)
                 .overlay(RoundedRectangle(cornerRadius: 50)
                     .stroke(Color(.label), lineWidth: 1))
-        }.padding()
+        }
+        .padding()
     }
     private var pickGenreSection: some View {
         VStack {
@@ -58,7 +58,6 @@ struct HomeView: View {
                 } label: {
                     Text("See more")
                 }
-                
             }
             
             ScrollView(.horizontal, showsIndicators: false) {
@@ -97,6 +96,7 @@ struct HomeView: View {
                 Text("Load more")
             }
         }
+        .padding(.bottom)
     }
 }
 

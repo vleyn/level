@@ -15,43 +15,7 @@ struct WriteNewMessageView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                ForEach(vm.users) { user in
-                    Button {
-                    } label: {
-                        NavigationLink {
-                            ChatLogView(chatUser: user)
-                        } label: {
-                            HStack(spacing: 16) {
-                                KFImage(URL(string: user.avatar))
-                                    .placeholder({
-                                        Image(systemName: "person.fill")
-                                            .resizable()
-                                            .frame(width: 50, height: 50)
-                                            .foregroundColor(.black)
-                                    })
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 50, height: 50)
-                                    .clipped()
-                                    .cornerRadius(50)
-                                    .overlay(RoundedRectangle(cornerRadius: 50)
-                                        .stroke(.black, lineWidth: 2)
-                                    )
-                                
-                                Text(user.nickname)
-                                    .foregroundColor(.black)
-                                Spacer()
-                            }
-                            .padding(.horizontal)
-                            Divider()
-                                .padding(.vertical, 8)
-                        }
-                        
-                    }
-                    
-                }
-            }
+            usersList
             .navigationTitle("New message")
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarLeading) {
@@ -70,6 +34,46 @@ struct WriteNewMessageView: View {
             Button("Cancel", role: .cancel) { }
         } message: {
             Text(vm.errorText)
+        }
+    }
+    
+    private var usersList: some View {
+        ScrollView {
+            ForEach(vm.users) { user in
+                Button {
+                } label: {
+                    NavigationLink {
+                        ChatLogView(chatUser: user)
+                    } label: {
+                        HStack(spacing: 16) {
+                            KFImage(URL(string: user.avatar))
+                                .placeholder({
+                                    Image(systemName: "person.fill")
+                                        .resizable()
+                                        .frame(width: 50, height: 50)
+                                        .foregroundColor(.black)
+                                })
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 50, height: 50)
+                                .clipped()
+                                .cornerRadius(50)
+                                .overlay(RoundedRectangle(cornerRadius: 50)
+                                    .stroke(.black, lineWidth: 2)
+                                )
+                            
+                            Text(user.nickname)
+                                .foregroundColor(.black)
+                            Spacer()
+                        }
+                        .padding(.horizontal)
+                        Divider()
+                            .padding(.vertical, 8)
+                    }
+                    
+                }
+                
+            }
         }
     }
 }

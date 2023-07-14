@@ -27,7 +27,10 @@ final class MessagesViewModel: ObservableObject {
                              nickname: UserCache.shared.nickname,
                              email: UserCache.shared.email,
                              avatar: UserCache.shared.avatar,
-                             bio: UserCache.shared.bio)
+                             bio: UserCache.shared.bio,
+                             wishList: UserCache.shared.wishList,
+                             purchasedGames: UserCache.shared.purchasedGames
+                            )
     }
     
     func getRecentMessages() {
