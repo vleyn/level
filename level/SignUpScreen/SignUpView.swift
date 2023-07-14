@@ -50,7 +50,6 @@ struct SignUpView: View {
                         vm.signUp()
                     } label: {
                         Text("Sign Up")
-                            .fontDesign(.rounded)
                             .font(.system(size: 16, weight: .semibold))
                             .foregroundColor(.white)
                             .padding(.vertical, 12)

@@ -96,6 +96,7 @@ struct HomeView: View {
                 Text("Load more")
             }
         }
+        .padding(.bottom)
     }
 }
 

@@ -64,7 +64,6 @@ struct LoginView: View {
                 vm.login()
             } label: {
                 Text("Login")
-                    .fontDesign(.rounded)
                     .font(.system(size: 16, weight: .semibold))
                     .foregroundColor(.white)
                     .padding(.vertical, 13)
