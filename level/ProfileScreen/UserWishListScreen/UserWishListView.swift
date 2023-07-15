@@ -13,19 +13,14 @@ struct UserWishListView: View {
     
     var body: some View {
         userWishList
-            .task {
-                await vm.fetchWishList()
-            }
             .navigationTitle("Wishlist")
     }
     
     
     private var userWishList: some View {
         ScrollView {
-            ForEach(vm.wishListGames, id: \.id) { game in
-                
-                    GameWishCell(game: game)
-                
+            ForEach(UserCache.shared.wishListGames.reversed(), id: \.id) { game in
+                GameWishCell(game: game)
             }
         }
     }

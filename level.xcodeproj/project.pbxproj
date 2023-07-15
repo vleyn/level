@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F50989232A61A31B005CD968 /* ImageViewer in Frameworks */ = {isa = PBXBuildFile; productRef = F50989222A61A31B005CD968 /* ImageViewer */; };
+		F50989252A61A31B005CD968 /* ImageViewerRemote in Frameworks */ = {isa = PBXBuildFile; productRef = F50989242A61A31B005CD968 /* ImageViewerRemote */; };
 		F50FB0372A5CE0FD0057D2CC /* UserWishListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50FB0362A5CE0FD0057D2CC /* UserWishListVM.swift */; };
 		F50FB0392A5CE3FF0057D2CC /* GameWishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50FB0382A5CE3FF0057D2CC /* GameWishCell.swift */; };
 		F50FB03B2A5CF3B20057D2CC /* UserWalletVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50FB03A2A5CF3B20057D2CC /* UserWalletVM.swift */; };
@@ -198,6 +200,7 @@
 				F534BF7A2A36459E00A9871D /* FirebaseFunctions in Frameworks */,
 				F5BDC7ED2A40B24B003DD588 /* Kingfisher in Frameworks */,
 				F55104792A30DCF8000FB952 /* RxMoya in Frameworks */,
+				F50989232A61A31B005CD968 /* ImageViewer in Frameworks */,
 				F534BF602A36459E00A9871D /* FirebaseAnalyticsSwift in Frameworks */,
 				F534BF5C2A36459E00A9871D /* FirebaseAnalytics in Frameworks */,
 				F55104772A30DCF8000FB952 /* ReactiveMoya in Frameworks */,
@@ -207,6 +210,7 @@
 				F534BF6C2A36459E00A9871D /* FirebaseCrashlytics in Frameworks */,
 				F534BF952A36655F00A9871D /* Realm in Frameworks */,
 				F534BF722A36459E00A9871D /* FirebaseDynamicLinks in Frameworks */,
+				F50989252A61A31B005CD968 /* ImageViewerRemote in Frameworks */,
 				F534BF8E2A36459E00A9871D /* FirebaseStorage in Frameworks */,
 				F534BF7E2A36459E00A9871D /* FirebaseInAppMessaging-Beta in Frameworks */,
 				F534BF8C2A36459E00A9871D /* FirebaseRemoteConfigSwift in Frameworks */,
@@ -552,6 +556,8 @@
 				F534BF942A36655F00A9871D /* Realm */,
 				F534BF962A36655F00A9871D /* RealmSwift */,
 				F5BDC7EC2A40B24B003DD588 /* Kingfisher */,
+				F50989222A61A31B005CD968 /* ImageViewer */,
+				F50989242A61A31B005CD968 /* ImageViewerRemote */,
 			);
 			productName = level;
 			productReference = F57D368C2A2E9E240023F479 /* level.app */;
@@ -630,6 +636,7 @@
 				F534BF5A2A36459E00A9871D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				F534BF932A36655F00A9871D /* XCRemoteSwiftPackageReference "realm-swift" */,
 				F5BDC7EB2A40B24B003DD588 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				F50989212A61A31B005CD968 /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */,
 			);
 			productRefGroup = F57D368D2A2E9E240023F479 /* Products */;
 			projectDirPath = "";
@@ -1053,6 +1060,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F50989212A61A31B005CD968 /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Jake-Short/swiftui-image-viewer";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		F534BF5A2A36459E00A9871D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1088,6 +1103,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F50989222A61A31B005CD968 /* ImageViewer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F50989212A61A31B005CD968 /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */;
+			productName = ImageViewer;
+		};
+		F50989242A61A31B005CD968 /* ImageViewerRemote */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F50989212A61A31B005CD968 /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */;
+			productName = ImageViewerRemote;
+		};
 		F534BF5B2A36459E00A9871D /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F534BF5A2A36459E00A9871D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
