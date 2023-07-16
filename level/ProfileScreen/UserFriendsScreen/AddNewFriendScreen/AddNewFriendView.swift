@@ -39,7 +39,7 @@ struct AddNewFriendView: View {
     
     private var usersList: some View {
         ScrollView {
-            ForEach(vm.users) { user in
+            ForEach(vm.searchResults) { user in
                 HStack(spacing: 16) {
                     KFImage(URL(string: user.avatar))
                         .placeholder({
@@ -72,6 +72,7 @@ struct AddNewFriendView: View {
                 .padding(.horizontal)
             }
         }
+        .searchable(text: $vm.searchUserText)
     }
 }
 

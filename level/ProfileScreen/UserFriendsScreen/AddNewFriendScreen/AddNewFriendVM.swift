@@ -11,6 +11,14 @@ final class AddNewFriendViewModel: ObservableObject {
     
     private let firebaseManager: FirebaseProtocol = FirebaseManager()
     @Published var users: [ChatUser] = []
+    @Published var searchUserText = ""
+    var searchResults: [ChatUser] {
+        if searchUserText.isEmpty {
+            return users
+        } else {
+            return users.filter { $0.nickname.contains(searchUserText) }
+        }
+    }
     @Published var isSendRequest = false
     @Published var isAlert = false
     @Published var errorText = "" {
