@@ -63,12 +63,11 @@ struct AddNewFriendView: View {
                     Button {
                         vm.sendRequestToUser(targetUser: user)
                     } label: {
-                        Image(systemName: vm.isSendRequest ? "clock" : "person.badge.plus")
+                        Image(systemName: "person.badge.plus")
                             .resizable()
                             .frame(width: 25, height: 25)
                     }
                     .padding(.horizontal)
-
                 }
                 .padding(.horizontal)
             }

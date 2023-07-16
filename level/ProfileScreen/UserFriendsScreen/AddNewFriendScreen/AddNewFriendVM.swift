@@ -22,10 +22,10 @@ final class AddNewFriendViewModel: ObservableObject {
     func getAllUsers() async {
         
         do {
-            let users = try await firebaseManager.getAllUsers()
-            await MainActor.run {
-                self.users = users
-            }
+            var users = try await firebaseManager.getAllUsers()
+            let friends = try await firebaseManager.getUserFriends()
+            self.users = Array(Set(users).subtracting(friends))
+
         } catch {
             await MainActor.run {
                 errorText = error.localizedDescription
@@ -76,6 +76,7 @@ final class AddNewFriendViewModel: ObservableObject {
             }
             await MainActor.run {
                 isSendRequest = true
+                users = users.filter({$0.uid != targetUser.uid})
             }
         }
     }
