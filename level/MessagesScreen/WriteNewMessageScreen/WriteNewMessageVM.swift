@@ -10,7 +10,7 @@ import Foundation
 final class WriteNewMessageViewModel: ObservableObject {
     
     private let firebaseManager: FirebaseProtocol = FirebaseManager()
-    @Published var users: [ChatUser] = []
+    @Published var friends: [ChatUser] = []
     @Published var isAlert = false
     @Published var errorText = "" {
             didSet {
@@ -20,9 +20,9 @@ final class WriteNewMessageViewModel: ObservableObject {
     
     func getAllUsers() async {
         do {
-            let users = try await firebaseManager.getAllUsers()
+            let friends = try await firebaseManager.getUserFriends()
             await MainActor.run {
-                self.users = users
+                self.friends = friends
             }
         } catch {
             await MainActor.run {

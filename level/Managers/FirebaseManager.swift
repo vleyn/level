@@ -26,6 +26,7 @@ protocol FirebaseProtocol {
     func databaseReadCards(uid: String) async throws -> CardModel
     func databaseSaveImage(image: UIImage?) async throws
     func getAllUsers() async throws -> [ChatUser]
+    func getUserFriends() async throws -> [ChatUser]
 }
 
 class FirebaseManager: FirebaseProtocol {
@@ -115,4 +116,22 @@ class FirebaseManager: FirebaseProtocol {
             }
             return users
         }
+    
+    func getUserFriends() async throws -> [ChatUser] {
+        
+        var friends: [ChatUser] = []
+            
+        let collection = try await database
+                                    .collection("friend_requests")
+                                    .document(auth.currentUser?.uid ?? "")
+                                    .collection("friends")
+                                    .getDocuments()
+            collection.documents.forEach { document in
+                let friend = ChatUser(data: document.data())
+                if friend.uid != auth.currentUser?.uid {
+                    friends.append(friend)
+                }
+            }
+            return friends
+    }
 }
