@@ -8,14 +8,12 @@
 import Foundation
 
 struct FriendRequestModel: Identifiable {
-    
-    var documentId: String { id }
-    
+        
     let id: String
     let uid, nickname, avatar: String
     
-    init(documentId: String, data: [String: Any]) {
-        self.id = documentId
+    init(id: String, data: [String: Any]) {
+        self.id = id
         self.uid = data[DatabaseConstants.uid] as? String ?? ""
         self.nickname = data[DatabaseConstants.nickname] as? String ?? ""
         self.avatar = data[DatabaseConstants.avatar] as? String ?? ""

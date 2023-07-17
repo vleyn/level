@@ -20,7 +20,11 @@ final class GameDetailsViewModel: ObservableObject {
     @Published var showBuyMenu = false
     @Published var disableBuyButton = false
     @Published var isHaveDebitCard = false
-    @Published var imgURL = ""
+    @Published var imgURL = "" {
+        didSet {
+           showImageViewer = true
+        }
+    }
     @Published var showImageViewer = false
     @Published var gameCost = Int.random(in: 10..<100)
     @Published var errorText = "" {

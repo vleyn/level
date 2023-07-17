@@ -59,7 +59,6 @@ struct GameDetailsView: View {
                                 .padding()
                                 .onTapGesture {
                                     vm.imgURL = screenShot.image ?? ""
-                                    vm.showImageViewer = true
                                 }
                         }
                     }

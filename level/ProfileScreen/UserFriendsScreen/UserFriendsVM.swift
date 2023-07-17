@@ -36,7 +36,7 @@ final class UserFriendsViewModel: ObservableObject {
                     return
                 }
                 
-                self.friends.append(contentsOf: snapshot?.documentChanges.filter({$0.type == .added}).map({FriendRequestModel(documentId: $0.document.documentID, data: $0.document.data())}) ?? [FriendRequestModel(documentId: "", data: [:])])
+                self.friends.append(contentsOf: snapshot?.documentChanges.filter({$0.type == .added}).map({FriendRequestModel(id: $0.document.documentID, data: $0.document.data())}) ?? [FriendRequestModel(id: "", data: [:])])
             }
     }
     
