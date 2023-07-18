@@ -13,7 +13,7 @@ struct NewsView: View {
     @StateObject var vm = NewsViewModel()
     
     var body: some View {
-        Text("News will be soon")
+        Image(systemName: "playstation.logo")
     }
     
 }

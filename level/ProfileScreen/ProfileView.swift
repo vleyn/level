@@ -50,7 +50,7 @@ struct ProfileView: View {
                         } label: {
                             
                             HStack {
-                                Image(systemName: "person.fill")
+                                Image(systemName: "gamecontroller.fill")
                                 Text("Games")
                             }
                             
@@ -63,7 +63,7 @@ struct ProfileView: View {
                         } label: {
                             
                             HStack {
-                                Image(systemName: "person.fill")
+                                Image(systemName: "person.2.fill")
                                 Text("Friends")
                             }
                             
@@ -75,7 +75,7 @@ struct ProfileView: View {
                         } label: {
                             
                             HStack {
-                                Image(systemName: "person.fill")
+                                Image(systemName: "star.fill")
                                 Text("Whishlist")
                             }
                             
@@ -86,7 +86,7 @@ struct ProfileView: View {
                             UserWalletView()
                         } label: {
                             HStack {
-                                Image(systemName: "person.fill")
+                                Image(systemName: "creditcard.fill")
                                 Text("Wallet")
                             }
                         }
@@ -99,9 +99,10 @@ struct ProfileView: View {
                             vm.showPrivacyPolicy.toggle()
                         } label: {
                             HStack {
-                                Image(systemName: "person.fill")
+                                Image(systemName: "list.clipboard.fill")
                                 Text("Privacy policy")
                             }
+                            .foregroundColor(.black)
                         }
                         .padding()
                         
@@ -109,9 +110,10 @@ struct ProfileView: View {
                             vm.logOut()
                         } label: {
                             HStack {
-                                Image(systemName: "person.fill")
+                                Image(systemName: "figure.walk.arrival")
                                 Text("Logout")
                             }
+                            .foregroundColor(.black)
                         }
                         .padding()
                     }

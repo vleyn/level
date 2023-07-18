@@ -18,7 +18,7 @@ struct UserModel: Codable {
     var purchasedGames: [Int]
 }
 
-struct ChatUser: Identifiable {
+struct ChatUser: Identifiable, Hashable {
     var id: String { uid }
     let uid, nickname, avatar: String
     

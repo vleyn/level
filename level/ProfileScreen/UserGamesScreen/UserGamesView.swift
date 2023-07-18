@@ -13,15 +13,12 @@ struct UserGamesView: View {
     
     var body: some View {
         userGameList
-            .task {
-                await vm.fetchGameList()
-            }
             .navigationTitle("Game List")
     }
 
     private var userGameList: some View {
         ScrollView {
-            ForEach(vm.purchasedGames, id: \.id) { game in
+            ForEach(UserCache.shared.purchasedGames.reversed(), id: \.id) { game in
                 GameWishCell(game: game)
             }
         }

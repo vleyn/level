@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F50989232A61A31B005CD968 /* ImageViewer in Frameworks */ = {isa = PBXBuildFile; productRef = F50989222A61A31B005CD968 /* ImageViewer */; };
+		F50989252A61A31B005CD968 /* ImageViewerRemote in Frameworks */ = {isa = PBXBuildFile; productRef = F50989242A61A31B005CD968 /* ImageViewerRemote */; };
+		F50989282A62DF2D005CD968 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50989272A62DF2D005CD968 /* NotificationsView.swift */; };
+		F509892A2A62DF38005CD968 /* NotificationsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50989292A62DF38005CD968 /* NotificationsVM.swift */; };
+		F509892C2A62E08D005CD968 /* UserFriendsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F509892B2A62E08D005CD968 /* UserFriendsVM.swift */; };
+		F509892F2A62E189005CD968 /* AddNewFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F509892E2A62E189005CD968 /* AddNewFriendView.swift */; };
+		F50989312A62E195005CD968 /* AddNewFriendVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50989302A62E195005CD968 /* AddNewFriendVM.swift */; };
+		F50989332A636ACA005CD968 /* FriendRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50989322A636ACA005CD968 /* FriendRequestModel.swift */; };
 		F50FB0372A5CE0FD0057D2CC /* UserWishListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50FB0362A5CE0FD0057D2CC /* UserWishListVM.swift */; };
 		F50FB0392A5CE3FF0057D2CC /* GameWishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50FB0382A5CE3FF0057D2CC /* GameWishCell.swift */; };
 		F50FB03B2A5CF3B20057D2CC /* UserWalletVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50FB03A2A5CF3B20057D2CC /* UserWalletVM.swift */; };
@@ -116,6 +124,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F50989272A62DF2D005CD968 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
+		F50989292A62DF38005CD968 /* NotificationsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsVM.swift; sourceTree = "<group>"; };
+		F509892B2A62E08D005CD968 /* UserFriendsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFriendsVM.swift; sourceTree = "<group>"; };
+		F509892E2A62E189005CD968 /* AddNewFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewFriendView.swift; sourceTree = "<group>"; };
+		F50989302A62E195005CD968 /* AddNewFriendVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewFriendVM.swift; sourceTree = "<group>"; };
+		F50989322A636ACA005CD968 /* FriendRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestModel.swift; sourceTree = "<group>"; };
 		F50FB0362A5CE0FD0057D2CC /* UserWishListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWishListVM.swift; sourceTree = "<group>"; };
 		F50FB0382A5CE3FF0057D2CC /* GameWishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameWishCell.swift; sourceTree = "<group>"; };
 		F50FB03A2A5CF3B20057D2CC /* UserWalletVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWalletVM.swift; sourceTree = "<group>"; };
@@ -198,6 +212,7 @@
 				F534BF7A2A36459E00A9871D /* FirebaseFunctions in Frameworks */,
 				F5BDC7ED2A40B24B003DD588 /* Kingfisher in Frameworks */,
 				F55104792A30DCF8000FB952 /* RxMoya in Frameworks */,
+				F50989232A61A31B005CD968 /* ImageViewer in Frameworks */,
 				F534BF602A36459E00A9871D /* FirebaseAnalyticsSwift in Frameworks */,
 				F534BF5C2A36459E00A9871D /* FirebaseAnalytics in Frameworks */,
 				F55104772A30DCF8000FB952 /* ReactiveMoya in Frameworks */,
@@ -207,6 +222,7 @@
 				F534BF6C2A36459E00A9871D /* FirebaseCrashlytics in Frameworks */,
 				F534BF952A36655F00A9871D /* Realm in Frameworks */,
 				F534BF722A36459E00A9871D /* FirebaseDynamicLinks in Frameworks */,
+				F50989252A61A31B005CD968 /* ImageViewerRemote in Frameworks */,
 				F534BF8E2A36459E00A9871D /* FirebaseStorage in Frameworks */,
 				F534BF7E2A36459E00A9871D /* FirebaseInAppMessaging-Beta in Frameworks */,
 				F534BF8C2A36459E00A9871D /* FirebaseRemoteConfigSwift in Frameworks */,
@@ -236,6 +252,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F50989262A62DEF1005CD968 /* NotificationsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F50989272A62DF2D005CD968 /* NotificationsView.swift */,
+				F50989292A62DF38005CD968 /* NotificationsVM.swift */,
+			);
+			path = NotificationsScreen;
+			sourceTree = "<group>";
+		};
+		F509892D2A62E16D005CD968 /* AddNewFriendScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F509892E2A62E189005CD968 /* AddNewFriendView.swift */,
+				F50989302A62E195005CD968 /* AddNewFriendVM.swift */,
+			);
+			path = AddNewFriendScreen;
+			sourceTree = "<group>";
+		};
 		F51191E82A5CAE3000B4B327 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +308,8 @@
 				F551047E2A30DD73000FB952 /* GameDetailModel.swift */,
 				F558790D2A38FCF200AD835E /* GameGenresModel.swift */,
 				F5421ACC2A3A219C00A42934 /* UserModel.swift */,
+				F54D53422A45B61500708684 /* ChatMessageModel.swift */,
+				F50989322A636ACA005CD968 /* FriendRequestModel.swift */,
 				F50FB03E2A5D09C60057D2CC /* CardModel.swift */,
 				F5E0DFF62A418D2E0007747E /* ErrorsHadler.swift */,
 			);
@@ -325,7 +361,6 @@
 				F5B2BDEE2A3D89490074E3D5 /* GameCell.swift */,
 				F50FB0382A5CE3FF0057D2CC /* GameWishCell.swift */,
 				F54D53302A44FDAE00708684 /* ImagePicker.swift */,
-				F54D53422A45B61500708684 /* ChatMessageModel.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -384,6 +419,8 @@
 			isa = PBXGroup;
 			children = (
 				F55E007D2A5835A20085FDEE /* UserFriendsView.swift */,
+				F509892B2A62E08D005CD968 /* UserFriendsVM.swift */,
+				F509892D2A62E16D005CD968 /* AddNewFriendScreen */,
 			);
 			path = UserFriendsScreen;
 			sourceTree = "<group>";
@@ -453,6 +490,7 @@
 				F5B2BDF02A3D8C5C0074E3D5 /* HomeScreen */,
 				F53703A22A3F951B0008779D /* NewsScreen */,
 				F537039D2A3F94770008779D /* MessagesScreen */,
+				F50989262A62DEF1005CD968 /* NotificationsScreen */,
 				F54879492A3C752400304C76 /* ProfileScreen */,
 				F537039B2A3F79E20008779D /* Managers */,
 				F537039C2A3F7A0B0008779D /* Models */,
@@ -552,6 +590,8 @@
 				F534BF942A36655F00A9871D /* Realm */,
 				F534BF962A36655F00A9871D /* RealmSwift */,
 				F5BDC7EC2A40B24B003DD588 /* Kingfisher */,
+				F50989222A61A31B005CD968 /* ImageViewer */,
+				F50989242A61A31B005CD968 /* ImageViewerRemote */,
 			);
 			productName = level;
 			productReference = F57D368C2A2E9E240023F479 /* level.app */;
@@ -630,6 +670,7 @@
 				F534BF5A2A36459E00A9871D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				F534BF932A36655F00A9871D /* XCRemoteSwiftPackageReference "realm-swift" */,
 				F5BDC7EB2A40B24B003DD588 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				F50989212A61A31B005CD968 /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */,
 			);
 			productRefGroup = F57D368D2A2E9E240023F479 /* Products */;
 			projectDirPath = "";
@@ -697,6 +738,7 @@
 				F534BF992A36657800A9871D /* RealmManager.swift in Sources */,
 				F548794B2A3C777700304C76 /* ProfileView.swift in Sources */,
 				F54879472A3B90FC00304C76 /* TabBarView.swift in Sources */,
+				F509892F2A62E189005CD968 /* AddNewFriendView.swift in Sources */,
 				F54D53332A45092D00708684 /* TabBarVM.swift in Sources */,
 				F558790E2A38FCF200AD835E /* GameGenresModel.swift in Sources */,
 				F560B1442A4C412200937038 /* GameDetailsVM.swift in Sources */,
@@ -704,6 +746,7 @@
 				F55E007C2A58358A0085FDEE /* UserGamesView.swift in Sources */,
 				F5B2BDF42A3D8C770074E3D5 /* HomeVM.swift in Sources */,
 				F5E0DFF52A417C000007747E /* UserCache.swift in Sources */,
+				F50989332A636ACA005CD968 /* FriendRequestModel.swift in Sources */,
 				F537039A2A3F79610008779D /* EditProfileVM.swift in Sources */,
 				F53703982A3F79400008779D /* EditProfileView.swift in Sources */,
 				F53703A12A3F950A0008779D /* MessagesVM.swift in Sources */,
@@ -715,14 +758,18 @@
 				F5421AD12A3A3CDC00A42934 /* LoginView.swift in Sources */,
 				F5421ACD2A3A219C00A42934 /* UserModel.swift in Sources */,
 				F53703A62A3F95340008779D /* NewsVM.swift in Sources */,
+				F50989282A62DF2D005CD968 /* NotificationsView.swift in Sources */,
 				F55104702A30DC95000FB952 /* RawgApi.swift in Sources */,
+				F509892C2A62E08D005CD968 /* UserFriendsVM.swift in Sources */,
 				F537039F2A3F94FE0008779D /* MessagesView.swift in Sources */,
 				F54D53432A45B61500708684 /* ChatMessageModel.swift in Sources */,
 				F54D53402A45AD9200708684 /* FirebaseConstants.swift in Sources */,
 				F54D53312A44FDAE00708684 /* ImagePicker.swift in Sources */,
 				F50FB0412A5D2A620057D2CC /* UserGamesVM.swift in Sources */,
 				F5B2BDEF2A3D89490074E3D5 /* GameCell.swift in Sources */,
+				F50989312A62E195005CD968 /* AddNewFriendVM.swift in Sources */,
 				F5E0DFF72A418D2E0007747E /* ErrorsHadler.swift in Sources */,
+				F509892A2A62DF38005CD968 /* NotificationsVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1053,6 +1100,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F50989212A61A31B005CD968 /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Jake-Short/swiftui-image-viewer";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		F534BF5A2A36459E00A9871D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1088,6 +1143,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F50989222A61A31B005CD968 /* ImageViewer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F50989212A61A31B005CD968 /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */;
+			productName = ImageViewer;
+		};
+		F50989242A61A31B005CD968 /* ImageViewerRemote */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F50989212A61A31B005CD968 /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */;
+			productName = ImageViewerRemote;
+		};
 		F534BF5B2A36459E00A9871D /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F534BF5A2A36459E00A9871D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

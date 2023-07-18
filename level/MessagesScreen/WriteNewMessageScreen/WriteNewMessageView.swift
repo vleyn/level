@@ -39,7 +39,7 @@ struct WriteNewMessageView: View {
     
     private var usersList: some View {
         ScrollView {
-            ForEach(vm.users) { user in
+            ForEach(vm.friends) { user in
                 Button {
                 } label: {
                     NavigationLink {
@@ -72,7 +72,6 @@ struct WriteNewMessageView: View {
                     }
                     
                 }
-                
             }
         }
     }

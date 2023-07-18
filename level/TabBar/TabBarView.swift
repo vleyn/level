@@ -26,6 +26,10 @@ struct TabBarView: View {
             .tabItem {
                 Image(systemName: "message")
             }
+            NavigationStack { NotificationsView() }
+            .tabItem {
+                Image(systemName: "bell.badge.fill")
+            }
             NavigationStack { ProfileView() }
             .tabItem {
                 Image(systemName: "person")

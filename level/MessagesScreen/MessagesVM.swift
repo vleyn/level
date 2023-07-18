@@ -28,8 +28,8 @@ final class MessagesViewModel: ObservableObject {
                              email: UserCache.shared.email,
                              avatar: UserCache.shared.avatar,
                              bio: UserCache.shared.bio,
-                             wishList: UserCache.shared.wishList,
-                             purchasedGames: UserCache.shared.purchasedGames
+                             wishList: UserCache.shared.wishListId,
+                             purchasedGames: UserCache.shared.purchasedGamesId
                             )
     }
     
