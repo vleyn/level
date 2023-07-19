@@ -6,12 +6,16 @@
 //
 
 import Foundation
+import SwiftUI
 
 final class NewsViewModel: ObservableObject {
     
     private let moyaManager: ApiProviderProtocol = ApiManager()
     
     @Published var news: [GameNews] = []
+    @Published var currentNews: GameNews?
+    @Published var showDetail = false
+    @Published var animateView = false
     @Published var isAlert = false
     @Published var errorText = "" {
         didSet {

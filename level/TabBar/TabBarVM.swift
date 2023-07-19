@@ -24,7 +24,6 @@ final class TabBarViewModel: ObservableObject {
             if let uid = firebaseManager.auth.currentUser?.uid, uid != "" {
                 do {
                     let user = try await firebaseManager.databaseReadUser(uid: uid)
-//                    UserCache.shared.wishListGames.append(contentsOf: user.wishList.map({try await moyaManager.gameDetailsRequest(id: $0)}))
                     for id in user.wishList {
                         UserCache.shared.wishListGames.append(try await moyaManager.gameDetailsRequest(id: id))
                     }

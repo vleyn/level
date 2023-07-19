@@ -167,7 +167,7 @@ struct GameDetailsView: View {
                 .foregroundColor(.white)
                 .padding(.vertical)
                 .padding(.horizontal)
-                .background(Color.gray)
+                .background(.indigo)
                 .cornerRadius(32)
                 .shadow(radius: 15)
                 .opacity(vm.disableBuyButton ? 0 : 1)

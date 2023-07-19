@@ -11,6 +11,7 @@ final class WriteNewMessageViewModel: ObservableObject {
     
     private let firebaseManager: FirebaseProtocol = FirebaseManager()
     @Published var friends: [ChatUser] = []
+    @Published var allUsersIsPresented = false
     @Published var isAlert = false
     @Published var errorText = "" {
             didSet {

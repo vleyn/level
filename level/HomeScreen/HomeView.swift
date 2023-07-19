@@ -52,7 +52,7 @@ struct HomeView: View {
                     } label: {
                         Text("All")
                             .padding(10)
-                            .foregroundColor(.white)
+                            .foregroundColor(.invertedBW)
                     }
                     .background(vm.allGenresPicked ? .indigo : .clear)
                     .overlay(RoundedRectangle(cornerRadius: 16)
@@ -67,7 +67,7 @@ struct HomeView: View {
                         } label: {
                             Text(item.name ?? "")
                                 .padding(10)
-                                .foregroundColor(.white)
+                                .foregroundColor(.invertedBW)
                         }
                         .background(vm.currentPickedGenre?.id == item.id ? .indigo : .clear)
                         .overlay(RoundedRectangle(cornerRadius: 16)

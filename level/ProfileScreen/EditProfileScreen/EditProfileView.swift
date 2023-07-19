@@ -73,6 +73,10 @@ struct EditProfileView: View {
                 vm.saveChanges()
             } label: {
                 Text("Save changes")
+                    .padding()
+                    .background(.indigo)
+                    .foregroundColor(.normalBW)
+                    .cornerRadius(20)
             }
             
             

@@ -33,6 +33,7 @@ final class ProfileViewModel: ObservableObject {
                 try await firebaseManager.logOut()
                 await MainActor.run {
                     self.isLogout = true
+                    UserCache.shared.clearInfo()
                 }
             } catch {
                 await MainActor.run {

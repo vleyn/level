@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		F504C2722A6637BC009024E0 /* GameNewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F504C2712A6637BC009024E0 /* GameNewsModel.swift */; };
-		F504C2742A6638FA009024E0 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F504C2732A6638FA009024E0 /* NewsCell.swift */; };
 		F50989232A61A31B005CD968 /* ImageViewer in Frameworks */ = {isa = PBXBuildFile; productRef = F50989222A61A31B005CD968 /* ImageViewer */; };
 		F50989252A61A31B005CD968 /* ImageViewerRemote in Frameworks */ = {isa = PBXBuildFile; productRef = F50989242A61A31B005CD968 /* ImageViewerRemote */; };
 		F50989282A62DF2D005CD968 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50989272A62DF2D005CD968 /* NotificationsView.swift */; };
@@ -92,6 +91,7 @@
 		F55E00812A5835C10085FDEE /* UserWishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55E00802A5835C10085FDEE /* UserWishListView.swift */; };
 		F55E00832A5835DB0085FDEE /* UserWalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55E00822A5835DB0085FDEE /* UserWalletView.swift */; };
 		F55E00852A5835E90085FDEE /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55E00842A5835E90085FDEE /* PrivacyPolicyView.swift */; };
+		F55F5F932A6812B500EFE378 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F5F922A6812B500EFE378 /* NewsCell.swift */; };
 		F560B1422A4C411300937038 /* GameDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F560B1412A4C411300937038 /* GameDetailsView.swift */; };
 		F560B1442A4C412200937038 /* GameDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F560B1432A4C412200937038 /* GameDetailsVM.swift */; };
 		F561C5FA2A65542A00E0DBDA /* Color + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F561C5F92A65542A00E0DBDA /* Color + Extension.swift */; };
@@ -130,7 +130,6 @@
 
 /* Begin PBXFileReference section */
 		F504C2712A6637BC009024E0 /* GameNewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameNewsModel.swift; sourceTree = "<group>"; };
-		F504C2732A6638FA009024E0 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		F50989272A62DF2D005CD968 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		F50989292A62DF38005CD968 /* NotificationsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsVM.swift; sourceTree = "<group>"; };
 		F509892B2A62E08D005CD968 /* UserFriendsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFriendsVM.swift; sourceTree = "<group>"; };
@@ -180,6 +179,7 @@
 		F55E00802A5835C10085FDEE /* UserWishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWishListView.swift; sourceTree = "<group>"; };
 		F55E00822A5835DB0085FDEE /* UserWalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWalletView.swift; sourceTree = "<group>"; };
 		F55E00842A5835E90085FDEE /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
+		F55F5F922A6812B500EFE378 /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		F560B1412A4C411300937038 /* GameDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsView.swift; sourceTree = "<group>"; };
 		F560B1432A4C412200937038 /* GameDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsVM.swift; sourceTree = "<group>"; };
 		F561C5F92A65542A00E0DBDA /* Color + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Extension.swift"; sourceTree = "<group>"; };
@@ -381,8 +381,8 @@
 				F5421AD92A3A5A3100A42934 /* CustomTextField.swift */,
 				F5B2BDEE2A3D89490074E3D5 /* GameCell.swift */,
 				F50FB0382A5CE3FF0057D2CC /* GameWishCell.swift */,
-				F504C2732A6638FA009024E0 /* NewsCell.swift */,
 				F54D53302A44FDAE00708684 /* ImagePicker.swift */,
+				F55F5F922A6812B500EFE378 /* NewsCell.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -750,7 +750,6 @@
 				F561C5FA2A65542A00E0DBDA /* Color + Extension.swift in Sources */,
 				F5421AD32A3A3CE900A42934 /* LoginVM.swift in Sources */,
 				F5421AD52A3A3CFD00A42934 /* SignUpView.swift in Sources */,
-				F504C2742A6638FA009024E0 /* NewsCell.swift in Sources */,
 				F5421AD72A3A3D0800A42934 /* SignUpVM.swift in Sources */,
 				F551047B2A30DD29000FB952 /* MoyaProvider.swift in Sources */,
 				F50FB03F2A5D09C60057D2CC /* CardModel.swift in Sources */,
@@ -781,6 +780,7 @@
 				F55E007C2A58358A0085FDEE /* UserGamesView.swift in Sources */,
 				F5B2BDF42A3D8C770074E3D5 /* HomeVM.swift in Sources */,
 				F5E0DFF52A417C000007747E /* UserCache.swift in Sources */,
+				F55F5F932A6812B500EFE378 /* NewsCell.swift in Sources */,
 				F56263622A66DF2300E43F97 /* NewsDescriptionView.swift in Sources */,
 				F50989332A636ACA005CD968 /* FriendRequestModel.swift in Sources */,
 				F537039A2A3F79610008779D /* EditProfileVM.swift in Sources */,

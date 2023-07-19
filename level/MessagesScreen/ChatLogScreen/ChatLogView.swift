@@ -47,17 +47,17 @@ struct ChatLogView: View {
                                                 .foregroundColor(.white)
                                         }
                                         .padding()
-                                        .background(Color.blue)
+                                        .background(.indigo)
                                         .cornerRadius(20)
                                     }
                                 } else {
                                     HStack {
                                         HStack {
                                             Text(message.text)
-                                                .foregroundColor(.black)
+                                                .foregroundColor(.white)
                                         }
                                         .padding()
-                                        .background(Color.white)
+                                        .background(.gray)
                                         .cornerRadius(20)
                                         Spacer()
                                     }
@@ -76,7 +76,7 @@ struct ChatLogView: View {
                         }
                 }
             }
-            .background(Color(.init(white: 0.95, alpha: 1)))
+            .background(Color(.init(.normalBW)))
             .safeAreaInset(edge: .bottom) {
                 chatBottomBar
                     .background(Color(.systemBackground).ignoresSafeArea())
@@ -103,7 +103,7 @@ struct ChatLogView: View {
             }
             .padding(.horizontal)
             .padding(.vertical, 8)
-            .background(Color.blue)
+            .background(.indigo)
             .cornerRadius(16)
         }
         .padding(.horizontal)

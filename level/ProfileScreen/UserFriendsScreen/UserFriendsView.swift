@@ -39,9 +39,10 @@ struct UserFriendsView: View {
             Button {
                 vm.allUsersIsPresented.toggle()
             } label: {
-                Text("Add +")
+                Text("Add now +")
                     .padding()
-                    .foregroundColor(.green)
+                    .background(.indigo)
+                    .foregroundColor(.normalBW)
                     .cornerRadius(16)
             }
 

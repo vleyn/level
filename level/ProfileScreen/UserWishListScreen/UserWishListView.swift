@@ -12,8 +12,20 @@ struct UserWishListView: View {
     @StateObject var vm = UserWishListViewModel()
     
     var body: some View {
-        userWishList
-            .navigationTitle("Wishlist")
+        VStack {
+            if UserCache.shared.wishListGames.isEmpty {
+                VStack(spacing: 30) {
+                    Image(systemName: "star.slash")
+                        .resizable()
+                        .frame(width: 150, height: 150)
+                        .foregroundColor(.invertedBW)
+                    Text("You have not added any games to your wishlist yet")
+                }
+            } else {
+                userWishList
+            }
+        }
+        .navigationTitle("Wishlist")
     }
     
     

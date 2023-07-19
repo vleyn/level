@@ -19,8 +19,8 @@ struct NotificationsView: View {
                     Image(systemName: "bell.slash")
                         .resizable()
                         .frame(width: 150, height: 150)
-                        .foregroundColor(.black)
-                    Text("There is no friend requests yet")
+                        .foregroundColor(.invertedBW)
+                    Text("There are no friend requests yet")
                 }
             } else {
                 ScrollView {
@@ -37,7 +37,7 @@ struct NotificationsView: View {
                                         })
                                         .resizable()
                                         .scaledToFill()
-                                        .frame(width: 30, height: 30)
+                                        .frame(width: 50, height: 50)
                                         .clipped()
                                         .cornerRadius(50)
                                         .overlay(RoundedRectangle(cornerRadius: 50)
@@ -45,9 +45,11 @@ struct NotificationsView: View {
                                         )
                                         .padding(.leading)
                                     
-                                    Text(request.nickname)
-                                        .bold()
-                                    Text("wants to be your friend!")
+                                    VStack(alignment: .leading) {
+                                        Text(request.nickname)
+                                            .bold()
+                                        Text("wants to be your friend!")
+                                    }
                                     
                                     Spacer()
                                     
@@ -74,7 +76,6 @@ struct NotificationsView: View {
                                 }
                             }
                             .padding(.vertical, 30)
-                            .background(.gray)
                             .cornerRadius(24)
                         }
                     }

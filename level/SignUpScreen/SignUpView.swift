@@ -32,7 +32,7 @@ struct SignUpView: View {
                 .ignoresSafeArea()
             ZStack {
                 Rectangle()
-                    .foregroundColor(.black)
+                    .foregroundColor(.normalBW)
                 VStack(spacing: 16) {
                     Text("Create Account")
                         .font(.system(size: 45))

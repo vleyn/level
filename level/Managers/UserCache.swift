@@ -34,4 +34,16 @@ class UserCache {
     func getInfo() -> UserModel {
         UserModel(uid: uid, nickname: nickname, email: email, avatar: avatar, bio: bio, wishList: wishListId, purchasedGames: purchasedGamesId)
     }
+    
+    func clearInfo() {
+        uid = ""
+        nickname = ""
+        email = ""
+        avatar = ""
+        bio = ""
+        wishListId.removeAll()
+        purchasedGamesId.removeAll()
+        wishListGames.removeAll()
+        purchasedGames.removeAll()
+    }
 }

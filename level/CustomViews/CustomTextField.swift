@@ -16,18 +16,22 @@ struct CustomTextField: View {
     var body: some View {
         VStack(alignment: .leading) {
             ZStack(alignment: .leading) {
-                TextField(placeHolder, text: $bindingValue)
+                TextField(text: $bindingValue) {
+                    Text(placeHolder)
+                        .foregroundColor(.black.opacity(0.6))
+                }
                     .padding(.leading, 45)
-                    .padding([.top, .bottom], 13)
+                    .padding(.vertical, 13)
                     .textFieldStyle(.automatic)
-                    .background(.gray.opacity(0.1))
+                    .background(.white.opacity(0.6))
+                    .foregroundColor(.black)
                     .cornerRadius(20)
                 Image(systemName: image)
                     .padding(.leading)
-                    .foregroundColor(.gray)
+                    .foregroundColor(.black)
             }
         }
-        .padding([.leading, .trailing])
+        .padding(.horizontal)
     }
 }
 
@@ -40,17 +44,21 @@ struct CustomSecureTextField: View {
     var body: some View {
         VStack(alignment: .leading) {
             ZStack(alignment: .leading) {
-                SecureField(placeHolder, text: $bindingValue)
+                SecureField(text: $bindingValue) {
+                    Text(placeHolder)
+                        .foregroundColor(.black.opacity(0.6))
+                }
                     .padding(.leading, 45)
-                    .padding([.top, .bottom], 13)
+                    .padding(.vertical, 13)
                     .textFieldStyle(.automatic)
-                    .background(.gray.opacity(0.1))
+                    .background(.white.opacity(0.6))
+                    .foregroundColor(.black)
                     .cornerRadius(20)
                 Image(systemName: image)
                     .padding(.leading)
-                    .foregroundColor(.gray)
+                    .foregroundColor(.black)
             }
         }
-        .padding([.leading, .trailing])
+        .padding(.horizontal)
     }
 }

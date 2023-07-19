@@ -27,7 +27,6 @@ struct NewsCell: View {
         .overlay(RoundedRectangle(cornerRadius: 25)
             .stroke(Color(.label), lineWidth: 1))
         .padding(.vertical, 8)
-        .padding(.horizontal, 20)
     }
 }
 

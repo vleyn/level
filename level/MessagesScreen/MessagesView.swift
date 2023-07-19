@@ -15,7 +15,18 @@ struct MessagesView: View {
     var body: some View {
             VStack {
                 customNavBar
-                messagesView
+                if vm.recentMessages.isEmpty {
+                    Spacer()
+                    Image(systemName: "questionmark.bubble")
+                        .resizable()
+                        .frame(width: 150, height: 150)
+                        .foregroundColor(.invertedBW)
+                    Text("There are no messages yet")
+                    Spacer()
+
+                } else {
+                    messagesView
+                }
             }
             .overlay(newMessageButton, alignment: .bottom)
             .navigationBarHidden(true)
@@ -134,7 +145,7 @@ struct MessagesView: View {
             }
             .foregroundColor(.white)
             .padding(.vertical)
-            .background(Color.gray)
+            .background(.indigo)
             .cornerRadius(32)
             .padding(.horizontal)
             .shadow(radius: 15)

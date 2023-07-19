@@ -1,7 +1,6 @@
 {
   "images" : [
     {
-      "filename" : "gamepad.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,7 +11,6 @@
           "value" : "dark"
         }
       ],
-      "filename" : "gamepad 1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -31,6 +29,7 @@
       "scale" : "2x"
     },
     {
+      "filename" : "whiteback.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     },
@@ -41,6 +40,7 @@
           "value" : "dark"
         }
       ],
+      "filename" : "backgroundDark.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }
