@@ -9,19 +9,39 @@ import Foundation
 import Moya
 
 protocol ApiProviderProtocol: AnyObject {
-    func fullGameListRequest(page: Int, genres: Int) async throws -> GameList
+    func fullGameListRequest(page: Int) async throws -> GameList
+    func genreGameListRequest(page: Int, genres: Int) async throws -> GameList
     func gameDetailsRequest(id: Int) async throws -> GameDetail
     func getGameGenresRequest() async throws -> GameGenres
     func gameTrailersRequest(id: Int) async throws -> Trailers
+    func getNewsRequest() async throws -> [GameNews]
 }
 
 class ApiManager: ApiProviderProtocol {
     
-    private let providerRawg = MoyaProvider<RawgAPI>()
+    private let providerRawg = MoyaProvider<ApiRequests>()
     
-    func fullGameListRequest(page: Int, genres: Int) async throws -> GameList {
+    func fullGameListRequest(page: Int) async throws -> GameList {
         return try await withCheckedThrowingContinuation { continuation in
-            providerRawg.request(.fullGameListRequest(page: page, genres: genres)) { result in
+            providerRawg.request(.fullGameListRequest(page: page)) { result in
+                switch result {
+                case .success(let response):
+                    do {
+                        let games = try response.map(GameList.self)
+                        continuation.resume(with: .success(games))
+                    } catch {
+                        continuation.resume(throwing: error)
+                    }
+                case .failure(let error):
+                    continuation.resume(with: .failure(error))
+                }
+            }
+        }
+    }
+    
+    func genreGameListRequest(page: Int, genres: Int) async throws -> GameList {
+        return try await withCheckedThrowingContinuation { continuation in
+            providerRawg.request(.genreGameListRequest(page: page, genres: genres)) { result in
                 switch result {
                 case .success(let response):
                     do {
@@ -86,6 +106,24 @@ class ApiManager: ApiProviderProtocol {
                     }
                 case .failure(let error):
                     continuation.resume(with: .failure(error))
+                }
+            }
+        }
+    }
+    
+    func getNewsRequest() async throws -> [GameNews] {
+        return try await withCheckedThrowingContinuation { continuation in
+            providerRawg.request(.gameNewRequest) { result in
+                switch result {
+                case .success(let response):
+                    do {
+                        let news = try response.map([GameNews].self)
+                        continuation.resume(returning: news)
+                    } catch {
+                        continuation.resume(throwing: error)
+                    }
+                case .failure(let error):
+                    continuation.resume(throwing: error)
                 }
             }
         }

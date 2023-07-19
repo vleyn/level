@@ -68,7 +68,7 @@ struct LoginView: View {
                     .foregroundColor(.white)
                     .padding(.vertical, 13)
                     .padding(.horizontal, 100)
-                    .background(Color.gray)
+                    .background(Color.purple)
                     .cornerRadius(8)
             }
             .padding(.vertical)
@@ -92,7 +92,7 @@ struct LoginView: View {
                     Image(systemName: "apple.logo")
                         .resizable()
                         .frame(width: 30, height: 36)
-                        .foregroundColor(.black)
+                        .foregroundColor(.primary)
                 }
                 
                 Button {
@@ -110,7 +110,7 @@ struct LoginView: View {
                 Button {
                 } label: {
                     NavigationLink(destination: SignUpView()) {
-                        Text("Sign up")
+                        Text("·  Sign up")
                     }
                 }
             }

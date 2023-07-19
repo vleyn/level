@@ -102,7 +102,7 @@ struct ProfileView: View {
                                 Image(systemName: "list.clipboard.fill")
                                 Text("Privacy policy")
                             }
-                            .foregroundColor(.black)
+                            .foregroundColor(.invertedBW)
                         }
                         .padding()
                         
@@ -113,7 +113,7 @@ struct ProfileView: View {
                                 Image(systemName: "figure.walk.arrival")
                                 Text("Logout")
                             }
-                            .foregroundColor(.black)
+                            .foregroundColor(.invertedBW)
                         }
                         .padding()
                     }
@@ -153,6 +153,8 @@ struct ProfileView: View {
         } message: {
             Text(vm.errorText)
         }
+        .navigationTitle("Profile")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

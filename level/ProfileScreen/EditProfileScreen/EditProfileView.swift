@@ -15,6 +15,7 @@ struct EditProfileView: View {
     var body: some View {
         editProfileForm
             .padding(.horizontal)
+            .navigationTitle("Edit profile")
         .task {
             vm.getUserInfo()
         }

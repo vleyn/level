@@ -13,7 +13,36 @@ struct NewsView: View {
     @StateObject var vm = NewsViewModel()
     
     var body: some View {
-        Image(systemName: "playstation.logo")
+        ZStack {
+            Image("backgroundPhoto")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .edgesIgnoringSafeArea(.all)
+            ScrollView {
+                VStack {
+                    ForEach(vm.news, id: \.id) { news in
+                        NavigationLink {
+                            //
+                        } label: {
+                            NewsCell(news: news)
+                        }
+                    }
+                }
+            }
+            .refreshable {
+                await vm.fetchNews()
+            }
+        }
+        .task {
+            await vm.fetchNews()
+        }
+        .alert("Error", isPresented: $vm.isAlert) {
+            Button("Cancel", role: .cancel) { }
+        } message: {
+            Text(vm.errorText)
+        }
+        .navigationTitle("News")
+        .navigationBarTitleDisplayMode(.inline)
     }
     
 }

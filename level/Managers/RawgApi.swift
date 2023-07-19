@@ -8,19 +8,26 @@
 import Foundation
 import Moya
 
-enum RawgAPI {
-    case fullGameListRequest(page: Int, genres: Int)
+enum ApiRequests {
+    case fullGameListRequest(page: Int)
+    case genreGameListRequest(page: Int, genres: Int)
     case gameDetailsRequest(id: Int)
     case getGameGenresRequest
     case gameTrailersRequest(id: Int)
+    case gameNewRequest
 }
 
-extension RawgAPI: TargetType {
+extension ApiRequests: TargetType {
     
     var baseURL: URL {
         switch self {
-        case .fullGameListRequest, .gameDetailsRequest, .getGameGenresRequest, .gameTrailersRequest:
+        case .genreGameListRequest, .gameDetailsRequest, .getGameGenresRequest, .gameTrailersRequest, .fullGameListRequest:
             guard let url = URL(string: "https://api.rawg.io/api/") else {
+                fatalError("Wrong API url")
+            }
+            return url
+        case .gameNewRequest:
+            guard let url = URL(string: "https://6498c7099543ce0f49e24deb.mockapi.io/api/") else {
                 fatalError("Wrong API url")
             }
             return url
@@ -29,7 +36,7 @@ extension RawgAPI: TargetType {
         
     var path: String {
         switch self {
-        case .fullGameListRequest:
+        case .genreGameListRequest, .fullGameListRequest:
             return "games"
         case .gameDetailsRequest(let id):
              return "games/\(id)"
@@ -37,6 +44,8 @@ extension RawgAPI: TargetType {
             return "genres"
         case .gameTrailersRequest(let id):
             return "games/\(id)/movies"
+        case .gameNewRequest:
+            return "level/news"
         }
     }
 
@@ -48,12 +57,17 @@ extension RawgAPI: TargetType {
         var params = [String: Any]()
             
         switch self {
-            case .fullGameListRequest(let page, let genres):
+            case .genreGameListRequest(let page, let genres):
                 params["page"] = page
                 params["genres"] = genres
                 params["key"] = returnApi
-        case .gameDetailsRequest, .getGameGenresRequest, .gameTrailersRequest:
+            case .gameDetailsRequest, .getGameGenresRequest, .gameTrailersRequest:
                 params["key"] = returnApi
+            case .fullGameListRequest(let page):
+                params["page"] = page
+                params["key"] = returnApi
+            case .gameNewRequest:
+                return params
             }
             return params
     }
