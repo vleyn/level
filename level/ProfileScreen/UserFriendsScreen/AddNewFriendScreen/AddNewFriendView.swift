@@ -15,7 +15,13 @@ struct AddNewFriendView: View {
     
     var body: some View {
         NavigationView {
-            usersList
+            VStack {
+                if vm.users.isEmpty {
+                    ProgressView()
+                } else {
+                    usersList
+                }
+            }
                 .navigationTitle("Add new friend now")
                 .toolbar {
                     ToolbarItemGroup(placement: .navigationBarLeading) {
@@ -58,7 +64,7 @@ struct AddNewFriendView: View {
                         )
                     
                     Text(user.nickname)
-                        .foregroundColor(.black)
+                        .foregroundColor(.invertedBW)
                     Spacer()
                     Button {
                         vm.sendRequestToUser(targetUser: user)

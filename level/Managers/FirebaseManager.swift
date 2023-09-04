@@ -21,6 +21,7 @@ protocol FirebaseProtocol {
     func logOut() async throws
     func databaseWriteUser(user: UserModel)
     func databaseWriteCard(card: CardModel)
+    func databaseDeleteCard()
     func databaseEdit(user: UserModel)
     func databaseReadUser(uid: String) async throws -> UserModel
     func databaseReadCards(uid: String) async throws -> CardModel
@@ -66,6 +67,15 @@ class FirebaseManager: FirebaseProtocol {
         } catch {
             print("Error write card")
         }
+    }
+    
+    func databaseDeleteCard() {
+            database
+                .collection("Users")
+                .document(auth.currentUser?.uid ?? "")
+                .collection("Cards")
+                .document(auth.currentUser?.uid ?? "")
+                .delete()
     }
     
     func databaseEdit(user: UserModel) {

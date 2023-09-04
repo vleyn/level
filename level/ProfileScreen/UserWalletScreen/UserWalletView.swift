@@ -15,6 +15,9 @@ struct UserWalletView: View {
         ScrollView {
             VStack {
                 cardView
+                    .contextMenu {
+                        menuItems
+                    }
                 Spacer()
                 if !vm.shouldHideAddCardButton {
                     addCardButton
@@ -35,7 +38,7 @@ struct UserWalletView: View {
             RoundedRectangle(cornerRadius: 20)
                 .fill(LinearGradient(colors: [
                     Color.gray,
-                    Color.blue
+                    Color.indigo
                 ], startPoint: .topLeading, endPoint: .bottomTrailing))
             VStack(spacing: 10) {
                 HStack {
@@ -91,7 +94,7 @@ struct UserWalletView: View {
         Button {
             vm.addUserCard()
         } label: {
-            Text("Add this card")
+            Text(vm.addButtonText)
                 .fontWeight(.semibold)
                 .foregroundColor(.white)
                 .padding(.vertical, 12)
@@ -101,6 +104,24 @@ struct UserWalletView: View {
         .padding(.horizontal)
         .disabled(vm.checkIsFillCorrectly())
     }
+    
+    private var menuItems: some View {
+            Group {
+                Button {
+                    vm.addButtonText = "Save"
+                    vm.shouldHideAddCardButton = false
+                } label: {
+                    Text("Edit card info")
+                }
+                
+                Button {
+                    vm.deleteUserCard()
+                    vm.shouldHideAddCardButton = false
+                } label: {
+                    Text("Delete this card")
+                }
+            }
+        }
 }
 
 struct UserWalletView_Previews: PreviewProvider {

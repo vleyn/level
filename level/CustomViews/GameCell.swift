@@ -13,28 +13,49 @@ struct GameCell: View {
     var results: Results?
     
     var body: some View {
-        ZStack {
-            Rectangle()
-                .frame(height: 150)
-                .cornerRadius(30)
-                .foregroundColor(.gray)
-            HStack {
-                KFImage(URL(string: results?.backgroundImage ?? ""))
-                    .resizable()
-                    .frame(width: 180, height:  130)
-                    .cornerRadius(25)
-                VStack {
-                    Text(results?.name ?? "")
-                        .foregroundColor(.white)
-                        .padding()
+        
+        VStack(spacing: 0) {
+            KFImage(URL(string: results?.backgroundImage ?? ""))
+                .resizable()
+                .frame(height:  220)
+            ZStack(alignment: .leading) {
+                Rectangle()
+                    .frame(height: 90)
+                    .foregroundColor(.indigo)
+                HStack {
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text(results?.name ?? "Undefined game")
+                            .foregroundColor(.white)
+                            .font(.system(size: 22))
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.leading)
+                        HStack {
+                            Text("+ \(results?.added ?? 0)")
+                                .fontWeight(.heavy)
+                                .padding(5)
+                                .background(.gray)
+                                .foregroundColor(.white)
+                                .cornerRadius(12)
+                            Spacer()
+                        }
+                    }
                     Spacer()
                     
+                    Text("\(results?.metacritic ?? 0)")
+                        .padding(.horizontal)
+                        .padding(.vertical, 10)
+                        .overlay(RoundedRectangle(cornerRadius: 12)
+                            .stroke(Color(.green), lineWidth: 2))
+                        .foregroundColor(.green)
+                        .bold()
                 }
-                Spacer()
+                .padding(.horizontal)
             }
-            .padding(.leading, 10)
         }
-        .padding([.leading, .trailing])
+        .cornerRadius(25)
+        .overlay(RoundedRectangle(cornerRadius: 25)
+            .stroke(Color(.systemIndigo), lineWidth: 2))
+        .padding(.horizontal)
     }
 }
 

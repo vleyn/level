@@ -12,10 +12,22 @@ struct UserGamesView: View {
     @StateObject var vm = UserGamesViewModel()
     
     var body: some View {
-        userGameList
-            .navigationTitle("Game List")
+        VStack {
+            if UserCache.shared.purchasedGames.isEmpty {
+                VStack(spacing: 30) {
+                    Image(systemName: "flag.2.crossed.fill")
+                        .resizable()
+                        .frame(width: 150, height: 100)
+                        .foregroundColor(.invertedBW)
+                    Text("You haven't bought any games yet")
+                }
+            } else {
+                userGameList
+            }
+        }
+        .navigationTitle("Game List")
     }
-
+    
     private var userGameList: some View {
         ScrollView {
             ForEach(UserCache.shared.purchasedGames.reversed(), id: \.id) { game in

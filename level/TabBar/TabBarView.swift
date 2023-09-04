@@ -15,26 +15,21 @@ struct TabBarView: View {
     var body: some View {
         TabView {
             NavigationStack { HomeView() }
-            .tabItem {
-                Image(systemName: "house")
-            }
+            .tabItem { Image(systemName: "house") }
+            
             NavigationStack { NewsView() }
-            .tabItem {
-                Image(systemName: "newspaper")
-            }
+            .tabItem { Image(systemName: "newspaper") }
+            
             NavigationStack { MessagesView() }
-            .tabItem {
-                Image(systemName: "message")
-            }
+            .tabItem { Image(systemName: "message") }
+            
             NavigationStack { NotificationsView() }
-            .tabItem {
-                Image(systemName: "bell.badge.fill")
-            }
+            .tabItem { Image(systemName: "bell.badge.fill") }
+            
             NavigationStack { ProfileView() }
-            .tabItem {
-                Image(systemName: "person")
-            }
+            .tabItem { Image(systemName: "person") }
         }
+        .accentColor(.indigo)
         .task {
             vm.cacheUser()
         }

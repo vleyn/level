@@ -31,17 +31,18 @@ struct UserFriendsView: View {
             VStack(spacing: 30) {
                 Image(systemName: "person.2.slash.fill")
                     .resizable()
-                    .frame(width: 150, height: 150)
-                    .foregroundColor(.black)
+                    .frame(width: 150, height: 120)
+                    .foregroundColor(.invertedBW)
                 Text("You dont have any friends :(")
             }
             
             Button {
                 vm.allUsersIsPresented.toggle()
             } label: {
-                Text("Add +")
+                Text("Add now +")
                     .padding()
-                    .foregroundColor(.green)
+                    .background(.indigo)
+                    .foregroundColor(.normalBW)
                     .cornerRadius(16)
             }
 

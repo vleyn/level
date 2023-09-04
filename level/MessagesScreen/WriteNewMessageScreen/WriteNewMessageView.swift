@@ -15,7 +15,10 @@ struct WriteNewMessageView: View {
     
     var body: some View {
         NavigationView {
-            usersList
+            VStack {
+                if vm.friends.isEmpty { noFriendsView }
+                else { usersList }
+            }
             .navigationTitle("New message")
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarLeading) {
@@ -25,6 +28,9 @@ struct WriteNewMessageView: View {
                         Text("Cancel")
                     }
                 }
+            }
+            .fullScreenCover(isPresented: $vm.allUsersIsPresented) {
+                AddNewFriendView()
             }
         }
         .task {
@@ -63,7 +69,7 @@ struct WriteNewMessageView: View {
                                 )
                             
                             Text(user.nickname)
-                                .foregroundColor(.black)
+                                .foregroundColor(.invertedBW)
                             Spacer()
                         }
                         .padding(.horizontal)
@@ -75,6 +81,30 @@ struct WriteNewMessageView: View {
             }
         }
     }
+    
+    private var noFriendsView: some View {
+        VStack {
+            VStack(spacing: 30) {
+                Image(systemName: "person.2.slash.fill")
+                    .resizable()
+                    .frame(width: 150, height: 120)
+                    .foregroundColor(.invertedBW)
+                Text("You dont have any friends :(")
+            }
+            
+            Button {
+                vm.allUsersIsPresented.toggle()
+            } label: {
+                Text("Add now +")
+                    .padding()
+                    .background(.indigo)
+                    .foregroundColor(.normalBW)
+                    .cornerRadius(16)
+            }
+
+        }
+    }
+
 }
 
 struct WriteNewMessageView_Previews: PreviewProvider {

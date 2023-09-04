@@ -16,14 +16,14 @@ struct GameDetailsView: View {
     @StateObject var vm = GameDetailsViewModel()
     
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             screenShotsView
             descriptionView
         }
         .task {
             await vm.getAdditionalInfo(id: gameInfo?.id ?? 0)
         }
-        .alert("Error", isPresented: $vm.isAlert) {
+        .alert(vm.alertHeader, isPresented: $vm.isAlert) {
             Button("Cancel", role: .cancel) { }
         } message: {
             Text(vm.errorText)
@@ -68,11 +68,6 @@ struct GameDetailsView: View {
     }
     private var descriptionView: some View {
         VStack {
-            Text(gameInfo?.name ?? "")
-                .bold()
-            
-            Divider()
-
             VStack(alignment: .leading, spacing: 16) {
                 
                 VStack(alignment: .leading) {
@@ -85,7 +80,7 @@ struct GameDetailsView: View {
                                 ForEach(genres, id: \.id) { genre in
                                     Text(genre.name ?? "")
                                         .padding(8)
-                                        .background(.gray)
+                                        .background(.indigo)
                                         .foregroundColor(.white)
                                         .cornerRadius(16)
                                 }
@@ -105,7 +100,7 @@ struct GameDetailsView: View {
                                 ForEach(tags, id: \.id) { tag in
                                     Text("#"+(tag.name ?? ""))
                                         .padding(8)
-                                        .background(.gray)
+                                        .background(.indigo)
                                         .foregroundColor(.white)
                                         .cornerRadius(16)
                                 }
@@ -120,13 +115,15 @@ struct GameDetailsView: View {
                 VStack(alignment: .leading) {
                     Text("About")
                         .bold()
+                    
                     Button {
                         vm.isViewed.toggle()
                     } label: {
                         Text(vm.additionalInfo?.descriptionRaw ?? "")
                             .multilineTextAlignment(.leading)
                             .lineLimit(vm.isViewed ? 100 : 7)
-                            .foregroundColor(.black)
+                            .foregroundColor(.invertedBW)
+                            .padding(.top, 8)
                     }
                 }
                 .padding(.horizontal)
@@ -140,7 +137,7 @@ struct GameDetailsView: View {
                     Text(vm.fullRating ?? "")
                         .bold()
                         .padding(8)
-                        .background(.green)
+                        .background(.indigo)
                         .foregroundColor(.yellow)
                         .cornerRadius(16)
                 }
@@ -170,7 +167,7 @@ struct GameDetailsView: View {
                 .foregroundColor(.white)
                 .padding(.vertical)
                 .padding(.horizontal)
-                .background(Color.gray)
+                .background(.indigo)
                 .cornerRadius(32)
                 .shadow(radius: 15)
                 .opacity(vm.disableBuyButton ? 0 : 1)

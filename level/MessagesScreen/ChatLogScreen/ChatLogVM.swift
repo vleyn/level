@@ -33,6 +33,7 @@ final class ChatLogViewModel: ObservableObject {
     
     func handleSend() {
         Task {
+            guard !chatText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
             guard let fromId = self.firebaseManager.auth.currentUser?.uid else { return }
             
             guard let toId = self.chatUser?.uid else { return }
@@ -42,7 +43,7 @@ final class ChatLogViewModel: ObservableObject {
                 .collection(toId)
                 .document()
             
-            let messageData = [MessagesConstants.fromId: fromId, MessagesConstants.toId: toId, MessagesConstants.text: self.chatText, "timestamp": Timestamp()] as [String : Any]
+            let messageData = [MessagesConstants.fromId: fromId, MessagesConstants.toId: toId, MessagesConstants.text: self.chatText.trimmingCharacters(in: .whitespacesAndNewlines), "timestamp": Timestamp()] as [String : Any]
             
             do {
                 try await document.setData(messageData)

@@ -15,6 +15,7 @@ struct EditProfileView: View {
     var body: some View {
         editProfileForm
             .padding(.horizontal)
+            .navigationTitle("Edit profile")
         .task {
             vm.getUserInfo()
         }
@@ -50,7 +51,7 @@ struct EditProfileView: View {
                                 Image(systemName: "person.fill")
                                     .resizable()
                                     .frame(width: 128, height: 128)
-                                    .foregroundColor(.black)
+                                    .foregroundColor(.invertedBW)
                             })
                             .resizable()
                             .scaledToFill()
@@ -72,6 +73,10 @@ struct EditProfileView: View {
                 vm.saveChanges()
             } label: {
                 Text("Save changes")
+                    .padding()
+                    .background(.indigo)
+                    .foregroundColor(.normalBW)
+                    .cornerRadius(20)
             }
             
             

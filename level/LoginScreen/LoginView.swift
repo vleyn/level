@@ -14,10 +14,16 @@ struct LoginView: View {
     var body: some View {
         
         NavigationStack {
-            VStack {
-                logoView
-                loginForm
-                loginButtons
+            ZStack {
+                Image("backgroundPhoto")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .edgesIgnoringSafeArea(.all)
+                VStack {
+                    logoView
+                    loginForm
+                    loginButtons
+                }
             }
             .fullScreenCover(isPresented: $vm.isPresented) {
                 TabBarView()
@@ -39,6 +45,7 @@ struct LoginView: View {
                 .bold()
             Text("The largest gamestore in Belarus")
         }
+        .foregroundColor(.white)
         .padding(.top, 50)
     }
     
@@ -68,7 +75,7 @@ struct LoginView: View {
                     .foregroundColor(.white)
                     .padding(.vertical, 13)
                     .padding(.horizontal, 100)
-                    .background(Color.gray)
+                    .background(Color.purple)
                     .cornerRadius(8)
             }
             .padding(.vertical)
@@ -92,7 +99,7 @@ struct LoginView: View {
                     Image(systemName: "apple.logo")
                         .resizable()
                         .frame(width: 30, height: 36)
-                        .foregroundColor(.black)
+                        .foregroundColor(.white)
                 }
                 
                 Button {
@@ -107,10 +114,11 @@ struct LoginView: View {
             Spacer()
             HStack {
                 Text("Dont have an account?")
+                    .foregroundColor(.white)
                 Button {
                 } label: {
                     NavigationLink(destination: SignUpView()) {
-                        Text("Sign up")
+                        Text("·  Sign up")
                     }
                 }
             }

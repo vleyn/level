@@ -17,11 +17,21 @@ final class UserWalletViewModel: ObservableObject {
     @Published var cvvCode: String = ""
     @Published var cardHolderName: String = ""
     @Published var shouldHideAddCardButton: Bool = false
+    @Published var addButtonText: String = "Add this card"
 
     func addUserCard() {
         shouldHideAddCardButton = true
         let card = CardModel(id: firebaseManager.auth.currentUser?.uid ?? "", cardNumber: cardNumber, expirationDate: expireDate, cvvCode: cvvCode, cardholderName: cardHolderName, balance: 0)
         firebaseManager.databaseWriteCard(card: card)
+    }
+    
+    func deleteUserCard() {
+        shouldHideAddCardButton = false
+        firebaseManager.databaseDeleteCard()
+        cardNumber.removeAll()
+        expireDate.removeAll()
+        cvvCode.removeAll()
+        cardHolderName.removeAll()
     }
     
     func fetchUserCard() {
@@ -33,6 +43,12 @@ final class UserWalletViewModel: ObservableObject {
                     expireDate = card.expirationDate
                     cvvCode = card.cvvCode
                     cardHolderName = card.cardholderName
+                    if !cardNumber.isEmpty {
+                        shouldHideAddCardButton = true
+                    } else {
+                        shouldHideAddCardButton = false
+                        addButtonText = "Add this card"
+                    }
                 }
             } catch {
                 
