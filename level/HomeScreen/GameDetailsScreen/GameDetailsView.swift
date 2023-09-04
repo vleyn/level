@@ -23,7 +23,7 @@ struct GameDetailsView: View {
         .task {
             await vm.getAdditionalInfo(id: gameInfo?.id ?? 0)
         }
-        .alert("Error", isPresented: $vm.isAlert) {
+        .alert(vm.alertHeader, isPresented: $vm.isAlert) {
             Button("Cancel", role: .cancel) { }
         } message: {
             Text(vm.errorText)

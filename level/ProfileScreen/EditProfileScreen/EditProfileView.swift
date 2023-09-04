@@ -51,7 +51,7 @@ struct EditProfileView: View {
                                 Image(systemName: "person.fill")
                                     .resizable()
                                     .frame(width: 128, height: 128)
-                                    .foregroundColor(.black)
+                                    .foregroundColor(.invertedBW)
                             })
                             .resizable()
                             .scaledToFill()

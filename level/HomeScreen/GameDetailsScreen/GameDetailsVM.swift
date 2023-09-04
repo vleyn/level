@@ -32,6 +32,7 @@ final class GameDetailsViewModel: ObservableObject {
             isAlert = true
         }
     }
+    @Published var alertHeader = ""
     var fullRating: String?
     
     func getAdditionalInfo(id: Int) async {
@@ -49,6 +50,7 @@ final class GameDetailsViewModel: ObservableObject {
         } catch {
             await MainActor.run {
                 errorText = error.localizedDescription
+                alertHeader = "Error"
             }
         }
     }
@@ -74,6 +76,7 @@ final class GameDetailsViewModel: ObservableObject {
             } catch {
                 await MainActor.run {
                     errorText = error.localizedDescription
+                    alertHeader = "Error"
                 }
             }
         }
@@ -88,6 +91,7 @@ final class GameDetailsViewModel: ObservableObject {
         } catch {
             await MainActor.run {
                 errorText = error.localizedDescription
+                alertHeader = "Error"
             }
         }
     }
@@ -112,6 +116,7 @@ final class GameDetailsViewModel: ObservableObject {
                     firebaseManager.databaseEdit(user: currentUser)
                     await MainActor.run {
                         errorText = "You have successfully purchased the game!"
+                        alertHeader = "Success"
                     }
                 } else {
                     await MainActor.run {
@@ -119,11 +124,13 @@ final class GameDetailsViewModel: ObservableObject {
                     }
                     await MainActor.run {
                         errorText = "Oops. Something went wrong. Check your card balance"
+                        alertHeader = "Error"
                     }
                 }
             } catch {
                 await MainActor.run {
                     errorText = error.localizedDescription
+                    alertHeader = "Error"
                 }
             }
         }
@@ -138,6 +145,7 @@ final class GameDetailsViewModel: ObservableObject {
         } catch {
             await MainActor.run {
                 errorText = "\(error.localizedDescription) or user dont have a card"
+                alertHeader = "Error"
             }
         }
     }
