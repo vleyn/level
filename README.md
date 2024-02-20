@@ -1,4 +1,3 @@
-![photo_2024-02-20 20 44 58 (1)](https://github.com/vleyn/level/assets/118941769/37c99d1a-5421-4763-a34e-874381f86ac3)Level
 
 level is not just a platform for buying games, it is an entire social network for gamers in which you can do everything (almost).
 In the application, you can view a list of current games by genre, read information about them, add them to your favorites, or buy them immediately, provided that you have added a virtual card with a sufficient balance. 
@@ -13,6 +12,7 @@ Screenshots:
 ![photo_2024-02-20 20 44 57](https://github.com/vleyn/level/assets/118941769/b4d7081b-da0d-43c6-b0b9-90788c591090)
 ![photo_2024-02-20 20 44 58](https://github.com/vleyn/level/assets/118941769/0b38fc4d-1091-4c2a-bb23-06ff8ae818f6)
 ![photo_2024-02-20 20 44 58 (1)](https://github.com/vleyn/level/assets/118941769/f7e5f79e-0817-4aeb-85f8-903a9ab8e75c)
+![photo_2024-02-20 20 44 58 (1)](https://github.com/vleyn/level/assets/118941769/37c99d1a-5421-4763-a34e-874381f86ac3)Level
 ![photo_2024-02-20 20 44 59](https://github.com/vleyn/level/assets/118941769/6c038176-8233-4361-ba5f-c03723f45c8e)
 ![photo_2024-02-20 20 45 00](https://github.com/vleyn/level/assets/118941769/8bd9dad1-61ef-47b7-9eba-01de0f7ff946)
 ![photo_2024-02-20 20 45 01](https://github.com/vleyn/level/assets/118941769/a43f88d1-edfc-474f-8952-59bd10fd76a1)
